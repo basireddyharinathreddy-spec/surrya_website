@@ -4,7 +4,7 @@ Generate a website and give me
 
 This project was built with [Lovable](https://lovable.dev).
 
-**Live app**: https://web-spark-maker-67.lovable.app
+
 
 ## Build with Lovable
 
