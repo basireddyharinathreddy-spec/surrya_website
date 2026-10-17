@@ -1,0 +1,350 @@
+import { createFileRoute, Link } from "@tanstack/react-router";
+import {
+  Sun, Building2, SlidersHorizontal, Home, Landmark, Wrench,
+  MapPin, ArrowRight, PhoneCall, ClipboardList, FileText, Search, FileCheck, MonitorCheck,
+} from "lucide-react";
+import heroImg from "@/assets/hero-home.jpg";
+import residentialImg from "@/assets/residential.jpg";
+import commercialImg from "@/assets/commercial.jpg";
+import familyImg from "@/assets/family.jpg";
+import cleanEnergyImg from "@/assets/clean-energy.jpg";
+import installationImg from "@/assets/installation.jpg";
+import { SectionHeading, Card } from "@/components/SectionHeading";
+import { FAQ } from "@/components/FAQ";
+import { BUSINESS, SERVICE_AREAS } from "@/lib/config";
+import { SolarPackageCards } from "@/components/SolarPackageCards";
+
+export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: `${BUSINESS.brandName} — ${BUSINESS.tagline}` },
+      {
+        name: "description",
+        content:
+          `Rooftop solar for homes and businesses across ${BUSINESS.region}. Explore packages, estimate savings, and get subsidy guidance with ${BUSINESS.name}.`,
+      },
+      { property: "og:title", content: `${BUSINESS.brandName} — ${BUSINESS.tagline}` },
+      { property: "og:description", content: `Rooftop solar solutions for homes and businesses across ${BUSINESS.region}.` },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
+  component: Index,
+});
+
+const benefits = [
+  { icon: SlidersHorizontal, title: "Customized Solar Solutions", text: "Systems sized to your roof, usage, and budget." },
+  { icon: Home, title: "Residential & Commercial", text: "Rooftop systems for homes, shops, and institutions." },
+  { icon: Landmark, title: "Subsidy Guidance", text: "Help understanding current government scheme rules." },
+  { icon: Wrench, title: "Installation & Service", text: "Installation coordination and after-sales enquiries." },
+];
+
+const solutions = [
+  {
+    img: residentialImg,
+    alt: "Solar panels installed on a family home rooftop in India",
+    icon: Home,
+    title: "Residential Solar",
+    text: "Roof assessment, system sizing, equipment options, installation coordination, and maintenance options for your home.",
+    to: "/residential",
+    cta: "Explore Residential Solar",
+  },
+  {
+    img: commercialImg,
+    alt: "Large commercial rooftop covered with solar panels",
+    icon: Building2,
+    title: "Commercial Solar",
+    text: "Electricity consumption assessment, project sizing, quotations, installation planning, and monitoring for businesses.",
+    to: "/commercial",
+    cta: "Explore Commercial Solar",
+  },
+  {
+    img: cleanEnergyImg,
+    alt: "Rooftop solar panels under clear sunny skies",
+    icon: Sun,
+    title: "Solar Packages",
+    text: "Indicative rooftop solar packages for homes and businesses with transparent pricing and full installation guidance.",
+    to: "/packages",
+    cta: "Explore Solar Packages",
+  },
+];
+
+const processSteps = [
+  { icon: PhoneCall, title: "Initial Consultation", text: "Share your electricity bill and requirements so we understand your needs." },
+  { icon: Search, title: "Roof & Site Assessment", text: "A site visit to assess roof space, shading, and structure, where applicable." },
+  { icon: FileText, title: "Customized Quotation", text: "A transparent quotation with system sizing and equipment options." },
+  { icon: FileCheck, title: "Documentation & Scheme Guidance", text: "Support with paperwork and guidance on applicable government schemes." },
+  { icon: Wrench, title: "Installation & Commissioning", text: "Professional installation and grid connection coordination." },
+  { icon: MonitorCheck, title: "Monitoring & After-Sales Support", text: "Generation monitoring guidance and ongoing service support." },
+];
+
+const homeFaqs = [
+  { q: "How much can I save with rooftop solar?", a: "Savings depend on your electricity consumption, tariff, roof space, and system size. Use our savings calculator for an indicative estimate, or request a personalized quotation." },
+  { q: "Is there a government subsidy for rooftop solar?", a: "Central government schemes have offered subsidies for residential rooftop solar, with the reference brochure mentioning up to ₹78,000. Eligibility and benefit amounts depend on current official scheme rules — see our Subsidy Guide for details." },
+  { q: "Which areas do you serve?", a: "We take enquiries across Rayalaseema including Kadapa, Chittoor, Tirupati, Madanapalle, Rayachoti, Anantapuramu, Puttaparthi, Kurnool, and Nandyal. Actual service coverage and site visits are confirmed per enquiry." },
+  { q: "How long does installation take?", a: "Timelines vary with system size, documentation, and grid approvals. We share an expected schedule with your quotation." },
+  { q: "Do solar panels work during power cuts?", a: "Standard on-grid systems shut down during outages for safety. Hybrid systems with batteries can provide backup — ask us about options during your consultation." },
+];
+
+function Index() {
+  return (
+    <div>
+      {/* HERO */}
+      <section className="relative overflow-hidden bg-cream">
+        <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-2 lg:py-20">
+          <div className="animate-fade-up">
+            <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-solar-soft px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-foreground">
+              <Sun className="h-3.5 w-3.5 text-primary" aria-hidden />
+              Rayalaseema Solar Solutions
+            </span>
+            <h1 className="mt-5 text-4xl font-extrabold leading-tight text-balance sm:text-5xl lg:text-6xl">
+              Power Your Home. <span className="text-primary">Brighten Your Future.</span>
+            </h1>
+            <p className="mt-5 max-w-xl text-lg text-muted-foreground">
+              Explore rooftop solar solutions for homes and businesses across Kadapa, Chittoor, Tirupati, and Rayalaseema. Discover suitable systems, understand your savings potential, and take the next step towards cleaner energy.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-soft transition-transform hover:-translate-y-0.5"
+              >
+                Get a Free Solar Quote <ArrowRight className="h-4 w-4" aria-hidden />
+              </Link>
+              <Link
+                to="/packages"
+                className="inline-flex items-center gap-2 rounded-xl border border-border bg-card px-6 py-3.5 text-sm font-semibold text-foreground shadow-soft transition-transform hover:-translate-y-0.5"
+              >
+                Explore Solar Packages
+              </Link>
+            </div>
+            <p className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-muted-foreground">
+              <MapPin className="h-4 w-4 text-primary" aria-hidden />
+              Serving {BUSINESS.region}
+            </p>
+          </div>
+          <div className="relative animate-fade-up">
+            <div className="absolute -inset-4 -z-10 rounded-3xl bg-solar-soft" aria-hidden />
+            <img
+              src={heroImg}
+              alt="Modern Indian home with rooftop solar panels in warm morning sunlight"
+              width={1600}
+              height={1008}
+              className="w-full rounded-3xl object-cover shadow-lift"
+              fetchPriority="high"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* BENEFITS */}
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {benefits.map((b) => (
+            <Card key={b.title} className="transition-transform hover:-translate-y-1">
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-solar-soft">
+                <b.icon className="h-5 w-5 text-primary" aria-hidden />
+              </div>
+              <h3 className="mt-4 font-bold">{b.title}</h3>
+              <p className="mt-1.5 text-sm text-muted-foreground">{b.text}</p>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* SOLUTIONS */}
+      <section className="bg-cream py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <SectionHeading
+            eyebrow="What We Do"
+            title="Solar solutions for every roof"
+            description="From family homes to commercial buildings and rooftop solar packages — explore the right path for you."
+          />
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {solutions.map((s) => (
+              <article key={s.title} className="group overflow-hidden rounded-2xl border border-border bg-card shadow-soft">
+                <div className="aspect-[3/2] overflow-hidden">
+                  <img
+                    src={s.img}
+                    alt={s.alt}
+                    width={1200}
+                    height={800}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center gap-2">
+                    <s.icon className="h-5 w-5 text-primary" aria-hidden />
+                    <h3 className="text-lg font-bold">{s.title}</h3>
+                  </div>
+                  <p className="mt-2 text-sm text-muted-foreground">{s.text}</p>
+                  <Link
+                    to={s.to}
+                    className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-foreground hover:text-primary"
+                  >
+                    {s.cta} <ArrowRight className="h-4 w-4" aria-hidden />
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PACKAGES PREVIEW */}
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
+        <SectionHeading
+          eyebrow="Solar Packages"
+          title="Indicative rooftop solar packages"
+          description="Reference prices from our current brochure. Final pricing is confirmed after a site assessment."
+        />
+        <SolarPackageCards className="mt-12" />
+        <p className="mt-6 text-center text-xs text-muted-foreground">
+          Prices are indicative reference prices pending confirmation by {BUSINESS.name}.
+        </p>
+      </section>
+
+      {/* PROCESS TIMELINE */}
+      <section className="bg-cream py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <SectionHeading
+            eyebrow="How It Works"
+            title="Our end-to-end service process"
+            description="A clear, transparent journey from first conversation to switching on your system."
+          />
+          <ol className="relative mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {processSteps.map((step, i) => (
+              <li key={step.title} className="relative rounded-2xl border border-border bg-card p-6 shadow-soft">
+                <span className="absolute -top-4 left-6 flex h-8 w-8 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
+                  {i + 1}
+                </span>
+                <div className="mt-2 flex h-11 w-11 items-center justify-center rounded-xl bg-solar-soft">
+                  <step.icon className="h-5 w-5 text-primary" aria-hidden />
+                </div>
+                <h3 className="mt-4 font-bold">{step.title}</h3>
+                <p className="mt-1.5 text-sm text-muted-foreground">{step.text}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* WHY SOLAR / BENEFITS WITH IMAGE */}
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
+        <div className="grid items-center gap-10 lg:grid-cols-2">
+          <div className="relative">
+            <img
+              src={familyImg}
+              alt="Indian family outside their home with rooftop solar panels"
+              width={1200}
+              height={800}
+              loading="lazy"
+              className="w-full rounded-3xl object-cover shadow-lift"
+            />
+            <img
+              src={cleanEnergyImg}
+              alt="Solar panels under a bright blue sky"
+              width={1200}
+              height={800}
+              loading="lazy"
+              className="absolute -bottom-8 -right-4 hidden w-48 rounded-2xl border-4 border-background object-cover shadow-lift sm:block"
+            />
+          </div>
+          <div>
+            <SectionHeading
+              align="left"
+              eyebrow="Why Choose Solar?"
+              title="Lower bills, cleaner energy, greater independence"
+              description="Rayalaseema enjoys some of the best sunlight in the country. Rooftop solar lets you put it to work."
+            />
+            <ul className="mt-8 space-y-4">
+              {[
+                "Reduce your monthly electricity bills by generating your own power",
+                "Protect yourself from rising electricity tariffs",
+                "Lower your household or business carbon footprint",
+                "Increase the value and appeal of your property",
+                "Benefit from applicable government schemes and subsidies",
+              ].map((point) => (
+                <li key={point} className="flex items-start gap-3 text-sm text-muted-foreground">
+                  <Sun className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden />
+                  {point}
+                </li>
+              ))}
+            </ul>
+            <Link
+              to="/calculator"
+              className="mt-8 inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-soft"
+            >
+              Estimate Your Savings <ArrowRight className="h-4 w-4" aria-hidden />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICE AREAS STRIP */}
+      <section className="bg-cream py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <SectionHeading
+            eyebrow="Service Areas"
+            title="Serving Rayalaseema"
+            description="We take solar enquiries across the region. Coverage and site visits are confirmed per enquiry."
+          />
+          <div className="mt-10 flex flex-wrap justify-center gap-3">
+            {SERVICE_AREAS.map((a) => (
+              <Link
+                key={a.name}
+                to="/service-areas"
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 text-sm font-medium shadow-soft transition-transform hover:-translate-y-0.5"
+              >
+                <MapPin className="h-4 w-4 text-primary" aria-hidden />
+                {a.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* INSTALLATION IMAGE BAND */}
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
+        <div className="overflow-hidden rounded-3xl shadow-lift">
+          <img
+            src={installationImg}
+            alt="Professional technicians installing rooftop solar panels"
+            width={1200}
+            height={800}
+            loading="lazy"
+            className="h-72 w-full object-cover sm:h-96"
+          />
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="bg-cream py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <SectionHeading eyebrow="FAQ" title="Frequently asked questions" />
+          <div className="mt-10">
+            <FAQ items={homeFaqs} />
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
+        <div className="rounded-3xl bg-primary px-6 py-14 text-center shadow-lift sm:px-12">
+          <h2 className="text-3xl font-extrabold text-primary-foreground text-balance sm:text-4xl">
+            Ready to explore solar for your roof?
+          </h2>
+          <p className="mx-auto mt-3 max-w-xl text-primary-foreground/80">
+            Tell us about your home or business and we'll help you understand your options — no obligations.
+          </p>
+          <Link
+            to="/contact"
+            className="mt-8 inline-flex items-center gap-2 rounded-xl bg-card px-7 py-3.5 text-sm font-semibold text-foreground shadow-soft transition-transform hover:-translate-y-0.5"
+          >
+            Get a Free Solar Quote <ArrowRight className="h-4 w-4" aria-hidden />
+          </Link>
+        </div>
+      </section>
+    </div>
+  );
+}

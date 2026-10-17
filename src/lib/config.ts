@@ -1,0 +1,70 @@
+// Centralized business configuration for Atria Renewable Private Limited.
+
+export const BUSINESS = {
+  name: "Atria Renewable Private Limited",
+  brandName: "Atria Renewable",
+  tagline: "Smart Solar Solutions for Andhra Pradesh",
+  teluguTagline: "మన ఆంధ్ర. మన నమ్మకం. మన ఏట్రియా",
+  region: "Andhra Pradesh, India",
+  phone: "+91 9391927443",
+  secondaryPhone: "+91 9391907443",
+  whatsapp: "919391927443",
+  secondaryWhatsapp: "919391907443",
+  email: "info@atriarenewable.com",
+  website: "www.atriarenewable.com",
+  websiteUrl: "https://www.atriarenewable.com",
+  address: "Andhra Pradesh, India",
+} as const;
+
+export const SERVICE_AREAS = [
+  { name: "Kadapa", description: "Rooftop solar enquiries for homes and businesses in and around Kadapa city." },
+  { name: "Chittoor", description: "Solar solutions for residences, farms, and commercial spaces across Chittoor." },
+  { name: "Tirupati", description: "Rooftop solar for homes, hotels, and institutions in the Tirupati region." },
+  { name: "Madanapalle", description: "Solar consultations and installations for Madanapalle and nearby towns." },
+  { name: "Rayachoti", description: "Residential and small commercial solar enquiries in Rayachoti." },
+  { name: "Anantapuramu", description: "Solar systems suited to Anantapuramu's high-irradiance climate." },
+  { name: "Puttaparthi", description: "Solar solutions for homes, lodges, and institutions in Puttaparthi." },
+  { name: "Kurnool", description: "Residential and commercial rooftop solar across Kurnool city." },
+  { name: "Nandyal", description: "Solar enquiries and site assessments for Nandyal and surroundings." },
+] as const;
+
+export const PACKAGES = [
+  {
+    id: "3.45kw",
+    capacity: "3.45 kW",
+    price: "₹2,15,000",
+    description: "A compact rooftop system suited to smaller homes with moderate daytime electricity use.",
+  },
+  {
+    id: "4kw",
+    capacity: "4 kW",
+    price: "₹2,58,000",
+    description: "A balanced system for typical family homes looking to offset a large share of their bill.",
+  },
+  {
+    id: "5kw",
+    capacity: "5 kW",
+    price: "₹3,15,000",
+    description: "A larger system for bigger homes or small commercial spaces with higher consumption.",
+  },
+] as const;
+
+export const NAV_LINKS = [
+  { to: "/", label: "Home" },
+  { to: "/residential", label: "Residential" },
+  { to: "/commercial", label: "Commercial" },
+  { to: "/packages", label: "Packages" },
+  { to: "/calculator", label: "Calculator" },
+  { to: "/subsidy-guide", label: "Subsidy Guide" },
+  { to: "/service-areas", label: "Service Areas" },
+  { to: "/about", label: "About" },
+  { to: "/contact", label: "Contact" },
+] as const;
+
+export function whatsappLink(message: string, number: string = BUSINESS.whatsapp) {
+  return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+}
+
+export function telLink(number: string = BUSINESS.phone) {
+  return `tel:${number.replace(/[^+\d]/g, "")}`;
+}
