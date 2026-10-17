@@ -68,8 +68,20 @@ export function Footer() {
           </a>
         </div>
       </div>
-      <div className="border-t border-border py-5 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} {BUSINESS.name}. All rights reserved.
+      <div className="border-t border-border py-5 text-center text-xs text-muted-foreground flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-2">
+        <span>© {new Date().getFullYear()} {BUSINESS.name}. All rights reserved.</span>
+        <span className="hidden sm:inline text-border">•</span>
+        <span>
+          Built by{" "}
+          <a
+            href="https://dailsmart.in"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-primary hover:underline transition-colors tracking-wide"
+          >
+            DAILSMART.IN
+          </a>
+        </span>
       </div>
     </footer>
   );

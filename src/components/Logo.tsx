@@ -3,8 +3,8 @@ import { BUSINESS } from "@/lib/config";
 
 export function Logo() {
   return (
-    <Link to="/" className="flex items-center gap-2.5" aria-label={`${BUSINESS.name} home`}>
-      <span className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-soft">
+    <Link to="/" className="flex items-center gap-2.5" aria-label="Surya Gen Power - Powered by Atria home">
+      <span className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-soft">
         {/* Atria apex / renewable arch emblem */}
         <svg viewBox="0 0 28 28" className="h-6 w-6" fill="currentColor">
           <path d="M14 3L2 23h5.2l6.8-11.8L20.8 23H26L14 3z" />
@@ -12,8 +12,12 @@ export function Logo() {
         </svg>
       </span>
       <span className="leading-tight">
-        <span className="block font-display text-lg font-bold tracking-tight text-foreground">Atria</span>
-        <span className="block text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">Renewable</span>
+        <span className="block font-display text-base sm:text-lg font-bold tracking-tight text-foreground whitespace-nowrap">
+          Surya Gen Power
+        </span>
+        <span className="block text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.15em] text-primary whitespace-nowrap">
+          Powered by Atria
+        </span>
       </span>
     </Link>
   );
