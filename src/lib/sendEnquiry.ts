@@ -111,15 +111,19 @@ export const sendEnquiryEmail = createServerFn({ method: "POST" })
     if (gmailUser && gmailPass) {
       try {
         const nodemailer = await import("nodemailer");
-        const transporter = nodemailer.default.createTransport({
-          service: "gmail",
+        const createTransport =
+          nodemailer.default?.createTransport || nodemailer.createTransport;
+        const transporter = createTransport({
+          host: "smtp.gmail.com",
+          port: 465,
+          secure: true,
           auth: {
             user: gmailUser,
             pass: gmailPass,
           },
-          connectionTimeout: 8000,
-          greetingTimeout: 8000,
-          socketTimeout: 8000,
+          connectionTimeout: 10000,
+          greetingTimeout: 10000,
+          socketTimeout: 10000,
         });
 
         await transporter.sendMail({
