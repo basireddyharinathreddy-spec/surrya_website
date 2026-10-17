@@ -16,64 +16,138 @@ const EnquirySchema = z.object({
 
 export type EnquiryData = z.infer<typeof EnquirySchema>;
 
+export interface SendEnquiryResult {
+  success: boolean;
+  provider?: "resend" | "web3forms" | "gmail";
+  error?: string;
+  message?: string;
+}
+
 export const sendEnquiryEmail = createServerFn({ method: "POST" })
   .validator((data: unknown) => EnquirySchema.parse(data))
-  .handler(async ({ data }) => {
-    // Dynamic import to keep nodemailer server-only
-    const nodemailer = await import("nodemailer");
-
+  .handler(async ({ data }): Promise<SendEnquiryResult> => {
     const recipientEmail = "maheshmahi95944@gmail.com";
 
-    // Create transporter using Gmail SMTP via App Password or environment variables
-    // Users should set GMAIL_USER and GMAIL_APP_PASSWORD in their environment
+    // 1. Resend API (Edge/Serverless HTTPS REST API)
+    const resendKey = (
+      process.env["RESEND_API_KEY"] ||
+      process.env["VITE_RESEND_API_KEY"] ||
+      ""
+    ).trim();
+    if (resendKey) {
+      try {
+        const res = await fetch("https://api.resend.com/emails", {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${resendKey}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            from: "Atria Renewable Website <onboarding@resend.dev>",
+            to: [recipientEmail],
+            reply_to: data.email || undefined,
+            subject: `New Solar Enquiry from ${data.name} — Atria Renewable`,
+            text: buildPlainText(data),
+            html: buildHtml(data),
+          }),
+        });
+
+        if (res.ok) {
+          return { success: true, provider: "resend" };
+        }
+        const errText = await res.text();
+        console.error("[Resend Error]:", errText);
+      } catch (err) {
+        console.error("[Resend Fetch Error]:", err);
+      }
+    }
+
+    // 2. Web3Forms API (Zero-setup HTTPS REST API, 100% edge/serverless compatible)
+    const web3Key = (
+      process.env["WEB3FORMS_ACCESS_KEY"] ||
+      process.env["VITE_WEB3FORMS_ACCESS_KEY"] ||
+      ""
+    ).trim();
+    if (web3Key) {
+      try {
+        const res = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            access_key: web3Key,
+            subject: `New Solar Enquiry from ${data.name} — Atria Renewable`,
+            from_name: "Atria Renewable Website",
+            name: data.name,
+            phone: data.mobile,
+            email: data.email || "no-reply@atriarenewable.com",
+            city: data.city,
+            district: data.district || "N/A",
+            property_type: data.propertyType,
+            service_interest: data.service,
+            package_interest: data.packageInterest || "N/A",
+            monthly_bill: data.monthlyBill ? `₹${data.monthlyBill}` : "N/A",
+            message: data.message || "N/A",
+          }),
+        });
+
+        if (res.ok) {
+          const json = (await res.json()) as { success?: boolean };
+          if (json.success) {
+            return { success: true, provider: "web3forms" };
+          }
+        }
+      } catch (err) {
+        console.error("[Web3Forms Fetch Error]:", err);
+      }
+    }
+
+    // 3. Gmail SMTP via Nodemailer (For Node.js / Docker / local environments with sockets)
     const gmailUser = (process.env["GMAIL_USER"] || "").trim();
     const gmailPass = (process.env["GMAIL_APP_PASSWORD"] || "").replace(/\s+/g, "");
 
-    if (!gmailUser || !gmailPass) {
-      // Fallback: Use Ethereal test account for development
-      // In production the user must set GMAIL_USER and GMAIL_APP_PASSWORD
-      const testAccount = await nodemailer.default.createTestAccount();
-      const transporter = nodemailer.default.createTransport({
-        host: "smtp.ethereal.email",
-        port: 587,
-        secure: false,
-        auth: {
-          user: testAccount.user,
-          pass: testAccount.pass,
-        },
-      });
+    if (gmailUser && gmailPass) {
+      try {
+        const nodemailer = await import("nodemailer");
+        const transporter = nodemailer.default.createTransport({
+          service: "gmail",
+          auth: {
+            user: gmailUser,
+            pass: gmailPass,
+          },
+          connectionTimeout: 8000,
+          greetingTimeout: 8000,
+          socketTimeout: 8000,
+        });
 
-      const info = await transporter.sendMail({
-        from: `"Atria Renewable Website" <${testAccount.user}>`,
-        to: recipientEmail,
-        subject: `New Solar Enquiry from ${data.name}`,
-        text: buildPlainText(data),
-        html: buildHtml(data),
-      });
+        await transporter.sendMail({
+          from: `"Atria Renewable Website" <${gmailUser}>`,
+          to: recipientEmail,
+          replyTo: data.email || gmailUser,
+          subject: `New Solar Enquiry from ${data.name} — Atria Renewable`,
+          text: buildPlainText(data),
+          html: buildHtml(data),
+        });
 
-      console.log("[EnquiryEmail] Preview URL:", nodemailer.default.getTestMessageUrl(info));
-      return { success: true, preview: nodemailer.default.getTestMessageUrl(info) };
+        return { success: true, provider: "gmail" };
+      } catch (err) {
+        console.error("[Nodemailer SMTP Error]:", err);
+        return {
+          success: false,
+          error: err instanceof Error ? err.message : "SMTP connection failed",
+        };
+      }
     }
 
-    // Production: Use Gmail SMTP
-    const transporter = nodemailer.default.createTransport({
-      service: "gmail",
-      auth: {
-        user: gmailUser,
-        pass: gmailPass,
-      },
-    });
-
-    await transporter.sendMail({
-      from: `"Atria Renewable Website" <${gmailUser}>`,
-      to: recipientEmail,
-      replyTo: data.email || gmailUser,
-      subject: `New Solar Enquiry from ${data.name} — Atria Renewable`,
-      text: buildPlainText(data),
-      html: buildHtml(data),
-    });
-
-    return { success: true };
+    // No email service configured on this host
+    return {
+      success: false,
+      error: "NO_EMAIL_SERVICE_CONFIGURED",
+      message:
+        "No email service credentials (WEB3FORMS_ACCESS_KEY, RESEND_API_KEY, or GMAIL_APP_PASSWORD) configured in environment.",
+    };
   });
 
 function buildPlainText(data: EnquiryData): string {

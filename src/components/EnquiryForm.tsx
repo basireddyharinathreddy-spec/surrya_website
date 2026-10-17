@@ -1,7 +1,7 @@
 import { useState, type FormEvent } from "react";
 import { useSearch } from "@tanstack/react-router";
 import { Send, MessageCircle, CheckCircle, Loader2, Mail } from "lucide-react";
-import { PACKAGES, SERVICE_AREAS, BUSINESS, whatsappLink } from "@/lib/config";
+import { PACKAGES, SERVICE_AREAS, BUSINESS, whatsappLink, telLink } from "@/lib/config";
 import { sendEnquiryEmail } from "@/lib/sendEnquiry";
 
 const inputCls =
@@ -97,24 +97,85 @@ export function EnquiryForm({ prefill = {}, heading = "Request a Free Solar Quot
     setSendError(null);
 
     try {
-      await sendEnquiryEmail({
-        data: {
-          name: form.name,
-          mobile: form.mobile,
-          email: form.email || undefined,
-          city: form.city,
-          district: form.district || undefined,
-          propertyType: form.propertyType,
-          service: form.service,
-          packageInterest: form.packageInterest || undefined,
-          monthlyBill: form.monthlyBill || undefined,
-          message: form.message || undefined,
-        },
-      });
-      setEmailSent(true);
+      let isSuccess = false;
+
+      // 1. Attempt server function
+      try {
+        const res = await sendEnquiryEmail({
+          data: {
+            name: form.name,
+            mobile: form.mobile,
+            email: form.email || undefined,
+            city: form.city,
+            district: form.district || undefined,
+            propertyType: form.propertyType,
+            service: form.service,
+            packageInterest: form.packageInterest || undefined,
+            monthlyBill: form.monthlyBill || undefined,
+            message: form.message || undefined,
+          },
+        });
+        if (res && res.success) {
+          isSuccess = true;
+        }
+      } catch (serverErr) {
+        console.warn("[EnquiryForm] Server email attempt error:", serverErr);
+      }
+
+      // 2. Client-side fallback to Web3Forms if VITE_WEB3FORMS_ACCESS_KEY is available
+      const clientWeb3Key = (
+        (import.meta as unknown as { env?: Record<string, string> }).env?.[
+          "VITE_WEB3FORMS_ACCESS_KEY"
+        ] || ""
+      ).trim();
+
+      if (!isSuccess && clientWeb3Key) {
+        try {
+          const resp = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+            body: JSON.stringify({
+              access_key: clientWeb3Key,
+              subject: `New Solar Enquiry from ${form.name} — Atria Renewable`,
+              from_name: "Atria Renewable Website",
+              name: form.name,
+              phone: form.mobile,
+              email: form.email || "no-reply@atriarenewable.com",
+              city: form.city,
+              district: form.district || "N/A",
+              property_type: form.propertyType,
+              service_interest: form.service,
+              package_interest: form.packageInterest || "N/A",
+              monthly_bill: form.monthlyBill ? `₹${form.monthlyBill}` : "N/A",
+              message: form.message || "N/A",
+            }),
+          });
+          if (resp.ok) {
+            const data = (await resp.json()) as { success?: boolean };
+            if (data.success) {
+              isSuccess = true;
+            }
+          }
+        } catch (clientErr) {
+          console.warn("[EnquiryForm] Client Web3Forms fallback error:", clientErr);
+        }
+      }
+
+      if (isSuccess) {
+        setEmailSent(true);
+      } else {
+        setEmailSent(false);
+        setSendError(
+          "Direct email service is not yet configured in your deployment settings. Please send your enquiry directly to our team via WhatsApp!"
+        );
+      }
     } catch (err) {
       console.error(err);
-      setSendError("Email could not be sent automatically. Please use WhatsApp below to contact us directly.");
+      setEmailSent(false);
+      setSendError("Please use WhatsApp below to send your enquiry directly to our team.");
     } finally {
       setSending(false);
     }
@@ -150,37 +211,43 @@ export function EnquiryForm({ prefill = {}, heading = "Request a Free Solar Quot
           </>
         ) : (
           <>
-            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-solar-soft">
-              <MessageCircle className="h-7 w-7 text-primary" aria-hidden />
+            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-amber-100">
+              <MessageCircle className="h-7 w-7 text-amber-600" aria-hidden />
             </div>
-            <h3 className="mt-4 text-xl font-bold">Your enquiry is ready</h3>
-            {sendError && (
-              <p className="mt-2 rounded-lg bg-red-50 border border-red-200 px-4 py-2 text-sm text-red-700">{sendError}</p>
-            )}
+            <h3 className="mt-4 text-xl font-bold">Your enquiry is ready! ☀️</h3>
             <p className="mt-2 text-sm text-muted-foreground">
-              Use WhatsApp below to instantly send your details to {BUSINESS.brandName}.
+              To make sure your enquiry reaches our team immediately, send it directly via WhatsApp with one click or give us a call.
             </p>
           </>
         )}
 
-        <a
-          href={whatsappLink(buildWhatsAppMessage())}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[#25D366] px-6 py-3 text-sm font-semibold text-white shadow-soft hover:bg-[#1ebe5d] transition-colors"
-        >
-          <MessageCircle className="h-4 w-4" aria-hidden />
-          {emailSent ? "Also Send on WhatsApp" : "Send on WhatsApp"}
-        </a>
+        <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-center">
+          <a
+            href={whatsappLink(buildWhatsAppMessage())}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-6 py-3.5 text-sm font-semibold text-white shadow-soft hover:bg-[#1ebe5d] transition-colors"
+          >
+            <MessageCircle className="h-4 w-4" aria-hidden />
+            {emailSent ? "Also Send on WhatsApp" : "Send Enquiry on WhatsApp"}
+          </a>
+          <a
+            href={telLink(BUSINESS.phone)}
+            className="inline-flex items-center justify-center gap-2 rounded-xl border border-border bg-background px-5 py-3 text-sm font-medium hover:bg-muted transition-colors"
+          >
+            Call Us: {BUSINESS.phone}
+          </a>
+        </div>
+
         <button
           onClick={() => {
             setSubmitted(false);
             setEmailSent(false);
             setSendError(null);
           }}
-          className="mt-4 block w-full text-sm font-medium text-muted-foreground hover:text-foreground"
+          className="mt-5 block w-full text-xs font-medium text-muted-foreground hover:text-foreground underline"
         >
-          Edit my details
+          ← Edit my details
         </button>
       </div>
     );
