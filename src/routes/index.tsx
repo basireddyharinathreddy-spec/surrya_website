@@ -1,3 +1,4 @@
+import { useRef, useState, useEffect } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Sun, Building2, SlidersHorizontal, Home, Landmark, Wrench,
@@ -9,6 +10,10 @@ import commercialImg from "@/assets/commercial.jpg";
 import familyImg from "@/assets/family.jpg";
 import cleanEnergyImg from "@/assets/clean-energy.jpg";
 import installationImg from "@/assets/installation.jpg";
+import benefitCustomSolarImg from "@/assets/benefit-customized-solar.jpg";
+import benefitResCommImg from "@/assets/benefit-residential-commercial.jpg";
+import benefitSubsidyImg from "@/assets/benefit-subsidy-guidance.jpg";
+import benefitInstallImg from "@/assets/benefit-installation-service.jpg";
 import { SectionHeading, Card } from "@/components/SectionHeading";
 import { FAQ } from "@/components/FAQ";
 import { BUSINESS, SERVICE_AREAS } from "@/lib/config";
@@ -33,10 +38,46 @@ export const Route = createFileRoute("/")({
 });
 
 const benefits = [
-  { icon: SlidersHorizontal, title: "Customized Solar Solutions", text: "Systems sized to your roof, usage, and budget." },
-  { icon: Home, title: "Residential & Commercial", text: "Rooftop systems for homes, shops, and institutions." },
-  { icon: Landmark, title: "Subsidy Guidance", text: "Help understanding current government scheme rules." },
-  { icon: Wrench, title: "Installation & Service", text: "Installation coordination and after-sales enquiries." },
+  {
+    icon: SlidersHorizontal,
+    title: "Customized Solar Solutions",
+    text: "Systems sized to your roof, usage, and budget.",
+    img: benefitCustomSolarImg,
+    alt: "Solar engineer planning customized rooftop solar design on digital tablet",
+    tag: "Tailored Design",
+    cta: "Calculate Sizing",
+    to: "/calculator",
+  },
+  {
+    icon: Home,
+    title: "Residential & Commercial",
+    text: "Rooftop systems for homes, shops, and institutions.",
+    img: benefitResCommImg,
+    alt: "Solar rooftop installations on modern residential and commercial buildings",
+    tag: "Homes & Shops",
+    cta: "Explore Systems",
+    to: "/residential",
+  },
+  {
+    icon: Landmark,
+    title: "Subsidy Guidance",
+    text: "Help understanding current government scheme rules.",
+    img: benefitSubsidyImg,
+    alt: "Solar consultant reviewing official government solar subsidy documents with Indian family",
+    tag: "Up to ₹78,000",
+    cta: "Check Subsidy",
+    to: "/subsidy-guide",
+  },
+  {
+    icon: Wrench,
+    title: "Installation & Service",
+    text: "Installation coordination and after-sales enquiries.",
+    img: benefitInstallImg,
+    alt: "Certified solar technicians installing rooftop solar panels with safety equipment",
+    tag: "Certified Team",
+    cta: "Book Consultation",
+    to: "/contact",
+  },
 ];
 
 const solutions = [
@@ -85,6 +126,39 @@ const homeFaqs = [
   { q: "How long does installation take?", a: "Timelines vary with system size, documentation, and grid approvals. We share an expected schedule with your quotation." },
   { q: "Do solar panels work during power cuts?", a: "Standard on-grid systems shut down during outages for safety. Hybrid systems with batteries can provide backup — ask us about options during your consultation." },
 ];
+
+// Scroll-reveal directions per card index
+const REVEAL_STYLES = [
+  { anim: "reveal-left",  delay: "delay-0"   },
+  { anim: "reveal-up",    delay: "delay-100" },
+  { anim: "reveal-zoom",  delay: "delay-200" },
+  { anim: "reveal-right", delay: "delay-300" },
+];
+
+function AnimatedCard({ children, animClass, delayClass }: { children: React.ReactNode; animClass: string; delayClass: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setVisible(true); observer.unobserve(el); } },
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      className={`${visible ? `${animClass} ${delayClass}` : "opacity-0"}`}
+    >
+      {children}
+    </div>
+  );
+}
 
 function Index() {
   return (
@@ -138,16 +212,70 @@ function Index() {
 
       {/* BENEFITS */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {benefits.map((b) => (
-            <Card key={b.title} className="transition-transform hover:-translate-y-1">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-solar-soft">
-                <b.icon className="h-5 w-5 text-primary" aria-hidden />
-              </div>
-              <h3 className="mt-4 font-bold">{b.title}</h3>
-              <p className="mt-1.5 text-sm text-muted-foreground">{b.text}</p>
-            </Card>
-          ))}
+        <div className="mb-10 text-center">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">
+            Why Choose Surrya Gen Power
+          </p>
+          <h2 className="mt-2 text-3xl font-extrabold text-foreground sm:text-4xl text-balance">
+            Complete Solar Solutions from Design to Subsidy
+          </h2>
+          <p className="mx-auto mt-3 max-w-2xl text-base text-muted-foreground">
+            End-to-end solar support tailored to your roof, maximum government subsidies, and certified installation across Rayalaseema.
+          </p>
+        </div>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {benefits.map((b, i) => {
+            const { anim, delay } = REVEAL_STYLES[i] ?? REVEAL_STYLES[0];
+            return (
+              <AnimatedCard key={b.title} animClass={anim} delayClass={delay}>
+                <Link
+                  to={b.to}
+                  className="group relative flex flex-col overflow-hidden rounded-2xl border border-border/80 bg-card shadow-soft transition-all duration-300 hover:-translate-y-2 hover:border-primary/50 hover:shadow-lift h-full"
+                >
+                  {/* Card Image Banner */}
+                  <div className="relative aspect-[16/11] w-full overflow-hidden bg-muted">
+                    <img
+                      src={b.img}
+                      alt={b.alt}
+                      width={800}
+                      height={550}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.08]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
+
+                    {/* Floating Tag */}
+                    <span className="absolute top-3 right-3 rounded-full bg-background/90 px-2.5 py-0.5 text-[11px] font-bold text-foreground shadow-xs backdrop-blur-md ring-1 ring-border/50">
+                      {b.tag}
+                    </span>
+
+                    {/* Overlapping Icon Badge */}
+                    <div className="absolute bottom-3 left-3 flex h-10 w-10 items-center justify-center rounded-xl bg-background/95 text-primary shadow-soft backdrop-blur-md ring-1 ring-primary/30 transition-transform duration-300 group-hover:scale-110">
+                      <b.icon className="h-5 w-5" aria-hidden />
+                    </div>
+                  </div>
+
+                  {/* Card Body */}
+                  <div className="flex flex-1 flex-col justify-between p-5 sm:p-6">
+                    <div>
+                      <h3 className="font-display text-lg font-bold text-foreground transition-colors group-hover:text-primary">
+                        {b.title}
+                      </h3>
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                        {b.text}
+                      </p>
+                    </div>
+
+                    <div className="mt-5 flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-primary group-hover:text-primary-foreground group-hover:bg-primary group-hover:py-1.5 group-hover:px-3 group-hover:rounded-lg transition-all duration-200 w-fit">
+                      <span>{b.cta}</span>
+                      <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1" aria-hidden />
+                    </div>
+                  </div>
+                </Link>
+              </AnimatedCard>
+            );
+          })}
         </div>
       </section>
 
