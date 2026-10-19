@@ -98,7 +98,7 @@ function Contact() {
               </span>
             </a>
 
-            {/* Email */}
+            {/* Email - Primary */}
             <a
               href={`mailto:${BUSINESS.email}`}
               className="flex items-center gap-4 rounded-2xl border border-border bg-card p-5 shadow-soft transition-transform hover:-translate-y-0.5 hover:border-primary/50"
@@ -109,6 +109,34 @@ function Contact() {
               <span>
                 <span className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Email</span>
                 <span className="font-bold">{BUSINESS.email}</span>
+              </span>
+            </a>
+
+            {/* Email - gnanasurrya@gmail.com */}
+            <a
+              href="mailto:gnanasurrya@gmail.com"
+              className="flex items-center gap-4 rounded-2xl border border-border bg-card p-5 shadow-soft transition-transform hover:-translate-y-0.5 hover:border-primary/50"
+            >
+              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-solar-soft">
+                <Mail className="h-5 w-5 text-primary" aria-hidden />
+              </span>
+              <span>
+                <span className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Email</span>
+                <span className="font-bold">gnanasurrya@gmail.com</span>
+              </span>
+            </a>
+
+            {/* Email - atriasolar5859@gmail.com */}
+            <a
+              href="mailto:atriasolar5859@gmail.com"
+              className="flex items-center gap-4 rounded-2xl border border-border bg-card p-5 shadow-soft transition-transform hover:-translate-y-0.5 hover:border-primary/50"
+            >
+              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-solar-soft">
+                <Mail className="h-5 w-5 text-primary" aria-hidden />
+              </span>
+              <span>
+                <span className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Email</span>
+                <span className="font-bold">atriasolar5859@gmail.com</span>
               </span>
             </a>
 

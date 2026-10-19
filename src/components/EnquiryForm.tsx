@@ -122,7 +122,38 @@ export function EnquiryForm({ prefill = {}, heading = "Request a Free Solar Quot
         console.warn("[EnquiryForm] Server email attempt error:", serverErr);
       }
 
-      // 2. Client-side fallback to Web3Forms if VITE_WEB3FORMS_ACCESS_KEY is available
+      // 2. Client-side Google Sheets logging fallback / backup
+      const clientSheetWebhook = (
+        (import.meta as unknown as { env?: Record<string, string> }).env?.[
+          "VITE_GOOGLE_SHEET_WEBHOOK_URL"
+        ] || ""
+      ).trim();
+
+      if (clientSheetWebhook) {
+        try {
+          await fetch(clientSheetWebhook, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              timestamp: new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }),
+              name: form.name,
+              mobile: form.mobile,
+              email: form.email || "",
+              city: form.city,
+              district: form.district || "",
+              propertyType: form.propertyType,
+              service: form.service,
+              packageInterest: form.packageInterest || "",
+              monthlyBill: form.monthlyBill || "",
+              message: form.message || "",
+            }),
+          });
+        } catch (sheetErr) {
+          console.warn("[EnquiryForm] Client Google Sheet logging error:", sheetErr);
+        }
+      }
+
+      // 3. Client-side fallback to Web3Forms if VITE_WEB3FORMS_ACCESS_KEY is available
       const clientWeb3Key = (
         (import.meta as unknown as { env?: Record<string, string> }).env?.[
           "VITE_WEB3FORMS_ACCESS_KEY"
@@ -201,9 +232,15 @@ export function EnquiryForm({ prefill = {}, heading = "Request a Free Solar Quot
             <p className="mt-2 text-sm text-muted-foreground">
               Your enquiry has been emailed directly to our team at <strong>{BUSINESS.name}</strong>. We'll get back to you within 24 hours.
             </p>
-            <div className="mt-4 flex items-center justify-center gap-2 rounded-xl bg-green-50 border border-green-200 px-4 py-2.5 text-sm text-green-700">
-              <Mail className="h-4 w-4 shrink-0" />
-              <span>Email sent to <strong>maheshmahi95944@gmail.com</strong></span>
+            <div className="mt-4 flex flex-col gap-1 rounded-xl bg-green-50 border border-green-200 px-4 py-2.5 text-sm text-green-700">
+              <div className="flex items-center gap-2">
+                <Mail className="h-4 w-4 shrink-0" />
+                <span className="font-semibold">Email sent to our team:</span>
+              </div>
+              <ul className="ml-6 list-disc text-xs space-y-0.5">
+                <li>gnanasurrya@gmail.com</li>
+                <li>atriasolar5859@gmail.com</li>
+              </ul>
             </div>
             <p className="mt-3 text-xs text-muted-foreground">
               Want an even faster response? Also reach us on WhatsApp.
@@ -363,7 +400,7 @@ export function EnquiryForm({ prefill = {}, heading = "Request a Free Solar Quot
         Submit Enquiry
       </button>
       <p className="mt-3 text-center text-xs text-muted-foreground">
-        📧 Your enquiry will be emailed to our team at <strong>maheshmahi95944@gmail.com</strong>
+        📧 Your enquiry will be emailed to our team & saved to our records automatically.
       </p>
     </form>
   );

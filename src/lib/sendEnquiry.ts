@@ -19,14 +19,59 @@ export type EnquiryData = z.infer<typeof EnquirySchema>;
 export interface SendEnquiryResult {
   success: boolean;
   provider?: "resend" | "web3forms" | "gmail";
+  sheetLogged?: boolean;
   error?: string;
   message?: string;
+}
+
+// ─── Helper: log enquiry to Google Sheet ───────────────────────────────────
+async function logToGoogleSheet(data: EnquiryData): Promise<boolean> {
+  const webhookUrl = (
+    process.env["GOOGLE_SHEET_WEBHOOK_URL"] ||
+    process.env["VITE_GOOGLE_SHEET_WEBHOOK_URL"] ||
+    ""
+  ).trim();
+  if (!webhookUrl) return false;
+
+  try {
+    const payload = {
+      timestamp: new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }),
+      name: data.name,
+      mobile: data.mobile,
+      email: data.email || "",
+      city: data.city,
+      district: data.district || "",
+      propertyType: data.propertyType,
+      service: data.service,
+      packageInterest: data.packageInterest || "",
+      monthlyBill: data.monthlyBill || "",
+      message: data.message || "",
+    };
+    const res = await fetch(webhookUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+    return res.ok;
+  } catch (err) {
+    console.error("[GoogleSheet] Failed to log enquiry:", err);
+    return false;
+  }
 }
 
 export const sendEnquiryEmail = createServerFn({ method: "POST" })
   .validator((data: unknown) => EnquirySchema.parse(data))
   .handler(async ({ data }): Promise<SendEnquiryResult> => {
-    const recipientEmail = "maheshmahi95944@gmail.com";
+    // All enquiry recipient emails
+    const recipientEmails = [
+      "maheshmahi95944@gmail.com",
+      "gnanasurrya@gmail.com",
+      "atriasolar5859@gmail.com",
+    ];
+    const recipientEmail = recipientEmails.join(","); // for nodemailer
+
+    // Log to Google Sheet (non-blocking)
+    const sheetLogged = await logToGoogleSheet(data);
 
     // 1. Resend API (Edge/Serverless HTTPS REST API)
     const resendKey = (
@@ -44,7 +89,7 @@ export const sendEnquiryEmail = createServerFn({ method: "POST" })
           },
           body: JSON.stringify({
             from: "Atria Renewable Website <onboarding@resend.dev>",
-            to: [recipientEmail],
+            to: recipientEmails,
             reply_to: data.email || undefined,
             subject: `New Solar Enquiry from ${data.name} — Atria Renewable`,
             text: buildPlainText(data),
@@ -53,7 +98,7 @@ export const sendEnquiryEmail = createServerFn({ method: "POST" })
         });
 
         if (res.ok) {
-          return { success: true, provider: "resend" };
+          return { success: true, provider: "resend", sheetLogged };
         }
         const errText = await res.text();
         console.error("[Resend Error]:", errText);
@@ -96,7 +141,7 @@ export const sendEnquiryEmail = createServerFn({ method: "POST" })
         if (res.ok) {
           const json = (await res.json()) as { success?: boolean };
           if (json.success) {
-            return { success: true, provider: "web3forms" };
+            return { success: true, provider: "web3forms", sheetLogged };
           }
         }
       } catch (err) {
@@ -135,7 +180,7 @@ export const sendEnquiryEmail = createServerFn({ method: "POST" })
           html: buildHtml(data),
         });
 
-        return { success: true, provider: "gmail" };
+        return { success: true, provider: "gmail", sheetLogged };
       } catch (err) {
         console.error("[Nodemailer SMTP Error]:", err);
         return {

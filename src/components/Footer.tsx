@@ -53,6 +53,16 @@ export function Footer() {
                 <Mail className="h-4 w-4 text-primary shrink-0" aria-hidden /> {BUSINESS.email}
               </a>
             </li>
+            <li>
+              <a href="mailto:gnanasurrya@gmail.com" className="flex items-center gap-2 hover:text-foreground transition-colors">
+                <Mail className="h-4 w-4 text-primary shrink-0" aria-hidden /> gnanasurrya@gmail.com
+              </a>
+            </li>
+            <li>
+              <a href="mailto:atriasolar5859@gmail.com" className="flex items-center gap-2 hover:text-foreground transition-colors">
+                <Mail className="h-4 w-4 text-primary shrink-0" aria-hidden /> atriasolar5859@gmail.com
+              </a>
+            </li>
             <li className="flex items-start gap-2">
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden /> {BUSINESS.address}
             </li>
