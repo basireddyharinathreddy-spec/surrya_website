@@ -128,22 +128,7 @@ export function Header() {
 
       {/* Top Solar Subsidy & Support Micro-Bar */}
       <div className="hidden border-b border-border/40 bg-muted/40 py-1 px-4 sm:px-6 text-xs text-muted-foreground md:block">
-        <div className="mx-auto flex max-w-7xl items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1 rounded-full bg-solar-soft px-2 py-0.5 text-[11px] font-bold text-foreground ring-1 ring-primary/30">
-              <Sparkles className="h-3 w-3 text-primary animate-pulse" />
-              PM Surya Ghar Yojana
-            </span>
-            <span className="text-foreground/80 font-medium">
-              Subsidies up to <strong className="text-foreground font-bold">₹78,000</strong> available for rooftop solar in Andhra Pradesh.
-            </span>
-            <Link
-              to="/subsidy-guide"
-              className="ml-1 inline-flex items-center gap-0.5 font-bold text-primary hover:underline"
-            >
-              Learn More <ArrowRight className="h-3 w-3" />
-            </Link>
-          </div>
+        <div className="mx-auto flex max-w-7xl items-center justify-end">
           <div className="flex items-center gap-4 text-[12px] font-medium">
             <span className="inline-flex items-center gap-1 text-muted-foreground">
               <MapPin className="h-3 w-3 text-primary" />
