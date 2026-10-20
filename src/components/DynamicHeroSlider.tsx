@@ -6,7 +6,6 @@ import residentialImg from "@/assets/residential.jpg";
 import commercialImg from "@/assets/commercial.jpg";
 import installationImg from "@/assets/installation.jpg";
 import { BUSINESS } from "@/lib/config";
-import { CircularSpinningBadge } from "@/components/CircularSpinningBadge";
 
 const SLIDES = [
   {
@@ -65,18 +64,9 @@ export function DynamicHeroSlider() {
         <div className="grid items-center gap-10 lg:grid-cols-2">
           {/* Slide Text Content */}
           <div key={current} className="animate-fade-up">
-            <div className="flex flex-wrap items-center gap-3.5 mb-2">
-              <CircularSpinningBadge
-                size={96}
-                text="PM SURYA GHAR YOJANA • GOVT SUBSIDY • "
-              />
-              <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-solar-soft px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-foreground shadow-2xs">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
-                </span>
-                <span>{slide.tag}</span>
-              </div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-solar-soft px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-foreground">
+              <Sparkles className="h-3.5 w-3.5 text-primary" aria-hidden />
+              {slide.tag}
             </div>
 
             <h1 className="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-balance text-foreground sm:text-5xl lg:text-6xl">
