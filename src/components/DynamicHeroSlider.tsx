@@ -1,0 +1,174 @@
+import { useState, useEffect } from "react";
+import { Link } from "@tanstack/react-router";
+import { ArrowRight, ChevronLeft, ChevronRight, Sparkles, Sun, Building2, Calculator, ShieldCheck } from "lucide-react";
+import heroImg from "@/assets/hero-home.jpg";
+import residentialImg from "@/assets/residential.jpg";
+import commercialImg from "@/assets/commercial.jpg";
+import installationImg from "@/assets/installation.jpg";
+import { BUSINESS } from "@/lib/config";
+import { CircularSpinningBadge } from "@/components/CircularSpinningBadge";
+
+const SLIDES = [
+  {
+    tag: "PM Surya Ghar Yojana",
+    title: "Power Your Home. Brighten Your Future.",
+    description: "Explore rooftop solar solutions for homes and businesses across Kadapa, Chittoor, Tirupati, and Rayalaseema. Subsidies up to ₹78,000 available.",
+    primaryCta: { label: "Get a Free Solar Quote", to: "/contact" },
+    secondaryCta: { label: "Explore Packages", to: "/packages" },
+    badge: "Govt Subsidy Eligible",
+    img: heroImg,
+    alt: "Modern Indian home with rooftop solar panels in warm morning sunlight",
+  },
+  {
+    tag: "Residential Rooftop Systems",
+    title: "Zero Electricity Bills for Your Family",
+    description: "Sized perfectly for 3 kW to 10 kW household requirements with Tier-1 mono PERC panels, DISCOM net metering, and 25-year performance warranty.",
+    primaryCta: { label: "Explore Residential", to: "/residential" },
+    secondaryCta: { label: "Solar Calculator", to: "/calculator" },
+    badge: "Save up to 90% Bill",
+    img: residentialImg,
+    alt: "Rooftop solar panels on family residence in Andhra Pradesh",
+  },
+  {
+    tag: "Commercial & Institutional",
+    title: "Slash Operating Costs with Commercial Solar",
+    description: "Tailored solar installations for schools, hospitals, commercial complexes, and factories across Rayalaseema with 40% accelerated depreciation.",
+    primaryCta: { label: "Commercial Solutions", to: "/commercial" },
+    secondaryCta: { label: "Talk to Engineers", to: "/contact" },
+    badge: "Fast 3-4 Year Payback",
+    img: commercialImg,
+    alt: "Industrial and commercial rooftop solar installation",
+  },
+];
+
+export function DynamicHeroSlider() {
+  const [current, setCurrent] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % SLIDES.length);
+    }, 6000);
+    return () => clearInterval(interval);
+  }, [isAutoPlaying]);
+
+  const slide = SLIDES[current % SLIDES.length]!;
+
+  return (
+    <section 
+      className="relative overflow-hidden bg-cream"
+      onMouseEnter={() => setIsAutoPlaying(false)}
+      onMouseLeave={() => setIsAutoPlaying(true)}
+    >
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:py-16">
+        <div className="grid items-center gap-10 lg:grid-cols-2">
+          {/* Slide Text Content */}
+          <div key={current} className="animate-fade-up">
+            <div className="flex flex-wrap items-center gap-3.5 mb-2">
+              <CircularSpinningBadge
+                size={96}
+                text="PM SURYA GHAR YOJANA • GOVT SUBSIDY • "
+              />
+              <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-solar-soft px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-foreground shadow-2xs">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
+                </span>
+                <span>{slide.tag}</span>
+              </div>
+            </div>
+
+            <h1 className="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-balance text-foreground sm:text-5xl lg:text-6xl">
+              {slide.title.split(". ")[0]}.{" "}
+              <span className="text-primary">{slide.title.split(". ")[1] || ""}</span>
+            </h1>
+
+            <p className="mt-5 max-w-xl text-base sm:text-lg text-muted-foreground leading-relaxed">
+              {slide.description}
+            </p>
+
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <Link
+                to={slide.primaryCta.to}
+                className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-sm font-bold text-primary-foreground shadow-soft transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lift active:scale-95"
+              >
+                {slide.primaryCta.label} <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link
+                to={slide.secondaryCta.to}
+                className="inline-flex items-center gap-2 rounded-xl border border-border bg-card px-6 py-3.5 text-sm font-semibold text-foreground shadow-soft transition-all duration-200 hover:-translate-y-0.5 active:scale-95 hover:bg-muted"
+              >
+                {slide.secondaryCta.label}
+              </Link>
+            </div>
+
+            {/* Quick slide indicators and navigation arrows */}
+            <div className="mt-8 flex items-center gap-4 pt-4 border-t border-border/60">
+              <div className="flex gap-2">
+                {SLIDES.map((_, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    onClick={() => setCurrent(idx)}
+                    aria-label={`Go to slide ${idx + 1}`}
+                    className={`h-2.5 rounded-full transition-all duration-300 ${
+                      current === idx
+                        ? "w-8 bg-primary"
+                        : "w-2.5 bg-border hover:bg-muted-foreground/40"
+                    }`}
+                  />
+                ))}
+              </div>
+
+              <div className="flex items-center gap-1.5 ml-auto">
+                <button
+                  type="button"
+                  onClick={() => setCurrent((prev) => (prev - 1 + SLIDES.length) % SLIDES.length)}
+                  aria-label="Previous slide"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-card text-foreground shadow-2xs hover:bg-muted hover:border-primary/40 active:scale-95 transition-all"
+                >
+                  <ChevronLeft className="h-4 w-4" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setCurrent((prev) => (prev + 1) % SLIDES.length)}
+                  aria-label="Next slide"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-card text-foreground shadow-2xs hover:bg-muted hover:border-primary/40 active:scale-95 transition-all"
+                >
+                  <ChevronRight className="h-4 w-4" />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Slide Visual Image with floating glass badge */}
+          <div className="relative animate-fade-up">
+            <div className="absolute -inset-4 -z-10 rounded-3xl bg-solar-soft" aria-hidden />
+            <div className="relative overflow-hidden rounded-3xl shadow-lift aspect-[16/10] bg-muted">
+              <img
+                key={slide.img}
+                src={slide.img}
+                alt={slide.alt}
+                width={1600}
+                height={1008}
+                className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                fetchPriority="high"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-white">
+                <div className="inline-flex items-center gap-2 rounded-xl bg-black/50 backdrop-blur-md px-3.5 py-1.5 text-xs font-semibold ring-1 ring-white/20">
+                  <ShieldCheck className="h-4 w-4 text-emerald-400" />
+                  <span>{slide.badge}</span>
+                </div>
+                <span className="text-xs text-white/80 font-medium">
+                  {current + 1} / {SLIDES.length}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

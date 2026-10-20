@@ -18,6 +18,7 @@ import { SectionHeading, Card } from "@/components/SectionHeading";
 import { FAQ } from "@/components/FAQ";
 import { BUSINESS, SERVICE_AREAS } from "@/lib/config";
 import { SolarPackageCards } from "@/components/SolarPackageCards";
+import { DynamicHeroSlider } from "@/components/DynamicHeroSlider";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -163,52 +164,8 @@ function AnimatedCard({ children, animClass, delayClass }: { children: React.Rea
 function Index() {
   return (
     <div>
-      {/* HERO */}
-      <section className="relative overflow-hidden bg-cream">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-2 lg:py-20">
-          <div className="animate-fade-up">
-            <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-solar-soft px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-foreground">
-              <Sun className="h-3.5 w-3.5 text-primary" aria-hidden />
-              Rayalaseema Solar Solutions
-            </span>
-            <h1 className="mt-5 text-4xl font-extrabold leading-tight text-balance sm:text-5xl lg:text-6xl">
-              Power Your Home. <span className="text-primary">Brighten Your Future.</span>
-            </h1>
-            <p className="mt-5 max-w-xl text-lg text-muted-foreground">
-              Explore rooftop solar solutions for homes and businesses across Kadapa, Chittoor, Tirupati, and Rayalaseema. Discover suitable systems, understand your savings potential, and take the next step towards cleaner energy.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-soft transition-transform hover:-translate-y-0.5"
-              >
-                Get a Free Solar Quote <ArrowRight className="h-4 w-4" aria-hidden />
-              </Link>
-              <Link
-                to="/packages"
-                className="inline-flex items-center gap-2 rounded-xl border border-border bg-card px-6 py-3.5 text-sm font-semibold text-foreground shadow-soft transition-transform hover:-translate-y-0.5"
-              >
-                Explore Solar Packages
-              </Link>
-            </div>
-            <p className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-muted-foreground">
-              <MapPin className="h-4 w-4 text-primary" aria-hidden />
-              Serving {BUSINESS.region}
-            </p>
-          </div>
-          <div className="relative animate-fade-up">
-            <div className="absolute -inset-4 -z-10 rounded-3xl bg-solar-soft" aria-hidden />
-            <img
-              src={heroImg}
-              alt="Modern Indian home with rooftop solar panels in warm morning sunlight"
-              width={1600}
-              height={1008}
-              className="w-full rounded-3xl object-cover shadow-lift"
-              fetchPriority="high"
-            />
-          </div>
-        </div>
-      </section>
+      {/* DYNAMIC HERO SLIDER (RVSU inspiration) */}
+      <DynamicHeroSlider />
 
       {/* BENEFITS */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6">

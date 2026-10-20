@@ -51,13 +51,11 @@ export const PACKAGES = [
 
 export const NAV_LINKS = [
   { to: "/", label: "Home" },
-  { to: "/residential", label: "Residential" },
-  { to: "/commercial", label: "Commercial" },
+  { to: "/about", label: "About" },
   { to: "/packages", label: "Packages" },
   { to: "/calculator", label: "Calculator" },
   { to: "/subsidy-guide", label: "Subsidy Guide" },
   { to: "/service-areas", label: "Service Areas" },
-  { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
