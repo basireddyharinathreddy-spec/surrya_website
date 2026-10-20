@@ -126,28 +126,6 @@ export function Header() {
       {/* Dynamic Announcement Ticker (RVSU inspiration) */}
       <LiveNoticeTicker />
 
-      {/* Top Solar Subsidy & Support Micro-Bar */}
-      <div className="hidden border-b border-border/40 bg-muted/40 py-1 px-4 sm:px-6 text-xs text-muted-foreground md:block">
-        <div className="mx-auto flex max-w-7xl items-center justify-end">
-          <div className="flex items-center gap-4 text-[12px] font-medium">
-            <span className="inline-flex items-center gap-1 text-muted-foreground">
-              <MapPin className="h-3 w-3 text-primary" />
-              Serving Rayalaseema & AP
-            </span>
-            <span className="text-border">|</span>
-            <a
-              href={whatsappLink(`Hello ${BUSINESS.brandName}, I would like to enquire about solar packages.`)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 font-semibold text-emerald-600 transition-colors hover:text-emerald-700"
-            >
-              <MessageCircle className="h-3.5 w-3.5" />
-              WhatsApp: {BUSINESS.phone}
-            </a>
-          </div>
-        </div>
-      </div>
-
       {/* Main Navigation Bar */}
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
         <Logo />
