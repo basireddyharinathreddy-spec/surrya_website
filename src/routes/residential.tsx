@@ -37,10 +37,10 @@ const residentialTiers = [
     subsidy: "₹78,000",
     netPrice: "₹1,37,000",
     features: [
-      "Tier-1 Mono PERC Bifacial Solar Panels",
+      "Tier-1 TOPCon Bifacial Solar Panels",
       "High-efficiency 3.3 kW On-Grid Inverter",
       "DISCOM Net-metering approval handling",
-      "25-Year Panel Performance Warranty",
+      "30-Year Panel Performance Warranty",
     ],
     highlight: true,
   },
@@ -54,7 +54,7 @@ const residentialTiers = [
     subsidy: "₹78,000",
     netPrice: "₹2,07,000",
     features: [
-      "Tier-1 High-Wattage Mono PERC Panels",
+      "Tier-1 High-Wattage TOPCon Panels",
       "5 kW 3-Phase or 1-Phase Smart Inverter",
       "Elevated GI structure options for rooftop utility",
       "Real-time mobile WiFi monitoring app",

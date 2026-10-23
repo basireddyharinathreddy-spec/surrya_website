@@ -10,7 +10,7 @@ export const BUSINESS = {
   secondaryPhone: "+91 9391907443",
   whatsapp: "919391927443",
   secondaryWhatsapp: "919391907443",
-  email: "info@atriarenewable.com",
+  email: "atriasolar5859@gmail.com",
   website: "www.atriarenewable.com",
   websiteUrl: "https://www.atriarenewable.com",
   address: "Andhra Pradesh, India",
@@ -20,11 +20,10 @@ export const SERVICE_AREAS = [
   { name: "Kadapa", description: "Rooftop solar enquiries for homes and businesses in and around Kadapa city." },
   { name: "Chittoor", description: "Solar solutions for residences, farms, and commercial spaces across Chittoor." },
   { name: "Tirupati", description: "Rooftop solar for homes, hotels, and institutions in the Tirupati region." },
-  { name: "Madanapalle", description: "Solar consultations and installations for Madanapalle and nearby towns." },
+  { name: "Punganuru", description: "Solar consultations and installations for Punganuru and nearby towns." },
   { name: "Rayachoti", description: "Residential and small commercial solar enquiries in Rayachoti." },
   { name: "Anantapuramu", description: "Solar systems suited to Anantapuramu's high-irradiance climate." },
-  { name: "Puttaparthi", description: "Solar solutions for homes, lodges, and institutions in Puttaparthi." },
-  { name: "Kurnool", description: "Residential and commercial rooftop solar across Kurnool city." },
+  { name: "Kadiri", description: "Solar solutions for homes and commercial spaces in Kadiri." },
   { name: "Nandyal", description: "Solar enquiries and site assessments for Nandyal and surroundings." },
 ] as const;
 

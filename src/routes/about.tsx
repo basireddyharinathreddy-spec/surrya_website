@@ -51,7 +51,7 @@ const pillars = [
   {
     icon: ShieldCheck,
     title: "ALMM & BIS Certified Equipment",
-    desc: "Only Tier-1 Mono PERC & TOPCon modules and dual-MPPT smart inverters tested for harsh Andhra Pradesh summers.",
+    desc: "Only Tier-1 TOPCon modules and dual-MPPT smart inverters tested for harsh Andhra Pradesh summers.",
   },
   {
     icon: Award,
@@ -152,7 +152,7 @@ function About() {
                     </li>
                     <li className="flex items-center gap-2">
                       <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
-                      <span>Tier-1 mono PERC/TOPCon solar panels with 25-year warranty</span>
+                      <span>Tier-1 TOPCon solar panels with 30-year warranty</span>
                     </li>
                   </ul>
                 </div>

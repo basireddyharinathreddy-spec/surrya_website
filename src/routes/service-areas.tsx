@@ -22,7 +22,7 @@ export const Route = createFileRoute("/service-areas")({
   head: () => ({
     meta: [
       { title: `Solar Service Areas in Andhra Pradesh — ${BUSINESS.name}` },
-      { name: "description", content: `Rooftop solar installation & PM Surya Ghar subsidy processing across Kadapa, Chittoor, Tirupati, Madanapalle, Rayachoti, Anantapuramu, Kurnool, and Nandyal.` },
+      { name: "description", content: `Rooftop solar installation & PM Surya Ghar subsidy processing across Kadapa, Chittoor, Tirupati, Punganuru, Rayachoti, Anantapuramu, Kadiri, and Nandyal.` },
       { property: "og:title", content: `Solar Service Areas — ${BUSINESS.name}` },
       { property: "og:description", content: `Prompt rooftop solar surveys and installations across Rayalaseema with ${BUSINESS.name}.` },
       { property: "og:type", content: "website" },
@@ -74,7 +74,7 @@ const serviceFaqs = [
   },
   {
     q: "What if my town or village is outside the listed cities?",
-    a: "We actively serve adjoining mandals, villages, and rural clusters across Kadapa, Chittoor, Tirupati, Annamayya, Sri Sathya Sai, Anantapuramu, Kurnool, and Nandyal districts. Contact us with your location details to confirm a visit.",
+    a: "We actively serve adjoining mandals, villages, and rural clusters across Kadapa, Chittoor, Tirupati, Annamayya, Sri Sathya Sai, Anantapuramu, and Nandyal districts. Contact us with your location details to confirm a visit.",
   },
   {
     q: "How does grid net metering differ between APSPDCL and APCPDCL?",

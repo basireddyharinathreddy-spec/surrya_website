@@ -123,7 +123,7 @@ const processSteps = [
 const homeFaqs = [
   { q: "How much can I save with rooftop solar?", a: "Savings depend on your electricity consumption, tariff, roof space, and system size. Use our savings calculator for an indicative estimate, or request a personalized quotation." },
   { q: "Is there a government subsidy for rooftop solar?", a: "Central government schemes have offered subsidies for residential rooftop solar, with the reference brochure mentioning up to ₹78,000. Eligibility and benefit amounts depend on current official scheme rules — see our Subsidy Guide for details." },
-  { q: "Which areas do you serve?", a: "We take enquiries across Rayalaseema including Kadapa, Chittoor, Tirupati, Madanapalle, Rayachoti, Anantapuramu, Puttaparthi, Kurnool, and Nandyal. Actual service coverage and site visits are confirmed per enquiry." },
+  { q: "Which areas do you serve?", a: "We take enquiries across Rayalaseema including Kadapa, Chittoor, Tirupati, Punganuru, Rayachoti, Anantapuramu, Kadiri, and Nandyal. Actual service coverage and site visits are confirmed per enquiry." },
   { q: "How long does installation take?", a: "Timelines vary with system size, documentation, and grid approvals. We share an expected schedule with your quotation." },
   { q: "Do solar panels work during power cuts?", a: "Standard on-grid systems shut down during outages for safety. Hybrid systems with batteries can provide backup — ask us about options during your consultation." },
 ];

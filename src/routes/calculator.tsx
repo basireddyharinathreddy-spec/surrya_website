@@ -58,7 +58,7 @@ const inputCls =
   "w-full rounded-xl border border-input bg-background px-4 py-2.5 text-sm placeholder:text-muted-foreground focus:border-primary focus:ring-1 focus:ring-primary transition-all";
 
 function CalculatorPage() {
-  const [bill, setBill] = useState("3500");
+  const [bill, setBill] = useState("3312");
   const [tariff, setTariff] = useState("8.0");
   const [roofArea, setRoofArea] = useState("450");
   const [propertyType, setPropertyType] = useState("Residential");

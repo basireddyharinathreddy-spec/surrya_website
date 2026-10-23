@@ -21,7 +21,7 @@ const SLIDES = [
   {
     tag: "Residential Rooftop Systems",
     title: "Zero Electricity Bills for Your Family",
-    description: "Sized perfectly for 3 kW to 10 kW household requirements with Tier-1 mono PERC panels, DISCOM net metering, and 25-year performance warranty.",
+    description: "Sized perfectly for 3 kW to 10 kW household requirements with Tier-1 TOPCon panels, DISCOM net metering, and 30-year performance warranty.",
     primaryCta: { label: "Explore Residential", to: "/residential" },
     secondaryCta: { label: "Solar Calculator", to: "/calculator" },
     badge: "Save up to 90% Bill",

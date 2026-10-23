@@ -22,7 +22,7 @@ const ANNOUNCEMENTS = [
   },
   {
     tag: "Free Site Visit",
-    text: "Book your free shadow analysis & solar feasibility inspection in Kadapa, Tirupati, Chittoor & Kurnool.",
+    text: "Book your free shadow analysis & solar feasibility inspection in Kadapa, Tirupati, Chittoor & Punganuru.",
     linkText: "Book Inspection",
     to: "/contact",
   },

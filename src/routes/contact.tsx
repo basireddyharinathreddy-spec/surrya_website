@@ -176,7 +176,7 @@ function Contact() {
 
             {/* Primary Email */}
             <a
-              href={`mailto:${BUSINESS.email}`}
+              href="mailto:atriasolar5859@gmail.com"
               className="flex items-center gap-4 rounded-2xl border border-border bg-card p-4 shadow-soft transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/50 hover:shadow-lift"
             >
               <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-solar-soft text-primary">
@@ -184,11 +184,11 @@ function Contact() {
               </span>
               <div>
                 <span className="block text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Primary Email</span>
-                <span className="font-bold text-foreground text-sm sm:text-base">{BUSINESS.email}</span>
+                <span className="font-bold text-foreground text-sm sm:text-base">atriasolar5859@gmail.com</span>
               </div>
             </a>
 
-            {/* Alternate Emails */}
+            {/* Alternate Email */}
             <a
               href="mailto:gnanasurrya@gmail.com"
               className="flex items-center gap-4 rounded-2xl border border-border bg-card p-4 shadow-soft transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/50"
@@ -201,6 +201,7 @@ function Contact() {
                 <span className="font-bold text-foreground text-sm">gnanasurrya@gmail.com</span>
               </div>
             </a>
+
 
             {/* Regional Address */}
             <div className="flex items-center gap-4 rounded-2xl border border-border bg-card p-4 shadow-soft">

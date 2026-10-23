@@ -28,8 +28,8 @@ export const Route = createFileRoute("/packages")({
 const packageInclusions = [
   {
     icon: Zap,
-    title: "Tier-1 Mono PERC / TOPCon Panels",
-    desc: "High-efficiency modules with superior low-light performance and 25-year linear generation warranty.",
+    title: "Tier-1 TOPCon Panels",
+    desc: "High-efficiency modules with superior low-light performance and 30-year linear generation warranty.",
   },
   {
     icon: Layers,
