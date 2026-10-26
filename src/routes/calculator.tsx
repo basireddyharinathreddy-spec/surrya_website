@@ -1,8 +1,17 @@
 import { useState, useMemo } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
-  Calculator, Info, ArrowRight, Sun, Zap, IndianRupee,
-  ShieldCheck, Leaf, Sparkles, CheckCircle2, RotateCcw,
+  Calculator,
+  Info,
+  ArrowRight,
+  Sun,
+  Zap,
+  IndianRupee,
+  ShieldCheck,
+  Leaf,
+  Sparkles,
+  CheckCircle2,
+  RotateCcw,
 } from "lucide-react";
 import cleanEnergyImg from "@/assets/clean-energy.jpg";
 import { PageHero } from "@/components/PageHero";
@@ -20,34 +29,36 @@ export const Route = createFileRoute("/calculator")({
         content: `Calculate rooftop solar sizing, monthly generation, electricity bill savings, and PM Surya Ghar subsidy in Andhra Pradesh with ${BUSINESS.name}. Instant Rayalaseema estimates.`,
       },
       { property: "og:title", content: `Solar Savings & Subsidy Calculator | ${BUSINESS.name}` },
-      { property: "og:description", content: "Instant solar generation and PM Surya Ghar subsidy calculations based on Rayalaseema weather irradiance." },
+      {
+        property: "og:description",
+        content:
+          "Instant solar generation and PM Surya Ghar subsidy calculations based on Rayalaseema weather irradiance.",
+      },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://www.surryagenpower.in/calculator" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [
-      { rel: "canonical", href: "https://www.surryagenpower.in/calculator" },
-    ],
+    links: [{ rel: "canonical", href: "https://www.surryagenpower.in/calculator" }],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
-          "itemListElement": [
+          itemListElement: [
             {
               "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://www.surryagenpower.in/"
+              position: 1,
+              name: "Home",
+              item: "https://www.surryagenpower.in/",
             },
             {
               "@type": "ListItem",
-              "position": 2,
-              "name": "Solar Calculator",
-              "item": "https://www.surryagenpower.in/calculator"
-            }
-          ]
+              position: 2,
+              name: "Solar Calculator",
+              item: "https://www.surryagenpower.in/calculator",
+            },
+          ],
         }),
       },
       {
@@ -55,40 +66,40 @@ export const Route = createFileRoute("/calculator")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",
-          "mainEntity": [
+          mainEntity: [
             {
               "@type": "Question",
-              "name": "How accurate are these calculator figures?",
-              "acceptedAnswer": {
+              name: "How accurate are these calculator figures?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "The calculations are indicative and grounded in Rayalaseema's actual solar insolation data (~4 to 4.5 kWh/sq.m/day) and standard AP electricity tariffs. Exact generation depends on seasonal variation, panel cleanliness, and your rooftop's shadow-free direction."
-              }
+                text: "The calculations are indicative and grounded in Rayalaseema's actual solar insolation data (~4 to 4.5 kWh/sq.m/day) and standard AP electricity tariffs. Exact generation depends on seasonal variation, panel cleanliness, and your rooftop's shadow-free direction.",
+              },
             },
             {
               "@type": "Question",
-              "name": "How is the government subsidy calculated in the results?",
-              "acceptedAnswer": {
+              name: "How is the government subsidy calculated in the results?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "For residential systems under PM Surya Ghar, the subsidy is ₹30,000 for 1 kW, ₹60,000 for 2 kW, and capped at ₹78,000 for systems of 3 kW or greater. Commercial installations do not get direct DBT subsidies but receive 40% accelerated depreciation."
-              }
+                text: "For residential systems under PM Surya Ghar, the subsidy is ₹30,000 for 1 kW, ₹60,000 for 2 kW, and capped at ₹78,000 for systems of 3 kW or greater. Commercial installations do not get direct DBT subsidies but receive 40% accelerated depreciation.",
+              },
             },
             {
               "@type": "Question",
-              "name": "What if my roof has partial tree or parapet shadow?",
-              "acceptedAnswer": {
+              name: "What if my roof has partial tree or parapet shadow?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "Our calculator accounts for usable roof fraction (70% for residential, 80% for commercial). During a physical site visit, our engineer uses 3D sun-path simulation software to position modules strictly outside shadow zones."
-              }
+                text: "Our calculator accounts for usable roof fraction (70% for residential, 80% for commercial). During a physical site visit, our engineer uses 3D sun-path simulation software to position modules strictly outside shadow zones.",
+              },
             },
             {
               "@type": "Question",
-              "name": "Can I export excess units to the electricity grid?",
-              "acceptedAnswer": {
+              name: "Can I export excess units to the electricity grid?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "Yes. Andhra Pradesh DISCOMs (APSPDCL and APCPDCL) provide bi-directional net-metering. Excess units generated during sunny hours roll over to offset your nighttime and rainy-day usage."
-              }
-            }
-          ]
+                text: "Yes. Andhra Pradesh DISCOMs (APSPDCL and APCPDCL) provide bi-directional net-metering. Excess units generated during sunny hours roll over to offset your nighttime and rainy-day usage.",
+              },
+            },
+          ],
         }),
       },
     ],
@@ -100,10 +111,28 @@ const UNITS_PER_KW_PER_MONTH = 120; // ~4 units/kW/day * 30 days in Rayalaseema
 const SQFT_PER_KW = 80;
 
 const PRESETS = [
-  { label: "2 BHK Flat / Small Home", bill: "2500", roof: "300", type: "Residential", tariff: "7.5" },
+  {
+    label: "2 BHK Flat / Small Home",
+    bill: "2500",
+    roof: "300",
+    type: "Residential",
+    tariff: "7.5",
+  },
   { label: "3 BHK House / Medium", bill: "4500", roof: "500", type: "Residential", tariff: "8.0" },
-  { label: "Large Villa / Joint Family", bill: "9000", roof: "900", type: "Residential", tariff: "8.5" },
-  { label: "Commercial Shop / Hospital", bill: "25000", roof: "2000", type: "Commercial", tariff: "10.0" },
+  {
+    label: "Large Villa / Joint Family",
+    bill: "9000",
+    roof: "900",
+    type: "Residential",
+    tariff: "8.5",
+  },
+  {
+    label: "Commercial Shop / Hospital",
+    bill: "25000",
+    roof: "2000",
+    type: "Commercial",
+    tariff: "10.0",
+  },
 ];
 
 const calculatorFaqs = [
@@ -189,7 +218,7 @@ function CalculatorPage() {
     };
   }, [bill, tariff, roofArea, propertyType]);
 
-  const applyPreset = (preset: typeof PRESETS[0]) => {
+  const applyPreset = (preset: (typeof PRESETS)[0]) => {
     setBill(preset.bill);
     setRoofArea(preset.roof);
     setPropertyType(preset.type);
@@ -246,7 +275,9 @@ function CalculatorPage() {
                 </div>
                 <div>
                   <h3 className="font-bold text-foreground">Your Electricity Profile</h3>
-                  <p className="text-xs text-muted-foreground">Adjust numbers to see real-time estimates</p>
+                  <p className="text-xs text-muted-foreground">
+                    Adjust numbers to see real-time estimates
+                  </p>
                 </div>
               </div>
             </div>
@@ -254,10 +285,15 @@ function CalculatorPage() {
             <div className="mt-6 space-y-4">
               <div>
                 <div className="flex items-center justify-between mb-1.5">
-                  <label htmlFor="calc-bill" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                  <label
+                    htmlFor="calc-bill"
+                    className="text-xs font-bold uppercase tracking-wider text-muted-foreground"
+                  >
                     Monthly Electricity Bill (₹)
                   </label>
-                  <span className="text-xs font-bold text-primary">₹{parseFloat(bill || "0").toLocaleString("en-IN")}</span>
+                  <span className="text-xs font-bold text-primary">
+                    ₹{parseFloat(bill || "0").toLocaleString("en-IN")}
+                  </span>
                 </div>
                 <input
                   id="calc-bill"
@@ -273,10 +309,15 @@ function CalculatorPage() {
 
               <div>
                 <div className="flex items-center justify-between mb-1.5">
-                  <label htmlFor="calc-tariff" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                  <label
+                    htmlFor="calc-tariff"
+                    className="text-xs font-bold uppercase tracking-wider text-muted-foreground"
+                  >
                     Tariff Rate (₹ / Unit)
                   </label>
-                  <span className="text-xs font-bold text-muted-foreground">Typical AP: ₹7.5 - ₹9.0</span>
+                  <span className="text-xs font-bold text-muted-foreground">
+                    Typical AP: ₹7.5 - ₹9.0
+                  </span>
                 </div>
                 <input
                   id="calc-tariff"
@@ -292,7 +333,10 @@ function CalculatorPage() {
 
               <div>
                 <div className="flex items-center justify-between mb-1.5">
-                  <label htmlFor="calc-roof" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                  <label
+                    htmlFor="calc-roof"
+                    className="text-xs font-bold uppercase tracking-wider text-muted-foreground"
+                  >
                     Available Rooftop Area (Sq. Ft.)
                   </label>
                   <span className="text-xs font-bold text-primary">{roofArea} sq ft</span>
@@ -311,7 +355,10 @@ function CalculatorPage() {
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label htmlFor="calc-type" className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                  <label
+                    htmlFor="calc-type"
+                    className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-muted-foreground"
+                  >
                     Property Type
                   </label>
                   <select
@@ -326,7 +373,10 @@ function CalculatorPage() {
                 </div>
 
                 <div>
-                  <label htmlFor="calc-location" className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                  <label
+                    htmlFor="calc-location"
+                    className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-muted-foreground"
+                  >
                     City / Town
                   </label>
                   <select
@@ -336,7 +386,9 @@ function CalculatorPage() {
                     onChange={(e) => setLocation(e.target.value)}
                   >
                     {SERVICE_AREAS.map((a) => (
-                      <option key={a.name} value={a.name}>{a.name}</option>
+                      <option key={a.name} value={a.name}>
+                        {a.name}
+                      </option>
                     ))}
                     <option value="Other">Other AP Town</option>
                   </select>
@@ -347,7 +399,8 @@ function CalculatorPage() {
             <div className="mt-8 rounded-2xl bg-cream p-4 border border-border/80 text-xs text-muted-foreground flex items-start gap-2.5">
               <Info className="h-4 w-4 shrink-0 text-primary mt-0.5" />
               <span>
-                Calculated assuming ~120 units per month per 1 kW (avg 4 units/day in Rayalaseema) with 80 sq ft shadow-free area per kW.
+                Calculated assuming ~120 units per month per 1 kW (avg 4 units/day in Rayalaseema)
+                with 80 sq ft shadow-free area per kW.
               </span>
             </div>
           </div>
@@ -375,25 +428,34 @@ function CalculatorPage() {
               {/* 4 Primary Highlight Cards */}
               <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
                 <div className="rounded-2xl bg-cream p-3.5 border border-border">
-                  <span className="text-[11px] text-muted-foreground block font-medium">Monthly Gen.</span>
+                  <span className="text-[11px] text-muted-foreground block font-medium">
+                    Monthly Gen.
+                  </span>
                   <p className="text-lg font-extrabold text-foreground mt-0.5">
-                    {results.monthlyGeneration.toLocaleString("en-IN")} <span className="text-xs font-normal">units</span>
+                    {results.monthlyGeneration.toLocaleString("en-IN")}{" "}
+                    <span className="text-xs font-normal">units</span>
                   </p>
                 </div>
                 <div className="rounded-2xl bg-cream p-3.5 border border-border">
-                  <span className="text-[11px] text-muted-foreground block font-medium">Monthly Bill Drop</span>
+                  <span className="text-[11px] text-muted-foreground block font-medium">
+                    Monthly Bill Drop
+                  </span>
                   <p className="text-lg font-extrabold text-emerald-600 mt-0.5">
                     ₹{results.monthlySavings.toLocaleString("en-IN")}
                   </p>
                 </div>
                 <div className="rounded-2xl bg-cream p-3.5 border border-border">
-                  <span className="text-[11px] text-muted-foreground block font-medium">Annual Savings</span>
+                  <span className="text-[11px] text-muted-foreground block font-medium">
+                    Annual Savings
+                  </span>
                   <p className="text-lg font-extrabold text-foreground mt-0.5">
                     ₹{results.yearlySavings.toLocaleString("en-IN")}
                   </p>
                 </div>
                 <div className="rounded-2xl bg-cream p-3.5 border border-border">
-                  <span className="text-[11px] text-muted-foreground block font-medium">Est. Payback</span>
+                  <span className="text-[11px] text-muted-foreground block font-medium">
+                    Est. Payback
+                  </span>
                   <p className="text-lg font-extrabold text-primary mt-0.5">
                     {results.paybackYears} <span className="text-xs font-normal">years</span>
                   </p>
@@ -408,7 +470,9 @@ function CalculatorPage() {
                 </div>
                 <div className="flex items-center justify-between pb-2 border-b border-border/60">
                   <span className="text-muted-foreground">Approximate Gross System Cost:</span>
-                  <span className="font-semibold">₹{results.approximateGrossCost.toLocaleString("en-IN")}</span>
+                  <span className="font-semibold">
+                    ₹{results.approximateGrossCost.toLocaleString("en-IN")}
+                  </span>
                 </div>
                 {propertyType === "Residential" && (
                   <div className="flex items-center justify-between pb-2 border-b border-border/60 text-emerald-600 font-bold">
@@ -418,11 +482,15 @@ function CalculatorPage() {
                 )}
                 <div className="flex items-center justify-between pt-1 text-sm sm:text-base font-extrabold">
                   <span>Net Estimated Capital Investment:</span>
-                  <span className="text-primary font-display">₹{results.netEstimatedCost.toLocaleString("en-IN")}*</span>
+                  <span className="text-primary font-display">
+                    ₹{results.netEstimatedCost.toLocaleString("en-IN")}*
+                  </span>
                 </div>
                 <div className="flex items-center justify-between text-xs text-muted-foreground pt-1">
                   <span>25-Year Cumulative Savings:</span>
-                  <span className="font-bold text-foreground">₹{results.twentyFiveYearSavings.toLocaleString("en-IN")}</span>
+                  <span className="font-bold text-foreground">
+                    ₹{results.twentyFiveYearSavings.toLocaleString("en-IN")}
+                  </span>
                 </div>
               </div>
 
@@ -433,7 +501,8 @@ function CalculatorPage() {
                   <span>Annual Green Impact:</span>
                 </div>
                 <span className="font-bold">
-                  {results.annualCo2Kg.toLocaleString("en-IN")} kg CO₂ Avoided (~{results.treesEquivalent} Trees planted)
+                  {results.annualCo2Kg.toLocaleString("en-IN")} kg CO₂ Avoided (~
+                  {results.treesEquivalent} Trees planted)
                 </span>
               </div>
             </div>
@@ -445,12 +514,14 @@ function CalculatorPage() {
                 search={{
                   monthlyBill: bill,
                   area: location,
-                  service: propertyType === "Residential" ? "Residential Solar" : "Commercial Solar",
+                  service:
+                    propertyType === "Residential" ? "Residential Solar" : "Commercial Solar",
                   package: `${results.recommendedKw} kW System`,
                 }}
                 className="inline-flex w-full sm:w-auto flex-1 items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-sm font-bold text-primary-foreground shadow-soft hover:brightness-105 active:scale-95"
               >
-                Request Quote For {results.recommendedKw} kW System <ArrowRight className="h-4 w-4" />
+                Request Quote For {results.recommendedKw} kW System{" "}
+                <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 to="/packages"
@@ -487,7 +558,8 @@ function CalculatorPage() {
             Turn These Estimates into Real Monthly Savings
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-primary-foreground/85 text-sm sm:text-base leading-relaxed">
-            Invite our certified solar technicians to survey your terrace in Rayalaseema and provide an engineering report with guaranteed output metrics.
+            Invite our certified solar technicians to survey your terrace in Rayalaseema and provide
+            an engineering report with guaranteed output metrics.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link

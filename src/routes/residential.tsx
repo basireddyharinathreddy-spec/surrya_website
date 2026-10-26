@@ -1,7 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
-  ArrowRight, CheckCircle2, Sun, Sparkles, ShieldCheck,
-  Zap, Wrench, FileCheck, ArrowUpRight, Clock, HelpCircle,
+  ArrowRight,
+  CheckCircle2,
+  Sun,
+  Sparkles,
+  ShieldCheck,
+  Zap,
+  Wrench,
+  FileCheck,
+  ArrowUpRight,
+  Clock,
+  HelpCircle,
 } from "lucide-react";
 import residentialImg from "@/assets/residential.jpg";
 import familyImg from "@/assets/family.jpg";
@@ -15,20 +24,24 @@ import { BUSINESS } from "@/lib/config";
 export const Route = createFileRoute("/residential")({
   head: () => ({
     meta: [
-      { title: `Residential Rooftop Solar in Kadapa, Tirupati & Chittoor | ${BUSINESS.name}` },
+      { title: `Residential Solar Installation Andhra Pradesh | Surrya Gen Power` },
       {
         name: "description",
-        content: `Cut home electricity bills by up to 90% with residential rooftop solar across Kadapa, Tirupati, Chittoor & Andhra Pradesh. PM Surya Ghar subsidy up to ₹78,000. Free site survey with ${BUSINESS.name}.`,
+        content: `Expert residential solar installation Andhra Pradesh using the best solar panels in Andhra Pradesh. Avail up to ₹78,000 rooftop solar subsidy Andhra Pradesh under PM Surya Ghar with Surrya Gen Power in Kadapa, Tirupati, Chittoor & Rayalaseema.`,
       },
-      { property: "og:title", content: `Residential Rooftop Solar in Kadapa, Tirupati & Chittoor | ${BUSINESS.name}` },
-      { property: "og:description", content: `Save up to 90% on home power bills with PM Surya Ghar rooftop solar. Direct subsidy up to ₹78,000. Serving Kadapa, Tirupati, Chittoor & Rayalaseema.` },
+      {
+        property: "og:title",
+        content: `Residential Solar Installation Andhra Pradesh | Surrya Gen Power`,
+      },
+      {
+        property: "og:description",
+        content: `Power your home with turnkey residential solar installation Andhra Pradesh. Claim up to ₹78,000 rooftop solar subsidy Andhra Pradesh with the best solar panels in Andhra Pradesh.`,
+      },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://www.surryagenpower.in/residential" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [
-      { rel: "canonical", href: "https://www.surryagenpower.in/residential" },
-    ],
+    links: [{ rel: "canonical", href: "https://www.surryagenpower.in/residential" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -36,25 +49,26 @@ export const Route = createFileRoute("/residential")({
           "@context": "https://schema.org",
           "@type": "Service",
           "@id": "https://www.surryagenpower.in/residential#service",
-          "name": "Residential Rooftop Solar Installation",
-          "serviceType": "Solar Energy System Installation",
-          "provider": {
+          name: "Residential Rooftop Solar Installation",
+          serviceType: "Solar Energy System Installation",
+          provider: {
             "@type": "LocalBusiness",
-            "name": "Surrya Gen Power",
-            "url": "https://www.surryagenpower.in",
-            "telephone": "+919391927443"
+            name: "Surrya Gen Power",
+            url: "https://www.surryagenpower.in",
+            telephone: "+919391927443",
           },
-          "areaServed": [
-            { "@type": "City", "name": "Kadapa" },
-            { "@type": "City", "name": "Tirupati" },
-            { "@type": "City", "name": "Chittoor" },
-            { "@type": "City", "name": "Punganuru" },
-            { "@type": "City", "name": "Rayachoti" },
-            { "@type": "City", "name": "Anantapuramu" },
-            { "@type": "City", "name": "Kadiri" },
-            { "@type": "City", "name": "Nandyal" }
+          areaServed: [
+            { "@type": "City", name: "Kadapa" },
+            { "@type": "City", name: "Tirupati" },
+            { "@type": "City", name: "Chittoor" },
+            { "@type": "City", name: "Punganuru" },
+            { "@type": "City", name: "Rayachoti" },
+            { "@type": "City", name: "Anantapuramu" },
+            { "@type": "City", name: "Kadiri" },
+            { "@type": "City", name: "Nandyal" },
           ],
-          "description": "Turnkey residential rooftop solar EPC installation with DISCOM net metering approval and PM Surya Ghar Muft Bijli Yojana subsidy assistance up to ₹78,000."
+          description:
+            "Turnkey residential rooftop solar EPC installation with DISCOM net metering approval and PM Surya Ghar Muft Bijli Yojana subsidy assistance up to ₹78,000.",
         }),
       },
       {
@@ -62,20 +76,20 @@ export const Route = createFileRoute("/residential")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
-          "itemListElement": [
+          itemListElement: [
             {
               "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://www.surryagenpower.in/"
+              position: 1,
+              name: "Home",
+              item: "https://www.surryagenpower.in/",
             },
             {
               "@type": "ListItem",
-              "position": 2,
-              "name": "Residential Solar",
-              "item": "https://www.surryagenpower.in/residential"
-            }
-          ]
+              position: 2,
+              name: "Residential Solar",
+              item: "https://www.surryagenpower.in/residential",
+            },
+          ],
         }),
       },
       {
@@ -83,48 +97,48 @@ export const Route = createFileRoute("/residential")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",
-          "mainEntity": [
+          mainEntity: [
             {
               "@type": "Question",
-              "name": "How much government subsidy do I get for my home in Andhra Pradesh?",
-              "acceptedAnswer": {
+              name: "How much government subsidy do I get for my home in Andhra Pradesh?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "Under the PM Surya Ghar Muft Bijli Yojana, residential consumers receive ₹30,000 for 1 kW, ₹60,000 for 2 kW, and a maximum of ₹78,000 for systems of 3 kW and above. The subsidy is directly credited to your Aadhaar-linked bank account."
-              }
+                text: "Under the PM Surya Ghar Muft Bijli Yojana, residential consumers receive ₹30,000 for 1 kW, ₹60,000 for 2 kW, and a maximum of ₹78,000 for systems of 3 kW and above. The subsidy is directly credited to your Aadhaar-linked bank account.",
+              },
             },
             {
               "@type": "Question",
-              "name": "How much can I reduce my monthly electricity bill?",
-              "acceptedAnswer": {
+              name: "How much can I reduce my monthly electricity bill?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "A properly sized residential rooftop solar system reduces 80% to 95% of your grid electricity bill. You only pay the nominal fixed DISCOM grid charges each month."
-              }
+                text: "A properly sized residential rooftop solar system reduces 80% to 95% of your grid electricity bill. You only pay the nominal fixed DISCOM grid charges each month.",
+              },
             },
             {
               "@type": "Question",
-              "name": "What happens during cloudy or rainy days?",
-              "acceptedAnswer": {
+              name: "What happens during cloudy or rainy days?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "Solar panels still generate electricity on overcast days using diffuse sunlight (typically 20% to 40% of peak output). At night or during heavy rains, your home seamlessly draws power from the grid via net metering."
-              }
+                text: "Solar panels still generate electricity on overcast days using diffuse sunlight (typically 20% to 40% of peak output). At night or during heavy rains, your home seamlessly draws power from the grid via net metering.",
+              },
             },
             {
               "@type": "Question",
-              "name": "How much shadow-free roof area is needed?",
-              "acceptedAnswer": {
+              name: "How much shadow-free roof area is needed?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "As a thumb rule, each 1 kW of solar installation requires approximately 80 to 90 sq ft of shadow-free rooftop space facing South or Southwest."
-              }
+                text: "As a thumb rule, each 1 kW of solar installation requires approximately 80 to 90 sq ft of shadow-free rooftop space facing South or Southwest.",
+              },
             },
             {
               "@type": "Question",
-              "name": "What is the lifespan and warranty of the system?",
-              "acceptedAnswer": {
+              name: "What is the lifespan and warranty of the system?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "The solar panels come with a 25-year performance warranty (guaranteeing over 80% output at year 25). The solar inverters typically carry a 5 to 10-year replacement warranty."
-              }
-            }
-          ]
+                text: "The solar panels come with a 25-year performance warranty (guaranteeing over 80% output at year 25). The solar inverters typically carry a 5 to 10-year replacement warranty.",
+              },
+            },
+          ],
         }),
       },
     ],
@@ -220,11 +234,31 @@ const features = [
 ];
 
 const residentialSteps = [
-  { step: "01", title: "Free Consultation", desc: "Share your latest power bill. We assess suitability and offer an instant estimate." },
-  { step: "02", title: "Site Survey & 3D Design", desc: "Our solar engineer visits your roof to map azimuth, shadows, and structure." },
-  { step: "03", title: "DISCOM Approval & Portal", desc: "We register your project on PM Surya Ghar portal and secure net-meter approval." },
-  { step: "04", title: "Turnkey Installation", desc: "Expert technicians install modules, inverters, and earthing in 2–3 business days." },
-  { step: "05", title: "Net Meter & Subsidy", desc: "Grid inspection, bidirectional meter commissioning, and direct subsidy credit." },
+  {
+    step: "01",
+    title: "Free Consultation",
+    desc: "Share your latest power bill. We assess suitability and offer an instant estimate.",
+  },
+  {
+    step: "02",
+    title: "Site Survey & 3D Design",
+    desc: "Our solar engineer visits your roof to map azimuth, shadows, and structure.",
+  },
+  {
+    step: "03",
+    title: "DISCOM Approval & Portal",
+    desc: "We register your project on PM Surya Ghar portal and secure net-meter approval.",
+  },
+  {
+    step: "04",
+    title: "Turnkey Installation",
+    desc: "Expert technicians install modules, inverters, and earthing in 2–3 business days.",
+  },
+  {
+    step: "05",
+    title: "Net Meter & Subsidy",
+    desc: "Grid inspection, bidirectional meter commissioning, and direct subsidy credit.",
+  },
 ];
 
 const residentialFaqs = [
@@ -255,14 +289,18 @@ function Residential() {
     <div>
       {/* RICH PAGE HERO */}
       <PageHero
-        eyebrow="Residential Rooftop Solar"
-        title="Power Your Home With Clean Energy & Zero Power Bills"
-        description="Customized rooftop solar systems designed for Andhra Pradesh families. Enjoy up to ₹78,000 government subsidy, net metering, and up to 90% savings on electricity bills."
+        eyebrow="Residential Solar Installation Andhra Pradesh"
+        title="Power Your Home With the Best Solar Panels in Andhra Pradesh"
+        description="Premium residential solar installation Andhra Pradesh engineered for modern homes. Unlock up to ₹78,000 rooftop solar subsidy Andhra Pradesh under PM Surya Ghar, complete DISCOM net metering, and up to 90% power bill savings."
         image={residentialImg}
-        imageAlt="Modern family home rooftop solar installation in Andhra Pradesh"
-        badge="PM Surya Ghar Subsidy: Up to ₹78,000"
+        imageAlt="Residential solar installation Andhra Pradesh with high-efficiency rooftop panels"
+        badge="Rooftop Solar Subsidy Andhra Pradesh: Up to ₹78,000"
         badgeIcon={<Sparkles className="h-4 w-4 text-amber-500" />}
-        primaryCta={{ label: "Get Free Home Solar Quote", to: "/contact", search: { service: "Residential Solar" } }}
+        primaryCta={{
+          label: "Get Free Home Solar Quote",
+          to: "/contact",
+          search: { service: "Residential Solar" },
+        }}
         secondaryCta={{ label: "Calculate Savings", to: "/calculator" }}
       />
 
@@ -296,8 +334,12 @@ function Residential() {
                     <span className="inline-block rounded-full bg-solar-soft px-3 py-1 text-xs font-bold text-primary">
                       {tier.tag}
                     </span>
-                    <h3 className="mt-4 text-2xl font-extrabold text-foreground">{tier.capacity}</h3>
-                    <p className="mt-1 text-xs font-medium text-muted-foreground">{tier.idealFor}</p>
+                    <h3 className="mt-4 text-2xl font-extrabold text-foreground">
+                      {tier.capacity}
+                    </h3>
+                    <p className="mt-1 text-xs font-medium text-muted-foreground">
+                      {tier.idealFor}
+                    </p>
 
                     <div className="mt-6 rounded-2xl bg-cream p-4 border border-border/60">
                       <div className="flex items-baseline justify-between text-xs text-muted-foreground">
@@ -309,8 +351,12 @@ function Residential() {
                         <span>- {tier.subsidy}</span>
                       </div>
                       <div className="mt-2 pt-2 border-t border-border flex items-baseline justify-between">
-                        <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Net Effective Cost</span>
-                        <span className="text-xl font-extrabold text-foreground">{tier.netPrice}</span>
+                        <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                          Net Effective Cost
+                        </span>
+                        <span className="text-xl font-extrabold text-foreground">
+                          {tier.netPrice}
+                        </span>
                       </div>
                     </div>
 
@@ -372,7 +418,9 @@ function Residential() {
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-foreground">Long-Term Savings</h4>
-                  <p className="text-xs text-muted-foreground">Return on capital in just 3-4 years</p>
+                  <p className="text-xs text-muted-foreground">
+                    Return on capital in just 3-4 years
+                  </p>
                 </div>
               </div>
             </div>
@@ -387,10 +435,22 @@ function Residential() {
 
               <div className="mt-8 space-y-4">
                 {[
-                  { title: "Slash Bills by up to 90%", desc: "Generate your daily consumption during daylight hours and bank excess energy with DISCOM." },
-                  { title: "Shield Against Tariff Hikes", desc: "Lock in your electricity costs for the next 25 years as state electricity unit charges increase." },
-                  { title: "Enhance Property Valuation", desc: "A home with a pre-installed, net-metered rooftop solar system commands high resale appeal." },
-                  { title: "Direct Bank Account Subsidy", desc: "Zero middlemen. The government deposits ₹78,000 directly via DBT into your registered bank account." },
+                  {
+                    title: "Slash Bills by up to 90%",
+                    desc: "Generate your daily consumption during daylight hours and bank excess energy with DISCOM.",
+                  },
+                  {
+                    title: "Shield Against Tariff Hikes",
+                    desc: "Lock in your electricity costs for the next 25 years as state electricity unit charges increase.",
+                  },
+                  {
+                    title: "Enhance Property Valuation",
+                    desc: "A home with a pre-installed, net-metered rooftop solar system commands high resale appeal.",
+                  },
+                  {
+                    title: "Direct Bank Account Subsidy",
+                    desc: "Zero middlemen. The government deposits ₹78,000 directly via DBT into your registered bank account.",
+                  },
                 ].map((item) => (
                   <div key={item.title} className="flex items-start gap-3.5">
                     <div className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
@@ -444,9 +504,7 @@ function Residential() {
                     <h3 className="mt-4 text-lg font-bold text-foreground group-hover:text-primary transition-colors">
                       {f.title}
                     </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                      {f.text}
-                    </p>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.text}</p>
                   </div>
                   <div className="mt-4 flex items-center gap-1 text-xs font-semibold text-primary">
                     <span>Included in all packages</span>
@@ -478,9 +536,7 @@ function Residential() {
                   {step.step}
                 </span>
                 <h4 className="mt-2 text-base font-bold text-foreground">{step.title}</h4>
-                <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">
-                  {step.desc}
-                </p>
+                <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -512,7 +568,8 @@ function Residential() {
             Ready to Zero Out Your Home Electricity Bill?
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-primary-foreground/85 text-sm sm:text-base leading-relaxed">
-            Get an exact system recommendation, 3D roof layout, and subsidy calculation tailored to your home in Rayalaseema.
+            Get an exact system recommendation, 3D roof layout, and subsidy calculation tailored to
+            your home in Rayalaseema.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link

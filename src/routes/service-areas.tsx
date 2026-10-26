@@ -1,7 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
-  MapPin, ArrowRight, Info, Sun, Sparkles, CheckCircle2,
-  Clock, ShieldCheck, Zap,
+  MapPin,
+  ArrowRight,
+  Info,
+  Sun,
+  Sparkles,
+  CheckCircle2,
+  Clock,
+  ShieldCheck,
+  Zap,
 } from "lucide-react";
 import heroImg from "@/assets/hero-home.jpg";
 import residentialImg from "@/assets/residential.jpg";
@@ -26,35 +33,39 @@ export const Route = createFileRoute("/service-areas")({
         name: "description",
         content: `Rooftop solar installation & PM Surya Ghar subsidy processing across Kadapa, Chittoor, Tirupati, Punganuru, Rayachoti, Anantapuramu, Kadiri, and Nandyal, Andhra Pradesh. Free site surveys by ${BUSINESS.name}.`,
       },
-      { property: "og:title", content: `Solar Service Areas in Kadapa, Tirupati & Chittoor | ${BUSINESS.name}` },
-      { property: "og:description", content: `Prompt rooftop solar surveys and installations across Rayalaseema districts with ${BUSINESS.name}.` },
+      {
+        property: "og:title",
+        content: `Solar Service Areas in Kadapa, Tirupati & Chittoor | ${BUSINESS.name}`,
+      },
+      {
+        property: "og:description",
+        content: `Prompt rooftop solar surveys and installations across Rayalaseema districts with ${BUSINESS.name}.`,
+      },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://www.surryagenpower.in/service-areas" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [
-      { rel: "canonical", href: "https://www.surryagenpower.in/service-areas" },
-    ],
+    links: [{ rel: "canonical", href: "https://www.surryagenpower.in/service-areas" }],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
-          "itemListElement": [
+          itemListElement: [
             {
               "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://www.surryagenpower.in/"
+              position: 1,
+              name: "Home",
+              item: "https://www.surryagenpower.in/",
             },
             {
               "@type": "ListItem",
-              "position": 2,
-              "name": "Service Areas",
-              "item": "https://www.surryagenpower.in/service-areas"
-            }
-          ]
+              position: 2,
+              name: "Service Areas",
+              item: "https://www.surryagenpower.in/service-areas",
+            },
+          ],
         }),
       },
       {
@@ -62,40 +73,40 @@ export const Route = createFileRoute("/service-areas")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",
-          "mainEntity": [
+          mainEntity: [
             {
               "@type": "Question",
-              "name": "Do you charge any fee for on-site roof surveys in these areas?",
-              "acceptedAnswer": {
+              name: "Do you charge any fee for on-site roof surveys in these areas?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "No! We provide 100% free preliminary rooftop surveys and quotation consultations across all our primary service districts in Rayalaseema."
-              }
+                text: "No! We provide 100% free preliminary rooftop surveys and quotation consultations across all our primary service districts in Rayalaseema.",
+              },
             },
             {
               "@type": "Question",
-              "name": "What if my town or village is outside the listed cities?",
-              "acceptedAnswer": {
+              name: "What if my town or village is outside the listed cities?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "We actively serve adjoining mandals, villages, and rural clusters across Kadapa, Chittoor, Tirupati, Annamayya, Sri Sathya Sai, Anantapuramu, and Nandyal districts. Contact us with your location details to confirm a visit."
-              }
+                text: "We actively serve adjoining mandals, villages, and rural clusters across Kadapa, Chittoor, Tirupati, Annamayya, Sri Sathya Sai, Anantapuramu, and Nandyal districts. Contact us with your location details to confirm a visit.",
+              },
             },
             {
               "@type": "Question",
-              "name": "How does grid net metering differ between APSPDCL and APCPDCL?",
-              "acceptedAnswer": {
+              name: "How does grid net metering differ between APSPDCL and APCPDCL?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "Both DISCOMs follow the Andhra Pradesh Electricity Regulatory Commission (APERC) solar net-metering framework. We handle all paperwork, meter testing, and liaisoning directly with your local circle office."
-              }
+                text: "Both DISCOMs follow the Andhra Pradesh Electricity Regulatory Commission (APERC) solar net-metering framework. We handle all paperwork, meter testing, and liaisoning directly with your local circle office.",
+              },
             },
             {
               "@type": "Question",
-              "name": "How fast can installation begin after site confirmation?",
-              "acceptedAnswer": {
+              name: "How fast can installation begin after site confirmation?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "Once DISCOM feasibility approval is issued on the PM Surya Ghar portal, our installation crew arrives with equipment within 5 to 7 business days."
-              }
-            }
-          ]
+                text: "Once DISCOM feasibility approval is issued on the PM Surya Ghar portal, our installation crew arrives with equipment within 5 to 7 business days.",
+              },
+            },
+          ],
         }),
       },
     ],
@@ -219,6 +230,12 @@ function ServiceAreas() {
           {SERVICE_AREAS.map((area, i) => {
             const img = areaImages[i % areaImages.length]!;
             const { anim, delay } = REVEAL_STYLES[i % REVEAL_STYLES.length]!;
+            const dedicatedRoute: Record<string, string> = {
+              Kadapa: "/solar-kadapa",
+              Tirupati: "/solar-tirupati",
+              Chittoor: "/solar-chittoor",
+            };
+            const landingPath = dedicatedRoute[area.name];
             return (
               <AnimatedCard key={area.name} animClass={anim} delayClass={delay}>
                 <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border/80 bg-card shadow-soft transition-all duration-300 hover:-translate-y-2 hover:border-primary/50 hover:shadow-lift">
@@ -252,14 +269,27 @@ function ServiceAreas() {
                       </div>
                     </div>
 
-                    <Link
-                      to="/contact"
-                      search={{ area: area.name }}
-                      className="mt-6 inline-flex items-center justify-between rounded-xl border border-border bg-card px-4 py-2.5 text-xs font-bold text-foreground transition-all duration-200 group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary"
-                    >
-                      <span>Enquire for {area.name}</span>
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </Link>
+                    <div className="mt-6 flex flex-col gap-2">
+                      {landingPath && (
+                        <Link
+                          to={
+                            landingPath as "/solar-kadapa" | "/solar-tirupati" | "/solar-chittoor"
+                          }
+                          className="inline-flex items-center justify-between rounded-xl bg-primary px-4 py-2.5 text-xs font-bold text-primary-foreground transition-all duration-200 hover:brightness-110"
+                        >
+                          <span>Solar Panel Installation in {area.name}</span>
+                          <ArrowRight className="h-4 w-4 transition-transform hover:translate-x-1" />
+                        </Link>
+                      )}
+                      <Link
+                        to="/contact"
+                        search={{ area: area.name }}
+                        className="inline-flex items-center justify-between rounded-xl border border-border bg-card px-4 py-2.5 text-xs font-bold text-foreground transition-all duration-200 group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary"
+                      >
+                        <span>Enquire for {area.name}</span>
+                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </Link>
+                    </div>
                   </div>
                 </article>
               </AnimatedCard>
@@ -271,7 +301,9 @@ function ServiceAreas() {
         <div className="mx-auto mt-12 flex max-w-2xl items-start gap-3 rounded-2xl border border-primary/40 bg-solar-soft p-5 text-xs sm:text-sm text-foreground shadow-soft">
           <Info className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden />
           <p>
-            Don't see your specific mandal or village listed above? We actively accept inquiries across all Rayalaseema districts. Reach out directly and our dispatch team will confirm inspection feasibility for your address.
+            Don't see your specific mandal or village listed above? We actively accept inquiries
+            across all Rayalaseema districts. Reach out directly and our dispatch team will confirm
+            inspection feasibility for your address.
           </p>
         </div>
       </section>
@@ -300,7 +332,8 @@ function ServiceAreas() {
             Ready for a Site Survey in Your Town?
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-primary-foreground/85 text-sm sm:text-base leading-relaxed">
-            Connect with our regional team today. We'll inspect your roof, evaluate shadows, and design a custom solar system with guaranteed output.
+            Connect with our regional team today. We'll inspect your roof, evaluate shadows, and
+            design a custom solar system with guaranteed output.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link

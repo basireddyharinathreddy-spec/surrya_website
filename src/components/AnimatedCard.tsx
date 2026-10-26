@@ -1,9 +1,9 @@
 import { useRef, useState, useEffect, type ReactNode } from "react";
 
 export const REVEAL_STYLES = [
-  { anim: "reveal-left",  delay: "delay-0"   },
-  { anim: "reveal-up",    delay: "delay-100" },
-  { anim: "reveal-zoom",  delay: "delay-200" },
+  { anim: "reveal-left", delay: "delay-0" },
+  { anim: "reveal-up", delay: "delay-100" },
+  { anim: "reveal-zoom", delay: "delay-200" },
   { anim: "reveal-right", delay: "delay-300" },
 ];
 
@@ -33,7 +33,7 @@ export function AnimatedCard({
           observer.unobserve(el);
         }
       },
-      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
     );
     observer.observe(el);
     return () => observer.disconnect();

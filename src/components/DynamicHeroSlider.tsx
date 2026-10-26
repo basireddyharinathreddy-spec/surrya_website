@@ -1,6 +1,15 @@
 import { useState, useEffect } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, ChevronLeft, ChevronRight, Sparkles, Sun, Building2, Calculator, ShieldCheck } from "lucide-react";
+import {
+  ArrowRight,
+  ChevronLeft,
+  ChevronRight,
+  Sparkles,
+  Sun,
+  Building2,
+  Calculator,
+  ShieldCheck,
+} from "lucide-react";
 import heroImg from "@/assets/hero-home.jpg";
 import residentialImg from "@/assets/residential.jpg";
 import commercialImg from "@/assets/commercial.jpg";
@@ -10,33 +19,36 @@ import { BUSINESS } from "@/lib/config";
 const SLIDES = [
   {
     tag: "PM Surya Ghar Yojana",
-    title: "Power Your Home. Brighten Your Future.",
-    description: "Explore rooftop solar solutions for homes and businesses across Kadapa, Chittoor, Tirupati, and Rayalaseema. Subsidies up to ₹78,000 available.",
+    title: "Best Solar Panels in Andhra Pradesh — Power Your Future",
+    description:
+      "Your trusted solar company in Kadapa, Tirupati, Chittoor & Rayalaseema. Premier rooftop solar installation with PM Surya Ghar subsidy up to ₹78,000.",
     primaryCta: { label: "Get a Free Solar Quote", to: "/contact" },
     secondaryCta: { label: "Explore Packages", to: "/packages" },
     badge: "Govt Subsidy Eligible",
     img: heroImg,
-    alt: "Modern Indian home with rooftop solar panels in warm morning sunlight",
+    alt: "Best solar panels in Andhra Pradesh installed on modern home rooftop",
   },
   {
     tag: "Residential Rooftop Systems",
-    title: "Zero Electricity Bills for Your Family",
-    description: "Sized perfectly for 3 kW to 10 kW household requirements with Tier-1 TOPCon panels, DISCOM net metering, and 30-year performance warranty.",
+    title: "Residential Solar Installation Andhra Pradesh",
+    description:
+      "Sized for 3.45 kW to 10 kW household requirements with the best solar panels in Andhra Pradesh, DISCOM net metering, and 30-year performance warranty.",
     primaryCta: { label: "Explore Residential", to: "/residential" },
     secondaryCta: { label: "Solar Calculator", to: "/calculator" },
     badge: "Save up to 90% Bill",
     img: residentialImg,
-    alt: "Rooftop solar panels on family residence in Andhra Pradesh",
+    alt: "Residential solar installation Andhra Pradesh on family home terrace",
   },
   {
-    tag: "Commercial & Institutional",
-    title: "Slash Operating Costs with Commercial Solar",
-    description: "Tailored solar installations for schools, hospitals, commercial complexes, and factories across Rayalaseema with 40% accelerated depreciation.",
+    tag: "Commercial & Industrial",
+    title: "Commercial Solar Installation Andhra Pradesh",
+    description:
+      "High-yield commercial rooftop solar for schools, hospitals, factories, and cold storage across Rayalaseema with 40% accelerated tax depreciation.",
     primaryCta: { label: "Commercial Solutions", to: "/commercial" },
     secondaryCta: { label: "Talk to Engineers", to: "/contact" },
     badge: "Fast 3-4 Year Payback",
     img: commercialImg,
-    alt: "Industrial and commercial rooftop solar installation",
+    alt: "Commercial solar installation Andhra Pradesh on industrial rooftop shed",
   },
 ];
 
@@ -55,7 +67,7 @@ export function DynamicHeroSlider() {
   const slide = SLIDES[current % SLIDES.length]!;
 
   return (
-    <section 
+    <section
       className="relative overflow-hidden bg-cream"
       onMouseEnter={() => setIsAutoPlaying(false)}
       onMouseLeave={() => setIsAutoPlaying(true)}

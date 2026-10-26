@@ -6,14 +6,15 @@ export const Route = createFileRoute("/privacy")({
   head: () => ({
     meta: [
       { title: `Privacy Policy — ${BUSINESS.name}` },
-      { name: "description", content: `How ${BUSINESS.name} collects, uses, and protects your personal information.` },
+      {
+        name: "description",
+        content: `How ${BUSINESS.name} collects, uses, and protects your personal information.`,
+      },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://www.surryagenpower.in/privacy" },
       { name: "twitter:card", content: "summary" },
     ],
-    links: [
-      { rel: "canonical", href: "https://www.surryagenpower.in/privacy" },
-    ],
+    links: [{ rel: "canonical", href: "https://www.surryagenpower.in/privacy" }],
   }),
   component: Privacy,
 });
@@ -84,7 +85,9 @@ function Privacy() {
         <div className="mt-10 rounded-2xl bg-solar-soft/60 border border-primary/30 p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>
             <h3 className="text-sm font-bold text-foreground">Have Questions About Your Data?</h3>
-            <p className="text-xs text-muted-foreground mt-0.5">Reach out to our customer compliance desk anytime.</p>
+            <p className="text-xs text-muted-foreground mt-0.5">
+              Reach out to our customer compliance desk anytime.
+            </p>
           </div>
           <Link
             to="/contact"

@@ -14,7 +14,13 @@ export interface EnquiryPrefill {
   monthlyBill?: string;
 }
 
-export function EnquiryForm({ prefill = {}, heading = "Request a Free Solar Quote" }: { prefill?: EnquiryPrefill; heading?: string }) {
+export function EnquiryForm({
+  prefill = {},
+  heading = "Request a Free Solar Quote",
+}: {
+  prefill?: EnquiryPrefill;
+  heading?: string;
+}) {
   // Also read URL search params so links like /contact?package=4kw prefill the form.
   const searchRaw = useSearch({ strict: false }) as Partial<Record<string, string>>;
   const sp = (key: string): string | undefined => searchRaw[key];
@@ -41,7 +47,7 @@ export function EnquiryForm({ prefill = {}, heading = "Request a Free Solar Quot
         (pkg) =>
           pkg.capacity.toLowerCase() === p.toLowerCase() ||
           pkg.id.toLowerCase() === p.toLowerCase() ||
-          p.toLowerCase().includes(pkg.capacity.toLowerCase())
+          p.toLowerCase().includes(pkg.capacity.toLowerCase()),
       );
       return found ? found.capacity : p;
     })(),
@@ -65,8 +71,10 @@ export function EnquiryForm({ prefill = {}, heading = "Request a Free Solar Quot
   const validate = () => {
     const e: Record<string, string> = {};
     if (!form["name"].trim()) e["name"] = "Please enter your full name.";
-    if (!/^[6-9]\d{9}$/.test(form["mobile"].replace(/\s/g, ""))) e["mobile"] = "Enter a valid 10-digit Indian mobile number.";
-    if (form["email"] && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form["email"])) e["email"] = "Enter a valid email address.";
+    if (!/^[6-9]\d{9}$/.test(form["mobile"].replace(/\s/g, "")))
+      e["mobile"] = "Enter a valid 10-digit Indian mobile number.";
+    if (form["email"] && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form["email"]))
+      e["email"] = "Enter a valid email address.";
     if (!form["city"].trim()) e["city"] = "Please enter your city or town.";
     if (!form["consent"]) e["consent"] = "Please allow us to contact you about your enquiry.";
     setErrors(e);
@@ -200,7 +208,7 @@ export function EnquiryForm({ prefill = {}, heading = "Request a Free Solar Quot
       } else {
         setEmailSent(false);
         setSendError(
-          "Direct email service is not yet configured in your deployment settings. Please send your enquiry directly to our team via WhatsApp!"
+          "Direct email service is not yet configured in your deployment settings. Please send your enquiry directly to our team via WhatsApp!",
         );
       }
     } catch (err) {
@@ -221,7 +229,9 @@ export function EnquiryForm({ prefill = {}, heading = "Request a Free Solar Quot
               <Loader2 className="h-7 w-7 text-primary animate-spin" aria-hidden />
             </div>
             <h3 className="mt-4 text-xl font-bold">Sending your enquiry…</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Please wait while we forward your details to our team.</p>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Please wait while we forward your details to our team.
+            </p>
           </>
         ) : emailSent ? (
           <>
@@ -230,7 +240,8 @@ export function EnquiryForm({ prefill = {}, heading = "Request a Free Solar Quot
             </div>
             <h3 className="mt-4 text-xl font-bold text-green-700">Enquiry Sent Successfully! 🎉</h3>
             <p className="mt-2 text-sm text-muted-foreground">
-              Your enquiry has been emailed directly to our team at <strong>{BUSINESS.name}</strong>. We'll get back to you within 24 hours.
+              Your enquiry has been emailed directly to our team at <strong>{BUSINESS.name}</strong>
+              . We'll get back to you within 24 hours.
             </p>
             <div className="mt-4 flex flex-col gap-1 rounded-xl bg-green-50 border border-green-200 px-4 py-2.5 text-sm text-green-700">
               <div className="flex items-center gap-2">
@@ -253,7 +264,8 @@ export function EnquiryForm({ prefill = {}, heading = "Request a Free Solar Quot
             </div>
             <h3 className="mt-4 text-xl font-bold">Your enquiry is ready! ☀️</h3>
             <p className="mt-2 text-sm text-muted-foreground">
-              To make sure your enquiry reaches our team immediately, send it directly via WhatsApp with one click or give us a call.
+              To make sure your enquiry reaches our team immediately, send it directly via WhatsApp
+              with one click or give us a call.
             </p>
           </>
         )}
@@ -291,9 +303,15 @@ export function EnquiryForm({ prefill = {}, heading = "Request a Free Solar Quot
   }
 
   return (
-    <form onSubmit={onSubmit} noValidate className="rounded-2xl border border-border bg-card p-6 shadow-soft sm:p-8">
+    <form
+      onSubmit={onSubmit}
+      noValidate
+      className="rounded-2xl border border-border bg-card p-6 shadow-soft sm:p-8"
+    >
       <h3 className="text-xl font-bold">{heading}</h3>
-      <p className="mt-1 text-sm text-muted-foreground">Fill in your details and we'll email our team and get back to you within 24 hours.</p>
+      <p className="mt-1 text-sm text-muted-foreground">
+        Fill in your details and we'll email our team and get back to you within 24 hours.
+      </p>
 
       {form.packageInterest && (
         <div className="mt-4 flex items-center justify-between rounded-xl border border-primary/30 bg-solar-soft px-4 py-3 text-sm animate-fade-up">
@@ -302,7 +320,10 @@ export function EnquiryForm({ prefill = {}, heading = "Request a Free Solar Quot
               ✓
             </span>
             <span>
-              Selected Package: <strong className="font-bold text-foreground">{form.packageInterest} Solar Package</strong>
+              Selected Package:{" "}
+              <strong className="font-bold text-foreground">
+                {form.packageInterest} Solar Package
+              </strong>
               {selectedPkg?.price ? ` (${selectedPkg.price})` : ""}
             </span>
           </div>
@@ -318,35 +339,90 @@ export function EnquiryForm({ prefill = {}, heading = "Request a Free Solar Quot
 
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
         <div>
-          <label htmlFor="eq-name" className="mb-1.5 block text-sm font-medium">Full name *</label>
-          <input id="eq-name" className={inputCls} value={form.name} onChange={(e) => set("name", e.target.value)} autoComplete="name" placeholder="Your full name" />
+          <label htmlFor="eq-name" className="mb-1.5 block text-sm font-medium">
+            Full name *
+          </label>
+          <input
+            id="eq-name"
+            className={inputCls}
+            value={form.name}
+            onChange={(e) => set("name", e.target.value)}
+            autoComplete="name"
+            placeholder="Your full name"
+          />
           {errors["name"] && <p className="mt-1 text-xs text-destructive">{errors["name"]}</p>}
         </div>
         <div>
-          <label htmlFor="eq-mobile" className="mb-1.5 block text-sm font-medium">Mobile number *</label>
-          <input id="eq-mobile" type="tel" className={inputCls} value={form.mobile} onChange={(e) => set("mobile", e.target.value)} autoComplete="tel" placeholder="10-digit mobile" />
+          <label htmlFor="eq-mobile" className="mb-1.5 block text-sm font-medium">
+            Mobile number *
+          </label>
+          <input
+            id="eq-mobile"
+            type="tel"
+            className={inputCls}
+            value={form.mobile}
+            onChange={(e) => set("mobile", e.target.value)}
+            autoComplete="tel"
+            placeholder="10-digit mobile"
+          />
           {errors["mobile"] && <p className="mt-1 text-xs text-destructive">{errors["mobile"]}</p>}
         </div>
         <div>
-          <label htmlFor="eq-email" className="mb-1.5 block text-sm font-medium">Email (optional)</label>
-          <input id="eq-email" type="email" className={inputCls} value={form.email} onChange={(e) => set("email", e.target.value)} autoComplete="email" placeholder="yourname@email.com" />
+          <label htmlFor="eq-email" className="mb-1.5 block text-sm font-medium">
+            Email (optional)
+          </label>
+          <input
+            id="eq-email"
+            type="email"
+            className={inputCls}
+            value={form.email}
+            onChange={(e) => set("email", e.target.value)}
+            autoComplete="email"
+            placeholder="yourname@email.com"
+          />
           {errors["email"] && <p className="mt-1 text-xs text-destructive">{errors["email"]}</p>}
         </div>
         <div>
-          <label htmlFor="eq-city" className="mb-1.5 block text-sm font-medium">City / town *</label>
-          <input id="eq-city" className={inputCls} list="sg-areas" value={form.city} onChange={(e) => set("city", e.target.value)} placeholder="e.g. Kadapa" />
+          <label htmlFor="eq-city" className="mb-1.5 block text-sm font-medium">
+            City / town *
+          </label>
+          <input
+            id="eq-city"
+            className={inputCls}
+            list="sg-areas"
+            value={form.city}
+            onChange={(e) => set("city", e.target.value)}
+            placeholder="e.g. Kadapa"
+          />
           <datalist id="sg-areas">
-            {SERVICE_AREAS.map((a) => <option key={a.name} value={a.name} />)}
+            {SERVICE_AREAS.map((a) => (
+              <option key={a.name} value={a.name} />
+            ))}
           </datalist>
           {errors["city"] && <p className="mt-1 text-xs text-destructive">{errors["city"]}</p>}
         </div>
         <div>
-          <label htmlFor="eq-district" className="mb-1.5 block text-sm font-medium">District</label>
-          <input id="eq-district" className={inputCls} value={form.district} onChange={(e) => set("district", e.target.value)} placeholder="e.g. YSR Kadapa" />
+          <label htmlFor="eq-district" className="mb-1.5 block text-sm font-medium">
+            District
+          </label>
+          <input
+            id="eq-district"
+            className={inputCls}
+            value={form.district}
+            onChange={(e) => set("district", e.target.value)}
+            placeholder="e.g. YSR Kadapa"
+          />
         </div>
         <div>
-          <label htmlFor="eq-property" className="mb-1.5 block text-sm font-medium">Property type</label>
-          <select id="eq-property" className={inputCls} value={form.propertyType} onChange={(e) => set("propertyType", e.target.value)}>
+          <label htmlFor="eq-property" className="mb-1.5 block text-sm font-medium">
+            Property type
+          </label>
+          <select
+            id="eq-property"
+            className={inputCls}
+            value={form.propertyType}
+            onChange={(e) => set("propertyType", e.target.value)}
+          >
             <option>Residential</option>
             <option>Commercial</option>
             <option>Industrial</option>
@@ -354,8 +430,15 @@ export function EnquiryForm({ prefill = {}, heading = "Request a Free Solar Quot
           </select>
         </div>
         <div>
-          <label htmlFor="eq-service" className="mb-1.5 block text-sm font-medium">Service interest</label>
-          <select id="eq-service" className={inputCls} value={form.service} onChange={(e) => set("service", e.target.value)}>
+          <label htmlFor="eq-service" className="mb-1.5 block text-sm font-medium">
+            Service interest
+          </label>
+          <select
+            id="eq-service"
+            className={inputCls}
+            value={form.service}
+            onChange={(e) => set("service", e.target.value)}
+          >
             <option>Residential Solar</option>
             <option>Commercial Solar</option>
             <option>Subsidy Guidance</option>
@@ -364,19 +447,49 @@ export function EnquiryForm({ prefill = {}, heading = "Request a Free Solar Quot
           </select>
         </div>
         <div>
-          <label htmlFor="eq-package" className="mb-1.5 block text-sm font-medium">Package interest (optional)</label>
-          <select id="eq-package" className={inputCls} value={form.packageInterest} onChange={(e) => set("packageInterest", e.target.value)}>
+          <label htmlFor="eq-package" className="mb-1.5 block text-sm font-medium">
+            Package interest (optional)
+          </label>
+          <select
+            id="eq-package"
+            className={inputCls}
+            value={form.packageInterest}
+            onChange={(e) => set("packageInterest", e.target.value)}
+          >
             <option value="">Not sure yet</option>
-            {PACKAGES.map((p) => <option key={p.id} value={p.capacity}>{p.capacity} — {p.price}</option>)}
+            {PACKAGES.map((p) => (
+              <option key={p.id} value={p.capacity}>
+                {p.capacity} — {p.price}
+              </option>
+            ))}
           </select>
         </div>
         <div>
-          <label htmlFor="eq-bill" className="mb-1.5 block text-sm font-medium">Monthly electricity bill (₹, optional)</label>
-          <input id="eq-bill" type="number" min="0" className={inputCls} value={form.monthlyBill} onChange={(e) => set("monthlyBill", e.target.value)} placeholder="e.g. 2000" />
+          <label htmlFor="eq-bill" className="mb-1.5 block text-sm font-medium">
+            Monthly electricity bill (₹, optional)
+          </label>
+          <input
+            id="eq-bill"
+            type="number"
+            min="0"
+            className={inputCls}
+            value={form.monthlyBill}
+            onChange={(e) => set("monthlyBill", e.target.value)}
+            placeholder="e.g. 2000"
+          />
         </div>
         <div className="sm:col-span-2">
-          <label htmlFor="eq-message" className="mb-1.5 block text-sm font-medium">Message (optional)</label>
-          <textarea id="eq-message" rows={3} className={inputCls} value={form.message} onChange={(e) => set("message", e.target.value)} placeholder="Tell us more about your requirements…" />
+          <label htmlFor="eq-message" className="mb-1.5 block text-sm font-medium">
+            Message (optional)
+          </label>
+          <textarea
+            id="eq-message"
+            rows={3}
+            className={inputCls}
+            value={form.message}
+            onChange={(e) => set("message", e.target.value)}
+            placeholder="Tell us more about your requirements…"
+          />
         </div>
         <div className="sm:col-span-2">
           <label className="flex items-start gap-3 text-sm text-muted-foreground">
@@ -388,7 +501,9 @@ export function EnquiryForm({ prefill = {}, heading = "Request a Free Solar Quot
             />
             I agree to be contacted by {BUSINESS.name} about my enquiry.
           </label>
-          {errors["consent"] && <p className="mt-1 text-xs text-destructive">{errors["consent"]}</p>}
+          {errors["consent"] && (
+            <p className="mt-1 text-xs text-destructive">{errors["consent"]}</p>
+          )}
         </div>
       </div>
 

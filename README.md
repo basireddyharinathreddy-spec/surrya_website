@@ -4,8 +4,6 @@ Generate a website and give me
 
 This project was built with [Lovable](https://lovable.dev).
 
-
-
 ## Build with Lovable
 
 Continue developing this project in the [Lovable editor](https://lovable.dev/projects/69fd4608-9c0e-4efd-9af1-325f1658e60b).

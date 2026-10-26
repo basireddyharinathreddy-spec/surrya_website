@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
  * Returns [ref, isVisible] so you can apply animation classes conditionally.
  */
 export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(
-  options: IntersectionObserverInit = {}
+  options: IntersectionObserverInit = {},
 ) {
   const ref = useRef<T>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -21,7 +21,7 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(
           observer.unobserve(el); // Only trigger once
         }
       },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px", ...options }
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px", ...options },
     );
 
     observer.observe(el);

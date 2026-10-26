@@ -4,7 +4,9 @@ import { BUSINESS, whatsappLink } from "@/lib/config";
 export function WhatsAppFloat() {
   return (
     <a
-      href={whatsappLink(`Hello ${BUSINESS.brandName}, I would like to enquire about solar solutions.`)}
+      href={whatsappLink(
+        `Hello ${BUSINESS.brandName}, I would like to enquire about solar solutions.`,
+      )}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`Chat with ${BUSINESS.brandName} on WhatsApp`}

@@ -74,7 +74,7 @@ export function DynamicStatsCounter({ compact = false }: { compact?: boolean }) 
           setHasStarted(true);
         }
       },
-      { threshold: 0.25 }
+      { threshold: 0.25 },
     );
 
     if (containerRef.current) {
@@ -133,7 +133,8 @@ export function DynamicStatsCounter({ compact = false }: { compact?: boolean }) 
             Powering Andhra Pradesh with Measurable Results
           </h2>
           <p className="mx-auto mt-2 max-w-2xl text-sm sm:text-base text-muted-foreground">
-            Real-time live operational benchmarks across Rayalaseema and neighboring districts under PM Surya Ghar Muft Bijli Yojana.
+            Real-time live operational benchmarks across Rayalaseema and neighboring districts under
+            PM Surya Ghar Muft Bijli Yojana.
           </p>
         </div>
 
@@ -171,7 +172,9 @@ export function DynamicStatsCounter({ compact = false }: { compact?: boolean }) 
 
                 <div className="mt-5">
                   <div className="flex items-baseline font-extrabold tracking-tight text-3xl sm:text-4xl text-foreground">
-                    {stat.prefix && <span className="mr-0.5 text-2xl text-primary">{stat.prefix}</span>}
+                    {stat.prefix && (
+                      <span className="mr-0.5 text-2xl text-primary">{stat.prefix}</span>
+                    )}
                     <span>{formattedVal}</span>
                     <span className="ml-1 text-xl sm:text-2xl text-primary">{stat.suffix}</span>
                   </div>

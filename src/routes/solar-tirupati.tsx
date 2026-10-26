@@ -1,7 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
-  Sun, ShieldCheck, Zap, ArrowRight, CheckCircle2,
-  MapPin, Clock, IndianRupee, Sparkles, Building2,
+  Sun,
+  ShieldCheck,
+  Zap,
+  ArrowRight,
+  CheckCircle2,
+  MapPin,
+  Clock,
+  IndianRupee,
+  Sparkles,
+  Building2,
 } from "lucide-react";
 import heroImg from "@/assets/hero-home.jpg";
 import commercialImg from "@/assets/commercial.jpg";
@@ -16,20 +24,24 @@ import { BUSINESS } from "@/lib/config";
 export const Route = createFileRoute("/solar-tirupati")({
   head: () => ({
     meta: [
-      { title: `Rooftop Solar in Tirupati | PM Surya Ghar Subsidy | ${BUSINESS.name}` },
+      { title: `Solar Panel Installation in Tirupati | Solar Company | ${BUSINESS.name}` },
       {
         name: "description",
-        content: `Trusted rooftop solar company in Tirupati. Claim up to ₹78,000 PM Surya Ghar subsidy, APSPDCL headquarters net metering, and 25-year warranty with ${BUSINESS.name}. Free on-site survey.`,
+        content: `Looking for solar panel installation in Tirupati? Surrya Gen Power is a top solar company in Tirupati offering the best solar panels in Andhra Pradesh, PM Surya Ghar subsidy, and APSPDCL net metering.`,
       },
-      { property: "og:title", content: `Rooftop Solar in Tirupati | PM Surya Ghar Subsidy | ${BUSINESS.name}` },
-      { property: "og:description", content: `Clean rooftop solar for homes, hotels, and institutions in Tirupati. Up to ₹78,000 direct subsidy and fast APSPDCL net metering.` },
+      {
+        property: "og:title",
+        content: `Solar Panel Installation in Tirupati | Solar Company | ${BUSINESS.name}`,
+      },
+      {
+        property: "og:description",
+        content: `Premier solar company in Tirupati for residential and commercial solar panel installation. Best solar panels in Andhra Pradesh with ₹78,000 subsidy.`,
+      },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://www.surryagenpower.in/solar-tirupati" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [
-      { rel: "canonical", href: "https://www.surryagenpower.in/solar-tirupati" },
-    ],
+    links: [{ rel: "canonical", href: "https://www.surryagenpower.in/solar-tirupati" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -37,21 +49,22 @@ export const Route = createFileRoute("/solar-tirupati")({
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
           "@id": "https://www.surryagenpower.in/solar-tirupati#business",
-          "name": "Surrya Gen Power — Rooftop Solar Tirupati",
-          "url": "https://www.surryagenpower.in/solar-tirupati",
-          "telephone": "+919391927443",
-          "email": "atriasolar5859@gmail.com",
-          "address": {
+          name: "Surrya Gen Power — Rooftop Solar Tirupati",
+          url: "https://www.surryagenpower.in/solar-tirupati",
+          telephone: "+919391927443",
+          email: "atriasolar5859@gmail.com",
+          address: {
             "@type": "PostalAddress",
-            "addressLocality": "Tirupati",
-            "addressRegion": "Andhra Pradesh",
-            "addressCountry": "IN"
+            addressLocality: "Tirupati",
+            addressRegion: "Andhra Pradesh",
+            addressCountry: "IN",
           },
-          "areaServed": [
-            { "@type": "City", "name": "Tirupati" },
-            { "@type": "AdministrativeArea", "name": "Tirupati District" }
+          areaServed: [
+            { "@type": "City", name: "Tirupati" },
+            { "@type": "AdministrativeArea", name: "Tirupati District" },
           ],
-          "description": "Premier rooftop solar installer in Tirupati serving residential homeowners, hotels, guest houses, and educational institutions with turnkey EPC and net-metering."
+          description:
+            "Surrya Gen Power is a premier solar company in Tirupati offering solar panel installation in Tirupati with the best solar panels in Andhra Pradesh.",
         }),
       },
       {
@@ -59,26 +72,26 @@ export const Route = createFileRoute("/solar-tirupati")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
-          "itemListElement": [
+          itemListElement: [
             {
               "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://www.surryagenpower.in/"
+              position: 1,
+              name: "Home",
+              item: "https://www.surryagenpower.in/",
             },
             {
               "@type": "ListItem",
-              "position": 2,
-              "name": "Service Areas",
-              "item": "https://www.surryagenpower.in/service-areas"
+              position: 2,
+              name: "Service Areas",
+              item: "https://www.surryagenpower.in/service-areas",
             },
             {
               "@type": "ListItem",
-              "position": 3,
-              "name": "Rooftop Solar in Tirupati",
-              "item": "https://www.surryagenpower.in/solar-tirupati"
-            }
-          ]
+              position: 3,
+              name: "Rooftop Solar in Tirupati",
+              item: "https://www.surryagenpower.in/solar-tirupati",
+            },
+          ],
         }),
       },
       {
@@ -86,40 +99,40 @@ export const Route = createFileRoute("/solar-tirupati")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",
-          "mainEntity": [
+          mainEntity: [
             {
               "@type": "Question",
-              "name": "How does PM Surya Ghar subsidy benefit Tirupati residents?",
-              "acceptedAnswer": {
+              name: "How does PM Surya Ghar subsidy benefit Tirupati residents?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "Residential consumers in Tirupati are eligible for ₹30,000 for 1 kW, ₹60,000 for 2 kW, and a maximum of ₹78,000 for 3 kW and higher systems under the PM Surya Ghar scheme. Subsidies are credited directly to your bank account via DBT."
-              }
+                text: "Residential consumers in Tirupati are eligible for ₹30,000 for 1 kW, ₹60,000 for 2 kW, and a maximum of ₹78,000 for 3 kW and higher systems under the PM Surya Ghar scheme. Subsidies are credited directly to your bank account via DBT.",
+              },
             },
             {
               "@type": "Question",
-              "name": "Can hotels, hostels, and choultries in Tirupati install rooftop solar?",
-              "acceptedAnswer": {
+              name: "Can hotels, hostels, and choultries in Tirupati install rooftop solar?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "Yes! Commercial solar systems (15 kW to 100+ kW) are ideal for Tirupati's hospitality and educational institutions. They deliver rapid 3-to-4-year payback, 40% accelerated tax depreciation, and protection against high commercial slab tariffs."
-              }
+                text: "Yes! Commercial solar systems (15 kW to 100+ kW) are ideal for Tirupati's hospitality and educational institutions. They deliver rapid 3-to-4-year payback, 40% accelerated tax depreciation, and protection against high commercial slab tariffs.",
+              },
             },
             {
               "@type": "Question",
-              "name": "How quickly can APSPDCL net metering be commissioned in Tirupati?",
-              "acceptedAnswer": {
+              name: "How quickly can APSPDCL net metering be commissioned in Tirupati?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "Because APSPDCL headquarters is located in Tirupati, the net-metering application, feasibility inspection, and bi-directional meter testing proceed smoothly, usually taking 3 to 4 weeks total."
-              }
+                text: "Because APSPDCL headquarters is located in Tirupati, the net-metering application, feasibility inspection, and bi-directional meter testing proceed smoothly, usually taking 3 to 4 weeks total.",
+              },
             },
             {
               "@type": "Question",
-              "name": "Which localities in Tirupati do you cover for site surveys?",
-              "acceptedAnswer": {
+              name: "Which localities in Tirupati do you cover for site surveys?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "We cover all of Tirupati including MR Palli, Alipiri, Korlagunta, Bairagipatteda, Karakambadi Road, Renigunta, Chandragiri, Padmavati Nagar, Tiruchanur, and Srikalahasti."
-              }
-            }
-          ]
+                text: "We cover all of Tirupati including MR Palli, Alipiri, Korlagunta, Bairagipatteda, Karakambadi Road, Renigunta, Chandragiri, Padmavati Nagar, Tiruchanur, and Srikalahasti.",
+              },
+            },
+          ],
         }),
       },
     ],
@@ -188,11 +201,11 @@ function SolarTirupati() {
   return (
     <div>
       <PageHero
-        eyebrow="Tirupati & Temple City Region"
-        title="Rooftop Solar Installation in Tirupati"
-        description="Power your home, hotel, or institution with clean solar energy in Tirupati. Claim up to ₹78,000 PM Surya Ghar subsidy, prompt APSPDCL net metering, and 25-year performance warranty with Surrya Gen Power."
+        eyebrow="Leading Solar Company in Tirupati"
+        title="Solar Panel Installation in Tirupati"
+        description="Power your home, hotel, or educational campus with premium solar panel installation in Tirupati. Deploy the best solar panels in Andhra Pradesh with up to ₹78,000 PM Surya Ghar subsidy and direct APSPDCL headquarters net metering."
         image={commercialImg}
-        imageAlt="Commercial and residential rooftop solar panels installed in Tirupati, Andhra Pradesh"
+        imageAlt="Solar panel installation in Tirupati by premier solar company Surrya Gen Power"
         badge="Residential & Commercial Solutions"
         badgeIcon={<Sparkles className="h-4 w-4 text-amber-500" />}
         primaryCta={{
@@ -207,9 +220,9 @@ function SolarTirupati() {
       <section className="bg-cream py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <SectionHeading
-            eyebrow="Solar In Tirupati"
-            title="Clean, Dependable Power for Homes & Businesses"
-            description="Whether you run a residential household or manage commercial guest accommodation, solar delivers immense savings and grid independence in Tirupati."
+            eyebrow="Trusted Solar Company in Tirupati"
+            title="Deploying the Best Solar Panels in Andhra Pradesh"
+            description="Whether you require residential rooftop solar panel installation in Tirupati or commercial solar for hotels and colleges, we engineer every project with Tier-1 bifacial panels for 25+ years of peak generation."
           />
 
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

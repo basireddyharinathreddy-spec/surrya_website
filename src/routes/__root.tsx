@@ -23,7 +23,8 @@ function NotFoundComponent() {
         <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Error 404</p>
         <h1 className="mt-3 text-5xl font-bold text-foreground">Page not found</h1>
         <p className="mt-3 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved. Let's get you back to sunshine.
+          The page you're looking for doesn't exist or has been moved. Let's get you back to
+          sunshine.
         </p>
         <div className="mt-6">
           <Link
@@ -45,7 +46,9 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
   return (
     <div className="flex min-h-[60vh] items-center justify-center px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-xl font-semibold tracking-tight text-foreground">This page didn't load</h1>
+        <h1 className="text-xl font-semibold tracking-tight text-foreground">
+          This page didn't load
+        </h1>
         <p className="mt-2 text-sm text-muted-foreground">
           Something went wrong on our end. You can try refreshing or head back home.
         </p>
@@ -79,8 +82,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: `${BUSINESS.brandName} — ${BUSINESS.tagline}` },
       {
         name: "description",
-        content:
-          `Rooftop solar solutions for homes and businesses across Kadapa, Tirupati, Chittoor, and Rayalaseema. Explore packages, savings and subsidy guidance with ${BUSINESS.name}.`,
+        content: `Rooftop solar solutions for homes and businesses across Kadapa, Tirupati, Chittoor, and Rayalaseema. Explore packages, savings and subsidy guidance with ${BUSINESS.name}.`,
       },
       { property: "og:title", content: `${BUSINESS.brandName} — ${BUSINESS.tagline}` },
       {
@@ -92,7 +94,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:image", content: "https://www.surryagenpower.in/og-banner.jpg" },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
-      { property: "og:image:alt", content: "Surrya Gen Power — Rooftop Solar Solutions for Andhra Pradesh" },
+      {
+        property: "og:image:alt",
+        content: "Surrya Gen Power — Rooftop Solar Solutions for Andhra Pradesh",
+      },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@surryagenpower" },
       { name: "twitter:image", content: "https://www.surryagenpower.in/og-banner.jpg" },
@@ -115,17 +120,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebSite",
-          "name": BUSINESS.brandName,
-          "url": BUSINESS.websiteUrl,
-          "description": "Rooftop solar solutions for homes and businesses across Kadapa, Tirupati, Chittoor, and Rayalaseema, Andhra Pradesh.",
-          "potentialAction": {
+          name: BUSINESS.brandName,
+          url: BUSINESS.websiteUrl,
+          description:
+            "Rooftop solar solutions for homes and businesses across Kadapa, Tirupati, Chittoor, and Rayalaseema, Andhra Pradesh.",
+          potentialAction: {
             "@type": "SearchAction",
-            "target": {
+            target: {
               "@type": "EntryPoint",
-              "urlTemplate": "https://www.surryagenpower.in/contact?service={search_term_string}"
+              urlTemplate: "https://www.surryagenpower.in/contact?service={search_term_string}",
             },
-            "query-input": "required name=search_term_string"
-          }
+            "query-input": "required name=search_term_string",
+          },
         }),
       },
     ],

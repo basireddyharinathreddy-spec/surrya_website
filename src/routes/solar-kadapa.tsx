@@ -1,7 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
-  Sun, ShieldCheck, Zap, ArrowRight, CheckCircle2,
-  MapPin, Clock, IndianRupee, Sparkles, Building2,
+  Sun,
+  ShieldCheck,
+  Zap,
+  ArrowRight,
+  CheckCircle2,
+  MapPin,
+  Clock,
+  IndianRupee,
+  Sparkles,
+  Building2,
 } from "lucide-react";
 import heroImg from "@/assets/hero-home.jpg";
 import residentialImg from "@/assets/residential.jpg";
@@ -16,20 +24,24 @@ import { BUSINESS } from "@/lib/config";
 export const Route = createFileRoute("/solar-kadapa")({
   head: () => ({
     meta: [
-      { title: `Rooftop Solar in Kadapa | PM Surya Ghar Subsidy | ${BUSINESS.name}` },
+      { title: `Solar Panel Installation in Kadapa | Solar Company | ${BUSINESS.name}` },
       {
         name: "description",
-        content: `Leading rooftop solar installer in Kadapa (YSR District). Get up to ₹78,000 PM Surya Ghar subsidy, APSPDCL net metering approval, and 25-year panel warranty with ${BUSINESS.name}. Free site inspection.`,
+        content: `Looking for solar panel installation in Kadapa? Surrya Gen Power is the trusted solar company in Kadapa offering rooftop solar installation with the best solar panels in Andhra Pradesh and ₹78,000 PM Surya Ghar subsidy.`,
       },
-      { property: "og:title", content: `Rooftop Solar in Kadapa | PM Surya Ghar Subsidy | ${BUSINESS.name}` },
-      { property: "og:description", content: `Switch to rooftop solar in Kadapa. Cut electricity bills by up to 90% with ₹78,000 direct DBT subsidy and local APSPDCL support.` },
+      {
+        property: "og:title",
+        content: `Solar Panel Installation in Kadapa | Solar Company | ${BUSINESS.name}`,
+      },
+      {
+        property: "og:description",
+        content: `Premier solar company in Kadapa for rooftop solar installation. We deploy the best solar panels in Andhra Pradesh with ₹78,000 subsidy & APSPDCL net metering.`,
+      },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://www.surryagenpower.in/solar-kadapa" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [
-      { rel: "canonical", href: "https://www.surryagenpower.in/solar-kadapa" },
-    ],
+    links: [{ rel: "canonical", href: "https://www.surryagenpower.in/solar-kadapa" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -37,21 +49,22 @@ export const Route = createFileRoute("/solar-kadapa")({
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
           "@id": "https://www.surryagenpower.in/solar-kadapa#business",
-          "name": "Surrya Gen Power — Rooftop Solar Kadapa",
-          "url": "https://www.surryagenpower.in/solar-kadapa",
-          "telephone": "+919391927443",
-          "email": "atriasolar5859@gmail.com",
-          "address": {
+          name: "Surrya Gen Power — Rooftop Solar Kadapa",
+          url: "https://www.surryagenpower.in/solar-kadapa",
+          telephone: "+919391927443",
+          email: "atriasolar5859@gmail.com",
+          address: {
             "@type": "PostalAddress",
-            "addressLocality": "Kadapa",
-            "addressRegion": "Andhra Pradesh",
-            "addressCountry": "IN"
+            addressLocality: "Kadapa",
+            addressRegion: "Andhra Pradesh",
+            addressCountry: "IN",
           },
-          "areaServed": [
-            { "@type": "City", "name": "Kadapa" },
-            { "@type": "AdministrativeArea", "name": "YSR Kadapa District" }
+          areaServed: [
+            { "@type": "City", name: "Kadapa" },
+            { "@type": "AdministrativeArea", name: "YSR Kadapa District" },
           ],
-          "description": "Professional rooftop solar EPC contractor in Kadapa offering residential PM Surya Ghar installations, commercial systems, and APSPDCL net-metering."
+          description:
+            "Surrya Gen Power is a leading solar company in Kadapa specializing in rooftop solar installation in Kadapa using the best solar panels in Andhra Pradesh.",
         }),
       },
       {
@@ -59,26 +72,26 @@ export const Route = createFileRoute("/solar-kadapa")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
-          "itemListElement": [
+          itemListElement: [
             {
               "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://www.surryagenpower.in/"
+              position: 1,
+              name: "Home",
+              item: "https://www.surryagenpower.in/",
             },
             {
               "@type": "ListItem",
-              "position": 2,
-              "name": "Service Areas",
-              "item": "https://www.surryagenpower.in/service-areas"
+              position: 2,
+              name: "Service Areas",
+              item: "https://www.surryagenpower.in/service-areas",
             },
             {
               "@type": "ListItem",
-              "position": 3,
-              "name": "Rooftop Solar in Kadapa",
-              "item": "https://www.surryagenpower.in/solar-kadapa"
-            }
-          ]
+              position: 3,
+              name: "Rooftop Solar in Kadapa",
+              item: "https://www.surryagenpower.in/solar-kadapa",
+            },
+          ],
         }),
       },
       {
@@ -86,40 +99,40 @@ export const Route = createFileRoute("/solar-kadapa")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",
-          "mainEntity": [
+          mainEntity: [
             {
               "@type": "Question",
-              "name": "How does PM Surya Ghar subsidy work for homes in Kadapa?",
-              "acceptedAnswer": {
+              name: "How does PM Surya Ghar subsidy work for homes in Kadapa?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "Homeowners in Kadapa receive up to ₹78,000 direct bank transfer subsidy for residential systems of 3 kW or higher under PM Surya Ghar Muft Bijli Yojana. Surrya Gen Power handles 100% of the portal documentation and APSPDCL net-meter synchronization."
-              }
+                text: "Homeowners in Kadapa receive up to ₹78,000 direct bank transfer subsidy for residential systems of 3 kW or higher under PM Surya Ghar Muft Bijli Yojana. Surrya Gen Power handles 100% of the portal documentation and APSPDCL net-meter synchronization.",
+              },
             },
             {
               "@type": "Question",
-              "name": "Why is Kadapa ideal for rooftop solar installation?",
-              "acceptedAnswer": {
+              name: "Why is Kadapa ideal for rooftop solar installation?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "Kadapa experiences over 310 sunny days annually with high global horizontal irradiance (~5.0 kWh/sq.m/day), resulting in exceptional energy generation (approx. 4.2 to 4.5 units per kW installed per day)."
-              }
+                text: "Kadapa experiences over 310 sunny days annually with high global horizontal irradiance (~5.0 kWh/sq.m/day), resulting in exceptional energy generation (approx. 4.2 to 4.5 units per kW installed per day).",
+              },
             },
             {
               "@type": "Question",
-              "name": "How long does APSPDCL net-metering approval take in Kadapa?",
-              "acceptedAnswer": {
+              name: "How long does APSPDCL net-metering approval take in Kadapa?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "With our direct liaisoning at the APSPDCL Kadapa Circle Office, technical feasibility and bi-directional meter synchronization typically take 3 to 4 weeks from application."
-              }
+                text: "With our direct liaisoning at the APSPDCL Kadapa Circle Office, technical feasibility and bi-directional meter synchronization typically take 3 to 4 weeks from application.",
+              },
             },
             {
               "@type": "Question",
-              "name": "Which areas in and around Kadapa do you serve?",
-              "acceptedAnswer": {
+              name: "Which areas in and around Kadapa do you serve?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "We serve all Kadapa city localities including Yerramukkapalli, Nagarajupeta, RIMS Road, Akkayapalli, Chemmumiahpet, and Chinnachowk, as well as nearby towns like Proddatur, Pulivendula, Rayachoti, Kamalapuram, and Badvel."
-              }
-            }
-          ]
+                text: "We serve all Kadapa city localities including Yerramukkapalli, Nagarajupeta, RIMS Road, Akkayapalli, Chemmumiahpet, and Chinnachowk, as well as nearby towns like Proddatur, Pulivendula, Rayachoti, Kamalapuram, and Badvel.",
+              },
+            },
+          ],
         }),
       },
     ],
@@ -188,11 +201,11 @@ function SolarKadapa() {
   return (
     <div>
       <PageHero
-        eyebrow="Kadapa & YSR District"
-        title="Rooftop Solar Installation in Kadapa"
-        description="Switch to clean solar power in Kadapa. Eliminate up to 90% of your electricity bill with ₹78,000 PM Surya Ghar subsidy, APSPDCL net-metering, and Tier-1 TOPCon panels installed by local experts."
+        eyebrow="Premier Solar Company in Kadapa"
+        title="Solar Panel Installation in Kadapa"
+        description="Surrya Gen Power provides turnkey rooftop solar installation in Kadapa using the best solar panels in Andhra Pradesh. Cut your power bills by up to 90% with ₹78,000 PM Surya Ghar subsidy, fast APSPDCL net metering, and 25-year performance warranty."
         image={heroImg}
-        imageAlt="Rooftop solar installation on a residential home in Kadapa, Andhra Pradesh"
+        imageAlt="Solar panel installation in Kadapa by premier solar company Surrya Gen Power"
         badge="APSPDCL Net Metering Support"
         badgeIcon={<Sparkles className="h-4 w-4 text-amber-500" />}
         primaryCta={{
@@ -207,9 +220,9 @@ function SolarKadapa() {
       <section className="bg-cream py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <SectionHeading
-            eyebrow="Why Choose Solar in Kadapa"
-            title="Engineered for Kadapa's Sunshine & Climate"
-            description="High temperatures and strong irradiance require precision engineering. We deploy Tier-1 TOPCon modules and dual-MPPT inverters built to deliver peak output year-round in Kadapa."
+            eyebrow="Why Choose Our Solar Company in Kadapa"
+            title="Engineered with the Best Solar Panels in Andhra Pradesh"
+            description="Kadapa's intense heat and solar irradiance require precision engineering. We deploy Tier-1 TOPCon modules and dual-MPPT inverters built to deliver peak rooftop solar installation performance year-round."
           />
 
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

@@ -1,8 +1,18 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
-  ArrowRight, Sun, Target, HeartHandshake, Building2,
-  CheckCircle2, Sparkles, ShieldCheck, Award, Users,
-  Zap, Wrench, Clock,
+  ArrowRight,
+  Sun,
+  Target,
+  HeartHandshake,
+  Building2,
+  CheckCircle2,
+  Sparkles,
+  ShieldCheck,
+  Award,
+  Users,
+  Zap,
+  Wrench,
+  Clock,
 } from "lucide-react";
 import installationImg from "@/assets/installation.jpg";
 import technologyImg from "@/assets/technology.jpg";
@@ -23,15 +33,19 @@ export const Route = createFileRoute("/about")({
         name: "description",
         content: `${BUSINESS.name} is Rayalaseema's trusted rooftop solar EPC installer across Kadapa, Tirupati, Chittoor, and Andhra Pradesh. Certified engineering, transparent pricing, and PM Surya Ghar subsidy processing.`,
       },
-      { property: "og:title", content: `About Surrya Gen Power | Rooftop Solar Installer in Andhra Pradesh` },
-      { property: "og:description", content: `Learn about ${BUSINESS.name}, our solar engineering values, PM Surya Ghar subsidy assistance, and 25-year support across Rayalaseema, AP.` },
+      {
+        property: "og:title",
+        content: `About Surrya Gen Power | Rooftop Solar Installer in Andhra Pradesh`,
+      },
+      {
+        property: "og:description",
+        content: `Learn about ${BUSINESS.name}, our solar engineering values, PM Surya Ghar subsidy assistance, and 25-year support across Rayalaseema, AP.`,
+      },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://www.surryagenpower.in/about" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [
-      { rel: "canonical", href: "https://www.surryagenpower.in/about" },
-    ],
+    links: [{ rel: "canonical", href: "https://www.surryagenpower.in/about" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -39,27 +53,28 @@ export const Route = createFileRoute("/about")({
           "@context": "https://schema.org",
           "@type": "Organization",
           "@id": "https://www.surryagenpower.in/#organization",
-          "name": "Surrya Gen Power",
-          "url": "https://www.surryagenpower.in",
-          "logo": "https://www.surryagenpower.in/favicon.svg",
-          "description": "Surrya Gen Power is a premier rooftop solar EPC installer serving residential, commercial, and institutional clients across Andhra Pradesh.",
-          "telephone": "+919391927443",
-          "email": "atriasolar5859@gmail.com",
-          "address": {
+          name: "Surrya Gen Power",
+          url: "https://www.surryagenpower.in",
+          logo: "https://www.surryagenpower.in/favicon.svg",
+          description:
+            "Surrya Gen Power is a premier rooftop solar EPC installer serving residential, commercial, and institutional clients across Andhra Pradesh.",
+          telephone: "+919391927443",
+          email: "atriasolar5859@gmail.com",
+          address: {
             "@type": "PostalAddress",
-            "addressRegion": "Andhra Pradesh",
-            "addressCountry": "IN"
+            addressRegion: "Andhra Pradesh",
+            addressCountry: "IN",
           },
-          "areaServed": [
-            { "@type": "City", "name": "Kadapa" },
-            { "@type": "City", "name": "Tirupati" },
-            { "@type": "City", "name": "Chittoor" },
-            { "@type": "City", "name": "Punganuru" },
-            { "@type": "City", "name": "Rayachoti" },
-            { "@type": "City", "name": "Anantapuramu" },
-            { "@type": "City", "name": "Kadiri" },
-            { "@type": "City", "name": "Nandyal" }
-          ]
+          areaServed: [
+            { "@type": "City", name: "Kadapa" },
+            { "@type": "City", name: "Tirupati" },
+            { "@type": "City", name: "Chittoor" },
+            { "@type": "City", name: "Punganuru" },
+            { "@type": "City", name: "Rayachoti" },
+            { "@type": "City", name: "Anantapuramu" },
+            { "@type": "City", name: "Kadiri" },
+            { "@type": "City", name: "Nandyal" },
+          ],
         }),
       },
       {
@@ -67,20 +82,20 @@ export const Route = createFileRoute("/about")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
-          "itemListElement": [
+          itemListElement: [
             {
               "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://www.surryagenpower.in/"
+              position: 1,
+              name: "Home",
+              item: "https://www.surryagenpower.in/",
             },
             {
               "@type": "ListItem",
-              "position": 2,
-              "name": "About Us",
-              "item": "https://www.surryagenpower.in/about"
-            }
-          ]
+              position: 2,
+              name: "About Us",
+              item: "https://www.surryagenpower.in/about",
+            },
+          ],
         }),
       },
       {
@@ -88,40 +103,40 @@ export const Route = createFileRoute("/about")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",
-          "mainEntity": [
+          mainEntity: [
             {
               "@type": "Question",
-              "name": "Who is behind Surrya Gen Power?",
-              "acceptedAnswer": {
+              name: "Who is behind Surrya Gen Power?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "Surrya Gen Power was established by experienced solar engineers and power professionals in Andhra Pradesh with a mission to bring transparent, high-yield rooftop solar to Rayalaseema's homeowners and commercial enterprises."
-              }
+                text: "Surrya Gen Power was established by experienced solar engineers and power professionals in Andhra Pradesh with a mission to bring transparent, high-yield rooftop solar to Rayalaseema's homeowners and commercial enterprises.",
+              },
             },
             {
               "@type": "Question",
-              "name": "Do you manufacture solar panels or install third-party equipment?",
-              "acceptedAnswer": {
+              name: "Do you manufacture solar panels or install third-party equipment?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "We are a full-service EPC (Engineering, Procurement, Construction) provider. We source premium Tier-1 ALMM/BIS certified modules and top-tier inverters directly from leading manufacturers, ensuring full warranty validity."
-              }
+                text: "We are a full-service EPC (Engineering, Procurement, Construction) provider. We source premium Tier-1 ALMM/BIS certified modules and top-tier inverters directly from leading manufacturers, ensuring full warranty validity.",
+              },
             },
             {
               "@type": "Question",
-              "name": "What after-sales service do you provide after installation?",
-              "acceptedAnswer": {
+              name: "What after-sales service do you provide after installation?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "We provide comprehensive 5-year workmanship warranties, remote generation monitoring assistance, annual electrical safety health checks, and routine module cleaning support."
-              }
+                text: "We provide comprehensive 5-year workmanship warranties, remote generation monitoring assistance, annual electrical safety health checks, and routine module cleaning support.",
+              },
             },
             {
               "@type": "Question",
-              "name": "How can I verify your past rooftop solar installations?",
-              "acceptedAnswer": {
+              name: "How can I verify your past rooftop solar installations?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "We are proud of our 1,250+ energized rooftops across the state. Our representative will gladly share customer references and photos of completed projects in your specific town."
-              }
-            }
-          ]
+                text: "We are proud of our 1,250+ energized rooftops across the state. Our representative will gladly share customer references and photos of completed projects in your specific town.",
+              },
+            },
+          ],
         }),
       },
     ],
@@ -232,19 +247,25 @@ function About() {
                     <Sun className="h-5 w-5 text-amber-400" />
                     <h3 className="text-2xl font-bold">Residential Solar</h3>
                   </div>
-                  <p className="mt-1 text-xs text-white/80">Tailored 3 kW to 10 kW systems for homes and apartments</p>
+                  <p className="mt-1 text-xs text-white/80">
+                    Tailored 3 kW to 10 kW systems for homes and apartments
+                  </p>
                 </div>
               </div>
 
               <div className="flex flex-1 flex-col justify-between p-6 sm:p-8">
                 <div>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    Designed specifically for homeowners across Rayalaseema looking to eliminate monthly electricity bills with up to ₹78,000 central government direct subsidies.
+                    Designed specifically for homeowners across Rayalaseema looking to eliminate
+                    monthly electricity bills with up to ₹78,000 central government direct
+                    subsidies.
                   </p>
                   <ul className="mt-4 space-y-2.5 text-xs sm:text-sm text-foreground">
                     <li className="flex items-center gap-2">
                       <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
-                      <span>Customized sizing based on actual monthly units and roof direction</span>
+                      <span>
+                        Customized sizing based on actual monthly units and roof direction
+                      </span>
                     </li>
                     <li className="flex items-center gap-2">
                       <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
@@ -259,8 +280,15 @@ function About() {
 
                 <div className="mt-8 pt-4 border-t border-border flex items-center justify-between">
                   <div>
-                    <span className="text-[11px] font-semibold text-muted-foreground uppercase">Starting from</span>
-                    <p className="text-lg font-extrabold text-foreground">₹2,15,000 <span className="text-xs font-normal text-muted-foreground">(Before Subsidy)</span></p>
+                    <span className="text-[11px] font-semibold text-muted-foreground uppercase">
+                      Starting from
+                    </span>
+                    <p className="text-lg font-extrabold text-foreground">
+                      ₹2,15,000{" "}
+                      <span className="text-xs font-normal text-muted-foreground">
+                        (Before Subsidy)
+                      </span>
+                    </p>
                   </div>
                   <Link
                     to="/residential"
@@ -289,14 +317,18 @@ function About() {
                     <Building2 className="h-5 w-5 text-amber-400" />
                     <h3 className="text-2xl font-bold">Commercial Solar</h3>
                   </div>
-                  <p className="mt-1 text-xs text-white/80">Scalable 10 kW to 250+ kW commercial &amp; institutional setups</p>
+                  <p className="mt-1 text-xs text-white/80">
+                    Scalable 10 kW to 250+ kW commercial &amp; institutional setups
+                  </p>
                 </div>
               </div>
 
               <div className="flex flex-1 flex-col justify-between p-6 sm:p-8">
                 <div>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    Engineered for schools, hospitals, cold storage, manufacturing plants, and offices to lower high commercial tariffs and capitalize on 40% accelerated tax depreciation.
+                    Engineered for schools, hospitals, cold storage, manufacturing plants, and
+                    offices to lower high commercial tariffs and capitalize on 40% accelerated tax
+                    depreciation.
                   </p>
                   <ul className="mt-4 space-y-2.5 text-xs sm:text-sm text-foreground">
                     <li className="flex items-center gap-2">
@@ -309,14 +341,18 @@ function About() {
                     </li>
                     <li className="flex items-center gap-2">
                       <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
-                      <span>Engineered galvanized structure suitable for windy and industrial rooftops</span>
+                      <span>
+                        Engineered galvanized structure suitable for windy and industrial rooftops
+                      </span>
                     </li>
                   </ul>
                 </div>
 
                 <div className="mt-8 pt-4 border-t border-border flex items-center justify-between">
                   <div>
-                    <span className="text-[11px] font-semibold text-muted-foreground uppercase">Consultation</span>
+                    <span className="text-[11px] font-semibold text-muted-foreground uppercase">
+                      Consultation
+                    </span>
                     <p className="text-lg font-extrabold text-foreground">Custom Itemized Quote</p>
                   </div>
                   <Link
@@ -387,9 +423,7 @@ function About() {
                 <h3 className="mt-4 text-base font-bold text-foreground group-hover:text-primary transition-colors">
                   {p.title}
                 </h3>
-                <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
-                  {p.desc}
-                </p>
+                <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{p.desc}</p>
               </div>
             </div>
           ))}
@@ -473,7 +507,8 @@ function About() {
             Ready to Begin Your Clean Solar Journey?
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-primary-foreground/85 text-sm sm:text-base leading-relaxed">
-            Reach out today for honest advice, a transparent quotation, and full guidance on government solar subsidies.
+            Reach out today for honest advice, a transparent quotation, and full guidance on
+            government solar subsidies.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link

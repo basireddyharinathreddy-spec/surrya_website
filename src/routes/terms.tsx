@@ -6,14 +6,15 @@ export const Route = createFileRoute("/terms")({
   head: () => ({
     meta: [
       { title: `Terms & Conditions — ${BUSINESS.name}` },
-      { name: "description", content: `Terms and conditions for using the ${BUSINESS.name} website, quotations, and services.` },
+      {
+        name: "description",
+        content: `Terms and conditions for using the ${BUSINESS.name} website, quotations, and services.`,
+      },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://www.surryagenpower.in/terms" },
       { name: "twitter:card", content: "summary" },
     ],
-    links: [
-      { rel: "canonical", href: "https://www.surryagenpower.in/terms" },
-    ],
+    links: [{ rel: "canonical", href: "https://www.surryagenpower.in/terms" }],
   }),
   component: Terms,
 });
@@ -83,8 +84,12 @@ function Terms() {
 
         <div className="mt-10 rounded-2xl bg-solar-soft/60 border border-primary/30 p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>
-            <h3 className="text-sm font-bold text-foreground">Questions About Our Terms or Services?</h3>
-            <p className="text-xs text-muted-foreground mt-0.5">We are happy to answer any questions regarding terms or quotations.</p>
+            <h3 className="text-sm font-bold text-foreground">
+              Questions About Our Terms or Services?
+            </h3>
+            <p className="text-xs text-muted-foreground mt-0.5">
+              We are happy to answer any questions regarding terms or quotations.
+            </p>
           </div>
           <Link
             to="/contact"

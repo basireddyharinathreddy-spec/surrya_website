@@ -1,8 +1,19 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
-  ArrowRight, FileSearch, ClipboardCheck, Send, Wrench, IndianRupee,
-  Info, Sparkles, CheckCircle2, XCircle, FileText, Landmark,
-  ShieldCheck, AlertCircle,
+  ArrowRight,
+  FileSearch,
+  ClipboardCheck,
+  Send,
+  Wrench,
+  IndianRupee,
+  Info,
+  Sparkles,
+  CheckCircle2,
+  XCircle,
+  FileText,
+  Landmark,
+  ShieldCheck,
+  AlertCircle,
 } from "lucide-react";
 import cleanEnergyImg from "@/assets/clean-energy.jpg";
 import benefitSubsidyImg from "@/assets/benefit-subsidy-guidance.jpg";
@@ -15,40 +26,45 @@ import { BUSINESS } from "@/lib/config";
 export const Route = createFileRoute("/subsidy-guide")({
   head: () => ({
     meta: [
-      { title: `PM Surya Ghar Subsidy Guide Andhra Pradesh | ${BUSINESS.name}` },
+      { title: `Rooftop Solar Subsidy Andhra Pradesh | PM Surya Ghar Guide | Surrya Gen Power` },
       {
         name: "description",
-        content: `Complete guide to claiming up to ₹78,000 rooftop solar subsidy under PM Surya Ghar Muft Bijli Yojana in Andhra Pradesh. Eligibility, documents, and DBT steps with ${BUSINESS.name}.`,
+        content: `Complete guide to claiming up to ₹78,000 rooftop solar subsidy Andhra Pradesh under PM Surya Ghar Muft Bijli Yojana. Eligibility, documents, and DBT steps with Surrya Gen Power in Kadapa, Tirupati & Chittoor.`,
       },
-      { property: "og:title", content: `PM Surya Ghar Subsidy Guide Andhra Pradesh | ${BUSINESS.name}` },
-      { property: "og:description", content: "Step-by-step rooftop solar subsidy guide for homes in Andhra Pradesh. Claim up to ₹78,000 direct DBT subsidy." },
+      {
+        property: "og:title",
+        content: `Rooftop Solar Subsidy Andhra Pradesh | PM Surya Ghar Guide`,
+      },
+      {
+        property: "og:description",
+        content:
+          "Step-by-step rooftop solar subsidy Andhra Pradesh guide for homes. Claim up to ₹78,000 direct DBT subsidy with Surrya Gen Power.",
+      },
       { property: "og:type", content: "article" },
       { property: "og:url", content: "https://www.surryagenpower.in/subsidy-guide" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [
-      { rel: "canonical", href: "https://www.surryagenpower.in/subsidy-guide" },
-    ],
+    links: [{ rel: "canonical", href: "https://www.surryagenpower.in/subsidy-guide" }],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
-          "itemListElement": [
+          itemListElement: [
             {
               "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://www.surryagenpower.in/"
+              position: 1,
+              name: "Home",
+              item: "https://www.surryagenpower.in/",
             },
             {
               "@type": "ListItem",
-              "position": 2,
-              "name": "PM Surya Ghar Subsidy Guide",
-              "item": "https://www.surryagenpower.in/subsidy-guide"
-            }
-          ]
+              position: 2,
+              name: "PM Surya Ghar Subsidy Guide",
+              item: "https://www.surryagenpower.in/subsidy-guide",
+            },
+          ],
         }),
       },
       {
@@ -56,41 +72,42 @@ export const Route = createFileRoute("/subsidy-guide")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "HowTo",
-          "name": "How to Claim PM Surya Ghar Solar Subsidy in Andhra Pradesh",
-          "description": "Step-by-step process to apply for and receive up to ₹78,000 Central Government DBT subsidy for residential rooftop solar in Andhra Pradesh.",
-          "totalTime": "P30D",
-          "step": [
+          name: "How to Claim PM Surya Ghar Solar Subsidy in Andhra Pradesh",
+          description:
+            "Step-by-step process to apply for and receive up to ₹78,000 Central Government DBT subsidy for residential rooftop solar in Andhra Pradesh.",
+          totalTime: "P30D",
+          step: [
             {
               "@type": "HowToStep",
-              "position": 1,
-              "name": "National Portal Registration",
-              "text": "Submit your initial application on the official PM Surya Ghar portal with your DISCOM (APSPDCL/APCPDCL) consumer number and mobile phone."
+              position: 1,
+              name: "National Portal Registration",
+              text: "Submit your initial application on the official PM Surya Ghar portal with your DISCOM (APSPDCL/APCPDCL) consumer number and mobile phone.",
             },
             {
               "@type": "HowToStep",
-              "position": 2,
-              "name": "DISCOM Feasibility Approval",
-              "text": "Your electricity board inspects local distribution transformer capacity and issues technical feasibility approval (TFA)."
+              position: 2,
+              name: "DISCOM Feasibility Approval",
+              text: "Your electricity board inspects local distribution transformer capacity and issues technical feasibility approval (TFA).",
             },
             {
               "@type": "HowToStep",
-              "position": 3,
-              "name": "Installation by Empanelled Vendor",
-              "text": "Surrya Gen Power supplies ALMM/DCR-compliant Tier-1 solar modules and executes the complete rooftop installation."
+              position: 3,
+              name: "Installation by Empanelled Vendor",
+              text: "Surrya Gen Power supplies ALMM/DCR-compliant Tier-1 solar modules and executes the complete rooftop installation.",
             },
             {
               "@type": "HowToStep",
-              "position": 4,
-              "name": "Net-Meter Inspection & Commissioning",
-              "text": "DISCOM officials install the bidirectional net meter and generate the official Work Completion Report (WCR)."
+              position: 4,
+              name: "Net-Meter Inspection & Commissioning",
+              text: "DISCOM officials install the bidirectional net meter and generate the official Work Completion Report (WCR).",
             },
             {
               "@type": "HowToStep",
-              "position": 5,
-              "name": "Direct DBT Bank Disbursement",
-              "text": "The Central Government transfers the ₹78,000 subsidy directly into your Aadhaar-linked bank account within 30 to 45 days."
-            }
-          ]
+              position: 5,
+              name: "Direct DBT Bank Disbursement",
+              text: "The Central Government transfers the ₹78,000 subsidy directly into your Aadhaar-linked bank account within 30 to 45 days.",
+            },
+          ],
         }),
       },
       {
@@ -98,48 +115,48 @@ export const Route = createFileRoute("/subsidy-guide")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",
-          "mainEntity": [
+          mainEntity: [
             {
               "@type": "Question",
-              "name": "Who is eligible for the PM Surya Ghar ₹78,000 subsidy?",
-              "acceptedAnswer": {
+              name: "Who is eligible for the PM Surya Ghar ₹78,000 subsidy?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "Any Indian citizen owning a residential home with a dedicated residential electricity meter and adequate shadow-free roof space is eligible. Group housing societies and residential welfare associations (RWAs) can also claim up to ₹18,000 per kW for common areas."
-              }
+                text: "Any Indian citizen owning a residential home with a dedicated residential electricity meter and adequate shadow-free roof space is eligible. Group housing societies and residential welfare associations (RWAs) can also claim up to ₹18,000 per kW for common areas.",
+              },
             },
             {
               "@type": "Question",
-              "name": "How is the subsidy amount paid to the homeowner?",
-              "acceptedAnswer": {
+              name: "How is the subsidy amount paid to the homeowner?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "The subsidy is disbursed directly to your Aadhaar-seeded bank account through Direct Benefit Transfer (DBT) by the Ministry of New and Renewable Energy (MNRE). It does not pass through intermediaries."
-              }
+                text: "The subsidy is disbursed directly to your Aadhaar-seeded bank account through Direct Benefit Transfer (DBT) by the Ministry of New and Renewable Energy (MNRE). It does not pass through intermediaries.",
+              },
             },
             {
               "@type": "Question",
-              "name": "Are commercial or industrial establishments eligible for this subsidy?",
-              "acceptedAnswer": {
+              name: "Are commercial or industrial establishments eligible for this subsidy?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "No. The PM Surya Ghar subsidy is strictly reserved for residential households. However, commercial and industrial enterprises receive 40% accelerated tax depreciation and GST benefits."
-              }
+                text: "No. The PM Surya Ghar subsidy is strictly reserved for residential households. However, commercial and industrial enterprises receive 40% accelerated tax depreciation and GST benefits.",
+              },
             },
             {
               "@type": "Question",
-              "name": "Does Surrya Gen Power assist with all the paperwork?",
-              "acceptedAnswer": {
+              name: "Does Surrya Gen Power assist with all the paperwork?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "Yes! We handle 100% of the portal submissions, DISCOM net-meter applications, drawing preparations, commissioning reports, and subsidy tracking until the amount is credited to your bank."
-              }
+                text: "Yes! We handle 100% of the portal submissions, DISCOM net-meter applications, drawing preparations, commissioning reports, and subsidy tracking until the amount is credited to your bank.",
+              },
             },
             {
               "@type": "Question",
-              "name": "What are DCR (Domestic Content Requirement) solar modules?",
-              "acceptedAnswer": {
+              name: "What are DCR (Domestic Content Requirement) solar modules?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "To qualify for central government subsidies, the solar cells and modules must be manufactured in India (DCR compliant). We strictly use ALMM-approved Tier-1 Indian manufactured DCR panels for all subsidy projects."
-              }
-            }
-          ]
+                text: "To qualify for central government subsidies, the solar cells and modules must be manufactured in India (DCR compliant). We strictly use ALMM-approved Tier-1 Indian manufactured DCR panels for all subsidy projects.",
+              },
+            },
+          ],
         }),
       },
     ],
@@ -151,19 +168,22 @@ const subsidySlabs = [
   {
     capacity: "1 kW System",
     subsidy: "₹30,000",
-    description: "Ideal for compact 1-2 BHK homes consuming ~100 to 120 units monthly. Direct bank deposit upon commissioning.",
+    description:
+      "Ideal for compact 1-2 BHK homes consuming ~100 to 120 units monthly. Direct bank deposit upon commissioning.",
     tag: "Small Homes",
   },
   {
     capacity: "2 kW System",
     subsidy: "₹60,000",
-    description: "Sized for standard 2-3 BHK homes consuming ~200 to 240 units monthly. Up to 80% bill elimination.",
+    description:
+      "Sized for standard 2-3 BHK homes consuming ~200 to 240 units monthly. Up to 80% bill elimination.",
     tag: "Medium Homes",
   },
   {
     capacity: "3 kW to 10 kW System",
     subsidy: "₹78,000 (Maximum)",
-    description: "Flat maximum central capital subsidy for 3 kW and larger residential rooftop installations.",
+    description:
+      "Flat maximum central capital subsidy for 3 kW and larger residential rooftop installations.",
     tag: "Highest Subsidy Cap",
     highlight: true,
   },
@@ -248,14 +268,18 @@ function SubsidyGuide() {
     <div>
       {/* PAGE HERO */}
       <PageHero
-        eyebrow="Government Subsidy Guide"
-        title="Claim Up to ₹78,000 PM Surya Ghar Solar Subsidy"
-        description="A complete walkthrough of the Central Government's PM Surya Ghar Muft Bijli Yojana in Andhra Pradesh. Learn how direct bank transfer subsidies make rooftop solar affordable for every family."
+        eyebrow="Rooftop Solar Subsidy Andhra Pradesh"
+        title="Claim Up to ₹78,000 Rooftop Solar Subsidy in Andhra Pradesh"
+        description="A complete guide to claiming your rooftop solar subsidy Andhra Pradesh under the PM Surya Ghar Muft Bijli Yojana. Learn how direct bank transfer subsidies make rooftop solar affordable for every family in Kadapa, Tirupati, and Chittoor."
         image={benefitSubsidyImg}
-        imageAlt="Solar consultant reviewing government solar subsidy approval documents with Indian family"
-        badge="Direct Bank Transfer (DBT) Credited"
+        imageAlt="Consultant assisting homeowner with rooftop solar subsidy Andhra Pradesh"
+        badge="Rooftop Solar Subsidy Andhra Pradesh: Up to ₹78,000"
         badgeIcon={<Sparkles className="h-4 w-4 text-amber-500" />}
-        primaryCta={{ label: "Check Your Subsidy Eligibility", to: "/contact", search: { service: "Subsidy Guidance" } }}
+        primaryCta={{
+          label: "Check Your Subsidy Eligibility",
+          to: "/contact",
+          search: { service: "Subsidy Guidance" },
+        }}
         secondaryCta={{ label: "Calculate Sizing", to: "/calculator" }}
       />
 
@@ -291,7 +315,9 @@ function SubsidyGuide() {
                     </span>
                     <h3 className="mt-4 text-xl font-bold text-foreground">{slab.capacity}</h3>
                     <div className="mt-4 rounded-2xl bg-cream p-4 border border-border/80">
-                      <span className="text-xs text-muted-foreground block font-medium">Direct Bank Subsidy</span>
+                      <span className="text-xs text-muted-foreground block font-medium">
+                        Direct Bank Subsidy
+                      </span>
                       <p className="text-2xl font-extrabold text-emerald-600 mt-1 font-display">
                         {slab.subsidy}
                       </p>
@@ -341,9 +367,7 @@ function SubsidyGuide() {
                   <h3 className="mt-4 text-base font-bold text-foreground group-hover:text-primary transition-colors">
                     {doc.title}
                   </h3>
-                  <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
-                    {doc.desc}
-                  </p>
+                  <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{doc.desc}</p>
                 </div>
                 <div className="mt-4 flex items-center gap-1.5 text-xs font-semibold text-emerald-600">
                   <CheckCircle2 className="h-3.5 w-3.5" />
@@ -373,9 +397,7 @@ function SubsidyGuide() {
                 {step.step}
               </span>
               <h4 className="mt-2 text-base font-bold text-foreground">{step.title}</h4>
-              <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">
-                {step.desc}
-              </p>
+              <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">{step.desc}</p>
             </div>
           ))}
         </div>
@@ -403,11 +425,15 @@ function SubsidyGuide() {
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span>Use an Aadhaar-seeded active bank account for seamless DBT disbursement.</span>
+                  <span>
+                    Use an Aadhaar-seeded active bank account for seamless DBT disbursement.
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span>Install through an empanelled vendor using ALMM-certified DCR modules.</span>
+                  <span>
+                    Install through an empanelled vendor using ALMM-certified DCR modules.
+                  </span>
                 </li>
               </ul>
             </div>
@@ -420,15 +446,22 @@ function SubsidyGuide() {
               <ul className="mt-5 space-y-3 text-xs sm:text-sm text-foreground">
                 <li className="flex items-start gap-2">
                   <XCircle className="h-4 w-4 text-red-500 shrink-0 mt-0.5" />
-                  <span>Do not use non-DCR imported solar panels (these are not eligible for subsidy).</span>
+                  <span>
+                    Do not use non-DCR imported solar panels (these are not eligible for subsidy).
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <XCircle className="h-4 w-4 text-red-500 shrink-0 mt-0.5" />
-                  <span>Do not apply under commercial or non-domestic electricity tariff connections.</span>
+                  <span>
+                    Do not apply under commercial or non-domestic electricity tariff connections.
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <XCircle className="h-4 w-4 text-red-500 shrink-0 mt-0.5" />
-                  <span>Do not begin physical installation before securing DISCOM portal technical approval.</span>
+                  <span>
+                    Do not begin physical installation before securing DISCOM portal technical
+                    approval.
+                  </span>
                 </li>
               </ul>
             </div>
@@ -458,7 +491,8 @@ function SubsidyGuide() {
             Let Us Handle Your Subsidy From Start to Finish
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-primary-foreground/85 text-sm sm:text-base leading-relaxed">
-            Don't get lost in portal paperwork. Our dedicated liaisoning team in Rayalaseema ensures speedy verification and direct bank account credit.
+            Don't get lost in portal paperwork. Our dedicated liaisoning team in Rayalaseema ensures
+            speedy verification and direct bank account credit.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link

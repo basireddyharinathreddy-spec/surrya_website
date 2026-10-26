@@ -29,10 +29,18 @@ export function PageHero({
 }: PageHeroProps) {
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-background via-solar-soft/30 to-background">
-      <div className="pointer-events-none absolute -top-32 -left-32 h-96 w-96 rounded-full bg-primary/10 blur-3xl" style={{ animation: "pulse 4s ease-in-out infinite" }} />
-      <div className="pointer-events-none absolute -bottom-24 -right-24 h-80 w-80 rounded-full bg-amber-400/10 blur-3xl" style={{ animation: "pulse 4s ease-in-out infinite", animationDelay: "1.5s" }} />
+      <div
+        className="pointer-events-none absolute -top-32 -left-32 h-96 w-96 rounded-full bg-primary/10 blur-3xl"
+        style={{ animation: "pulse 4s ease-in-out infinite" }}
+      />
+      <div
+        className="pointer-events-none absolute -bottom-24 -right-24 h-80 w-80 rounded-full bg-amber-400/10 blur-3xl"
+        style={{ animation: "pulse 4s ease-in-out infinite", animationDelay: "1.5s" }}
+      />
 
-      <div className={`mx-auto grid max-w-7xl items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-2${flip ? " [&>*:first-child]:lg:order-2" : ""}`}>
+      <div
+        className={`mx-auto grid max-w-7xl items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-2${flip ? " [&>*:first-child]:lg:order-2" : ""}`}
+      >
         <div className="relative z-10">
           <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-primary">
             {eyebrow}
@@ -40,9 +48,7 @@ export function PageHero({
           <h1 className="mt-4 text-4xl font-extrabold text-balance leading-tight sm:text-5xl">
             {title}
           </h1>
-          <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-            {description}
-          </p>
+          <p className="mt-4 text-lg text-muted-foreground leading-relaxed">{description}</p>
           <div className="mt-8 flex flex-wrap gap-3">
             {primaryCta && (
               <Link
@@ -66,7 +72,10 @@ export function PageHero({
 
         <div className="relative">
           {badge && (
-            <div className="absolute -top-4 right-4 z-20 flex items-center gap-1.5 rounded-2xl bg-card/90 px-4 py-2.5 text-xs font-bold shadow-lift backdrop-blur-md border border-border" style={{ animation: "float 3s ease-in-out infinite" }}>
+            <div
+              className="absolute -top-4 right-4 z-20 flex items-center gap-1.5 rounded-2xl bg-card/90 px-4 py-2.5 text-xs font-bold shadow-lift backdrop-blur-md border border-border"
+              style={{ animation: "float 3s ease-in-out infinite" }}
+            >
               {badgeIcon}
               <span>{badge}</span>
             </div>

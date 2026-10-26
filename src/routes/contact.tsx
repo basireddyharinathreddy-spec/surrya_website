@@ -1,8 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import {
-  Phone, Mail, MapPin, MessageCircle, Globe,
-  Clock, ShieldCheck, Sparkles, CheckCircle2, ArrowRight,
+  Phone,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Globe,
+  Clock,
+  ShieldCheck,
+  Sparkles,
+  CheckCircle2,
+  ArrowRight,
 } from "lucide-react";
 import heroImg from "@/assets/hero-home.jpg";
 import { PageHero } from "@/components/PageHero";
@@ -27,15 +35,19 @@ export const Route = createFileRoute("/contact")({
         name: "description",
         content: `Get a free rooftop solar quote and site assessment from ${BUSINESS.name}. Call ${BUSINESS.phone}, WhatsApp, or submit an enquiry across Kadapa, Tirupati, Chittoor & Rayalaseema.`,
       },
-      { property: "og:title", content: `Contact Surrya Gen Power | Free Solar Quote Kadapa, Tirupati, Chittoor` },
-      { property: "og:description", content: `Get a free solar quote for your home or business in Kadapa, Tirupati, Chittoor and Rayalaseema from ${BUSINESS.name}.` },
+      {
+        property: "og:title",
+        content: `Contact Surrya Gen Power | Free Solar Quote Kadapa, Tirupati, Chittoor`,
+      },
+      {
+        property: "og:description",
+        content: `Get a free solar quote for your home or business in Kadapa, Tirupati, Chittoor and Rayalaseema from ${BUSINESS.name}.`,
+      },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://www.surryagenpower.in/contact" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [
-      { rel: "canonical", href: "https://www.surryagenpower.in/contact" },
-    ],
+    links: [{ rel: "canonical", href: "https://www.surryagenpower.in/contact" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -43,25 +55,26 @@ export const Route = createFileRoute("/contact")({
           "@context": "https://schema.org",
           "@type": "ContactPage",
           "@id": "https://www.surryagenpower.in/contact#webpage",
-          "url": "https://www.surryagenpower.in/contact",
-          "name": "Contact Surrya Gen Power",
-          "description": "Contact Surrya Gen Power for rooftop solar consultation, quotes, and PM Surya Ghar subsidy processing across Rayalaseema, Andhra Pradesh.",
-          "mainEntity": {
+          url: "https://www.surryagenpower.in/contact",
+          name: "Contact Surrya Gen Power",
+          description:
+            "Contact Surrya Gen Power for rooftop solar consultation, quotes, and PM Surya Ghar subsidy processing across Rayalaseema, Andhra Pradesh.",
+          mainEntity: {
             "@type": "LocalBusiness",
-            "name": "Surrya Gen Power",
-            "telephone": "+919391927443",
-            "email": "atriasolar5859@gmail.com",
-            "url": "https://www.surryagenpower.in",
-            "contactPoint": [
+            name: "Surrya Gen Power",
+            telephone: "+919391927443",
+            email: "atriasolar5859@gmail.com",
+            url: "https://www.surryagenpower.in",
+            contactPoint: [
               {
                 "@type": "ContactPoint",
-                "telephone": "+919391927443",
-                "contactType": "customer service",
-                "areaServed": "IN",
-                "availableLanguage": ["English", "Telugu", "Hindi"]
-              }
-            ]
-          }
+                telephone: "+919391927443",
+                contactType: "customer service",
+                areaServed: "IN",
+                availableLanguage: ["English", "Telugu", "Hindi"],
+              },
+            ],
+          },
         }),
       },
       {
@@ -69,20 +82,20 @@ export const Route = createFileRoute("/contact")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
-          "itemListElement": [
+          itemListElement: [
             {
               "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://www.surryagenpower.in/"
+              position: 1,
+              name: "Home",
+              item: "https://www.surryagenpower.in/",
             },
             {
               "@type": "ListItem",
-              "position": 2,
-              "name": "Contact Us",
-              "item": "https://www.surryagenpower.in/contact"
-            }
-          ]
+              position: 2,
+              name: "Contact Us",
+              item: "https://www.surryagenpower.in/contact",
+            },
+          ],
         }),
       },
       {
@@ -90,40 +103,40 @@ export const Route = createFileRoute("/contact")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",
-          "mainEntity": [
+          mainEntity: [
             {
               "@type": "Question",
-              "name": "How fast will someone contact me after I submit this form?",
-              "acceptedAnswer": {
+              name: "How fast will someone contact me after I submit this form?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "Our customer advisory desk reviews incoming enquiries continually and typically calls back within 1 to 2 business hours (Monday to Saturday, 9 AM – 7 PM)."
-              }
+                text: "Our customer advisory desk reviews incoming enquiries continually and typically calls back within 1 to 2 business hours (Monday to Saturday, 9 AM – 7 PM).",
+              },
             },
             {
               "@type": "Question",
-              "name": "Is there any fee or commitment for a site inspection?",
-              "acceptedAnswer": {
+              name: "Is there any fee or commitment for a site inspection?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "None at all. Preliminary site inspections, roof shadow evaluations, and feasibility estimations are completely complimentary with zero commitment required."
-              }
+                text: "None at all. Preliminary site inspections, roof shadow evaluations, and feasibility estimations are completely complimentary with zero commitment required.",
+              },
             },
             {
               "@type": "Question",
-              "name": "What details should I have ready when your team calls?",
-              "acceptedAnswer": {
+              name: "What details should I have ready when your team calls?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "Having your latest monthly electricity bill (specifically your average monthly units consumed or bill amount in rupees) and an approximate idea of your roof area is all that is required."
-              }
+                text: "Having your latest monthly electricity bill (specifically your average monthly units consumed or bill amount in rupees) and an approximate idea of your roof area is all that is required.",
+              },
             },
             {
               "@type": "Question",
-              "name": "Can I discuss both residential and commercial solar installations?",
-              "acceptedAnswer": {
+              name: "Can I discuss both residential and commercial solar installations?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "Yes! Our engineering team handles residential 3 kW–10 kW PM Surya Ghar projects as well as 10 kW–250+ kW commercial, educational, and industrial rooftop projects."
-              }
-            }
-          ]
+                text: "Yes! Our engineering team handles residential 3 kW–10 kW PM Surya Ghar projects as well as 10 kW–250+ kW commercial, educational, and industrial rooftop projects.",
+              },
+            },
+          ],
         }),
       },
     ],
@@ -221,8 +234,12 @@ function Contact() {
                 <Phone className="h-5 w-5" aria-hidden />
               </span>
               <div>
-                <span className="block text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Primary Contact</span>
-                <span className="font-bold text-foreground text-sm sm:text-base">{BUSINESS.phone}</span>
+                <span className="block text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+                  Primary Contact
+                </span>
+                <span className="font-bold text-foreground text-sm sm:text-base">
+                  {BUSINESS.phone}
+                </span>
               </div>
             </a>
 
@@ -235,14 +252,20 @@ function Contact() {
                 <Phone className="h-5 w-5" aria-hidden />
               </span>
               <div>
-                <span className="block text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Alternate Contact</span>
-                <span className="font-bold text-foreground text-sm sm:text-base">{BUSINESS.secondaryPhone}</span>
+                <span className="block text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+                  Alternate Contact
+                </span>
+                <span className="font-bold text-foreground text-sm sm:text-base">
+                  {BUSINESS.secondaryPhone}
+                </span>
               </div>
             </a>
 
             {/* Direct WhatsApp Action */}
             <a
-              href={whatsappLink(`Hello ${BUSINESS.brandName}, I would like to enquire about rooftop solar and subsidy guidance.`)}
+              href={whatsappLink(
+                `Hello ${BUSINESS.brandName}, I would like to enquire about rooftop solar and subsidy guidance.`,
+              )}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-4 rounded-2xl border border-emerald-500/30 bg-emerald-500/5 p-4 shadow-soft transition-all duration-200 hover:-translate-y-0.5 hover:border-emerald-500/60 hover:shadow-lift"
@@ -251,8 +274,12 @@ function Contact() {
                 <MessageCircle className="h-5 w-5" aria-hidden />
               </span>
               <div>
-                <span className="block text-[11px] font-semibold uppercase tracking-wider text-emerald-700">Instant WhatsApp Chat</span>
-                <span className="font-bold text-emerald-800 text-sm sm:text-base">Click to Chat Now ({BUSINESS.phone})</span>
+                <span className="block text-[11px] font-semibold uppercase tracking-wider text-emerald-700">
+                  Instant WhatsApp Chat
+                </span>
+                <span className="font-bold text-emerald-800 text-sm sm:text-base">
+                  Click to Chat Now ({BUSINESS.phone})
+                </span>
               </div>
             </a>
 
@@ -267,8 +294,12 @@ function Contact() {
                 <Globe className="h-5 w-5" aria-hidden />
               </span>
               <div>
-                <span className="block text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Official Website</span>
-                <span className="font-bold text-primary text-sm sm:text-base">{BUSINESS.website}</span>
+                <span className="block text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+                  Official Website
+                </span>
+                <span className="font-bold text-primary text-sm sm:text-base">
+                  {BUSINESS.website}
+                </span>
               </div>
             </a>
 
@@ -281,8 +312,12 @@ function Contact() {
                 <Mail className="h-5 w-5" aria-hidden />
               </span>
               <div>
-                <span className="block text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Primary Email</span>
-                <span className="font-bold text-foreground text-sm sm:text-base">atriasolar5859@gmail.com</span>
+                <span className="block text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+                  Primary Email
+                </span>
+                <span className="font-bold text-foreground text-sm sm:text-base">
+                  atriasolar5859@gmail.com
+                </span>
               </div>
             </a>
 
@@ -295,11 +330,12 @@ function Contact() {
                 <Mail className="h-5 w-5" aria-hidden />
               </span>
               <div>
-                <span className="block text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Alternate Email</span>
+                <span className="block text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+                  Alternate Email
+                </span>
                 <span className="font-bold text-foreground text-sm">gnanasurrya@gmail.com</span>
               </div>
             </a>
-
 
             {/* Regional Address */}
             <div className="flex items-center gap-4 rounded-2xl border border-border bg-card p-4 shadow-soft">
@@ -307,7 +343,9 @@ function Contact() {
                 <MapPin className="h-5 w-5" aria-hidden />
               </span>
               <div>
-                <span className="block text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Operating Region</span>
+                <span className="block text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+                  Operating Region
+                </span>
                 <span className="font-bold text-foreground text-sm">{BUSINESS.address}</span>
               </div>
             </div>

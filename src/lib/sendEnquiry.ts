@@ -156,8 +156,7 @@ export const sendEnquiryEmail = createServerFn({ method: "POST" })
     if (gmailUser && gmailPass) {
       try {
         const nodemailer = await import("nodemailer");
-        const createTransport =
-          nodemailer.default?.createTransport || nodemailer.createTransport;
+        const createTransport = nodemailer.default?.createTransport || nodemailer.createTransport;
         const transporter = createTransport({
           host: "smtp.gmail.com",
           port: 465,
@@ -238,7 +237,7 @@ function buildHtml(data: EnquiryData): string {
       <tr>
         <td style="padding:10px 16px;font-weight:600;color:#555;white-space:nowrap;background:#f9f9f9;border-bottom:1px solid #eee;">${label}</td>
         <td style="padding:10px 16px;color:#222;border-bottom:1px solid #eee;">${value}</td>
-      </tr>`
+      </tr>`,
     )
     .join("");
 

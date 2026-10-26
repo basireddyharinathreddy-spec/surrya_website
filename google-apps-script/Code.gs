@@ -41,12 +41,12 @@ function doPost(e) {
   try {
     const body = JSON.parse(e.postData.contents);
     appendRow(body);
-    return ContentService.createTextOutput(
-      JSON.stringify({ success: true })
-    ).setMimeType(ContentService.MimeType.JSON);
+    return ContentService.createTextOutput(JSON.stringify({ success: true })).setMimeType(
+      ContentService.MimeType.JSON,
+    );
   } catch (err) {
     return ContentService.createTextOutput(
-      JSON.stringify({ success: false, error: err.toString() })
+      JSON.stringify({ success: false, error: err.toString() }),
     ).setMimeType(ContentService.MimeType.JSON);
   }
 }
@@ -54,7 +54,7 @@ function doPost(e) {
 // Allow simple GET ping to verify deployment is alive
 function doGet() {
   return ContentService.createTextOutput(
-    JSON.stringify({ status: "Atria Renewable Sheet Logger is active ✅" })
+    JSON.stringify({ status: "Atria Renewable Sheet Logger is active ✅" }),
   ).setMimeType(ContentService.MimeType.JSON);
 }
 

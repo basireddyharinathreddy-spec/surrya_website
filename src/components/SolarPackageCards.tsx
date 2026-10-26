@@ -21,28 +21,31 @@ export const SOLAR_PACKAGES: PackageDetail[] = [
     capacity: "3.45 kW",
     title: "3.45 kW Solar Package",
     price: "₹2,15,000",
-    description: "A compact rooftop system suited to smaller homes with moderate daytime electricity use.",
+    description:
+      "Compact rooftop system featuring the best solar panels in Andhra Pradesh, ideal for 2-3 BHK homes to eliminate monthly bills.",
     image: pkg345Img,
-    alt: "3.45 kW rooftop solar panel system installed on a residential terrace in India",
+    alt: "3.45kW solar system price package with the best solar panels in Andhra Pradesh",
   },
   {
     id: "4kw",
     capacity: "4 kW",
     title: "4 kW Solar Package",
     price: "₹2,58,000",
-    description: "A balanced system for typical family homes looking to offset a large share of their bill.",
+    description:
+      "Our most popular balanced system for typical family homes looking to offset up to 90% of electricity bills with PM Surya Ghar subsidy.",
     popular: true,
     image: pkg4Img,
-    alt: "4 kW residential rooftop solar panel installation on an Indian home terrace",
+    alt: "4kW solar system price package with rooftop solar installation in Andhra Pradesh",
   },
   {
     id: "5kw",
     capacity: "5 kW",
     title: "5 kW Solar Package",
     price: "₹3,15,000",
-    description: "A larger system for bigger homes or small commercial spaces with higher consumption.",
+    description:
+      "High-capacity rooftop installation for bigger homes and commercial spaces with higher daytime air conditioning consumption.",
     image: pkg5Img,
-    alt: "5 kW elevated rooftop solar pergola installation on a modern Indian residential terrace",
+    alt: "5kW solar system price package with premium solar panel installation in Andhra Pradesh",
   },
 ];
 
@@ -106,7 +109,7 @@ export function SolarPackageCards({ className = "" }: SolarPackageCardsProps) {
                 </span>
               </div>
               <p className="mt-1 text-xs font-medium text-muted-foreground">
-                Indicative reference price
+                Indicative {pkg.capacity.replace(/\s+/g, "")} solar system reference price
               </p>
             </div>
 
@@ -134,7 +137,10 @@ export function SolarPackageCards({ className = "" }: SolarPackageCardsProps) {
               className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground shadow-soft transition-all duration-200 hover:bg-primary/90 hover:shadow-lift active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
             >
               <span>Request This Package</span>
-              <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" aria-hidden />
+              <ArrowRight
+                className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
+                aria-hidden
+              />
             </Link>
           </div>
         </article>

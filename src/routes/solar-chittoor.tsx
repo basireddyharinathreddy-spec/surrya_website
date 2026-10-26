@@ -1,7 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
-  Sun, ShieldCheck, Zap, ArrowRight, CheckCircle2,
-  MapPin, Clock, IndianRupee, Sparkles, Building2,
+  Sun,
+  ShieldCheck,
+  Zap,
+  ArrowRight,
+  CheckCircle2,
+  MapPin,
+  Clock,
+  IndianRupee,
+  Sparkles,
+  Building2,
 } from "lucide-react";
 import heroImg from "@/assets/hero-home.jpg";
 import residentialImg from "@/assets/residential.jpg";
@@ -16,20 +24,24 @@ import { BUSINESS } from "@/lib/config";
 export const Route = createFileRoute("/solar-chittoor")({
   head: () => ({
     meta: [
-      { title: `Rooftop Solar in Chittoor | Solar Installation | ${BUSINESS.name}` },
+      { title: `Solar Panel Installation in Chittoor | Solar Company | ${BUSINESS.name}` },
       {
         name: "description",
-        content: `Leading rooftop solar installer in Chittoor district. PM Surya Ghar subsidy up to ₹78,000 for homes, commercial solar for agro & cold storage, and APSPDCL net metering with ${BUSINESS.name}.`,
+        content: `Looking for solar panel installation in Chittoor? Surrya Gen Power is a leading solar company in Chittoor deploying the best solar panels in Andhra Pradesh with ₹78,000 PM Surya Ghar subsidy.`,
       },
-      { property: "og:title", content: `Rooftop Solar in Chittoor | Solar Installation | ${BUSINESS.name}` },
-      { property: "og:description", content: `Rooftop solar for homes and businesses in Chittoor. Get up to ₹78,000 PM Surya Ghar subsidy, free site survey, and 25-year warranty.` },
+      {
+        property: "og:title",
+        content: `Solar Panel Installation in Chittoor | Solar Company | ${BUSINESS.name}`,
+      },
+      {
+        property: "og:description",
+        content: `Premier solar company in Chittoor for residential & agro-industrial solar panel installation. Deploying the best solar panels in Andhra Pradesh with ₹78,000 subsidy.`,
+      },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://www.surryagenpower.in/solar-chittoor" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [
-      { rel: "canonical", href: "https://www.surryagenpower.in/solar-chittoor" },
-    ],
+    links: [{ rel: "canonical", href: "https://www.surryagenpower.in/solar-chittoor" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -37,21 +49,22 @@ export const Route = createFileRoute("/solar-chittoor")({
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
           "@id": "https://www.surryagenpower.in/solar-chittoor#business",
-          "name": "Surrya Gen Power — Rooftop Solar Chittoor",
-          "url": "https://www.surryagenpower.in/solar-chittoor",
-          "telephone": "+919391927443",
-          "email": "atriasolar5859@gmail.com",
-          "address": {
+          name: "Surrya Gen Power — Rooftop Solar Chittoor",
+          url: "https://www.surryagenpower.in/solar-chittoor",
+          telephone: "+919391927443",
+          email: "atriasolar5859@gmail.com",
+          address: {
             "@type": "PostalAddress",
-            "addressLocality": "Chittoor",
-            "addressRegion": "Andhra Pradesh",
-            "addressCountry": "IN"
+            addressLocality: "Chittoor",
+            addressRegion: "Andhra Pradesh",
+            addressCountry: "IN",
           },
-          "areaServed": [
-            { "@type": "City", "name": "Chittoor" },
-            { "@type": "AdministrativeArea", "name": "Chittoor District" }
+          areaServed: [
+            { "@type": "City", name: "Chittoor" },
+            { "@type": "AdministrativeArea", name: "Chittoor District" },
           ],
-          "description": "Expert rooftop solar EPC provider in Chittoor serving residential homes, dairy farms, mango processing units, and cold storage facilities."
+          description:
+            "Surrya Gen Power is a premier solar company in Chittoor providing residential and commercial solar panel installation in Chittoor with the best solar panels in Andhra Pradesh.",
         }),
       },
       {
@@ -59,26 +72,26 @@ export const Route = createFileRoute("/solar-chittoor")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
-          "itemListElement": [
+          itemListElement: [
             {
               "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://www.surryagenpower.in/"
+              position: 1,
+              name: "Home",
+              item: "https://www.surryagenpower.in/",
             },
             {
               "@type": "ListItem",
-              "position": 2,
-              "name": "Service Areas",
-              "item": "https://www.surryagenpower.in/service-areas"
+              position: 2,
+              name: "Service Areas",
+              item: "https://www.surryagenpower.in/service-areas",
             },
             {
               "@type": "ListItem",
-              "position": 3,
-              "name": "Rooftop Solar in Chittoor",
-              "item": "https://www.surryagenpower.in/solar-chittoor"
-            }
-          ]
+              position: 3,
+              name: "Rooftop Solar in Chittoor",
+              item: "https://www.surryagenpower.in/solar-chittoor",
+            },
+          ],
         }),
       },
       {
@@ -86,40 +99,40 @@ export const Route = createFileRoute("/solar-chittoor")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",
-          "mainEntity": [
+          mainEntity: [
             {
               "@type": "Question",
-              "name": "How does PM Surya Ghar subsidy work in Chittoor?",
-              "acceptedAnswer": {
+              name: "How does PM Surya Ghar subsidy work in Chittoor?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "Chittoor residential consumers receive ₹30,000 for 1 kW, ₹60,000 for 2 kW, and up to ₹78,000 for 3 kW and higher systems directly in their bank account under the PM Surya Ghar scheme. Surrya Gen Power manages all application and net-metering approvals."
-              }
+                text: "Chittoor residential consumers receive ₹30,000 for 1 kW, ₹60,000 for 2 kW, and up to ₹78,000 for 3 kW and higher systems directly in their bank account under the PM Surya Ghar scheme. Surrya Gen Power manages all application and net-metering approvals.",
+              },
             },
             {
               "@type": "Question",
-              "name": "Can agricultural processing, dairy, and cold storage units in Chittoor install solar?",
-              "acceptedAnswer": {
+              name: "Can agricultural processing, dairy, and cold storage units in Chittoor install solar?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "Yes! Chittoor's extensive mango pulp, dairy, and cold storage facilities are ideal candidates for 30 kW to 250+ kW commercial solar systems. They benefit from 40% accelerated depreciation, daytime load matching, and rapid ROI in 3 to 4 years."
-              }
+                text: "Yes! Chittoor's extensive mango pulp, dairy, and cold storage facilities are ideal candidates for 30 kW to 250+ kW commercial solar systems. They benefit from 40% accelerated depreciation, daytime load matching, and rapid ROI in 3 to 4 years.",
+              },
             },
             {
               "@type": "Question",
-              "name": "How does APSPDCL net metering operate in Chittoor?",
-              "acceptedAnswer": {
+              name: "How does APSPDCL net metering operate in Chittoor?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "Under the APSPDCL net-metering regulations, solar electricity produced during sunny hours powers your facility first. Excess generation is fed back to the grid and deducted from your monthly bill at tariff rates."
-              }
+                text: "Under the APSPDCL net-metering regulations, solar electricity produced during sunny hours powers your facility first. Excess generation is fed back to the grid and deducted from your monthly bill at tariff rates.",
+              },
             },
             {
               "@type": "Question",
-              "name": "Which towns and mandals in Chittoor district do you cover?",
-              "acceptedAnswer": {
+              name: "Which towns and mandals in Chittoor district do you cover?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "We serve all localities in Chittoor town (Kongareddypalli, Mittoor, Greamspet, Murakambattu) as well as surrounding towns including Punganuru, Palamaner, Madanapalle, Nagari, and Puttur."
-              }
-            }
-          ]
+                text: "We serve all localities in Chittoor town (Kongareddypalli, Mittoor, Greamspet, Murakambattu) as well as surrounding towns including Punganuru, Palamaner, Madanapalle, Nagari, and Puttur.",
+              },
+            },
+          ],
         }),
       },
     ],
@@ -188,11 +201,11 @@ function SolarChittoor() {
   return (
     <div>
       <PageHero
-        eyebrow="Chittoor & Western Rayalaseema"
-        title="Rooftop Solar Installation in Chittoor"
-        description="Transform your roof into an electricity generator in Chittoor. Get up to ₹78,000 PM Surya Ghar subsidy, robust APSPDCL net metering, and turnkey installation by certified local solar engineers."
+        eyebrow="Premier Solar Company in Chittoor"
+        title="Solar Panel Installation in Chittoor"
+        description="Transform your roof into an electricity asset with turnkey solar panel installation in Chittoor. We deploy the best solar panels in Andhra Pradesh for homes, dairy farms, and cold storage with ₹78,000 PM Surya Ghar subsidy and fast APSPDCL approvals."
         image={residentialImg}
-        imageAlt="Modern home with rooftop solar panels in Chittoor, Andhra Pradesh"
+        imageAlt="Solar panel installation in Chittoor by premier solar company Surrya Gen Power"
         badge="PM Surya Ghar Subsidy Empanelled"
         badgeIcon={<Sparkles className="h-4 w-4 text-amber-500" />}
         primaryCta={{
@@ -207,9 +220,9 @@ function SolarChittoor() {
       <section className="bg-cream py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <SectionHeading
-            eyebrow="Solar In Chittoor"
-            title="Reliable Clean Energy for Homes & Agro-Industries"
-            description="From residential homes eliminating electricity bills to dairy and cold storage plants reducing heavy operating expenses, solar delivers unmatched long-term value in Chittoor."
+            eyebrow="Trusted Solar Company in Chittoor"
+            title="Clean Energy Powered by the Best Solar Panels in Andhra Pradesh"
+            description="From residential homes eliminating electricity bills to dairy and cold storage plants reducing heavy operating tariffs, our solar company in Chittoor delivers unmatched long-term value."
           />
 
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

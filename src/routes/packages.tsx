@@ -1,7 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
-  Info, ArrowRight, CheckCircle2, ShieldCheck, Sparkles,
-  Zap, IndianRupee, Layers, FileCheck, Headphones,
+  Info,
+  ArrowRight,
+  CheckCircle2,
+  ShieldCheck,
+  Sparkles,
+  Zap,
+  IndianRupee,
+  Layers,
+  FileCheck,
+  Headphones,
 } from "lucide-react";
 import heroImg from "@/assets/hero-home.jpg";
 import { PageHero } from "@/components/PageHero";
@@ -14,40 +22,44 @@ import { BUSINESS } from "@/lib/config";
 export const Route = createFileRoute("/packages")({
   head: () => ({
     meta: [
-      { title: `Solar Package Prices in Andhra Pradesh — 3kW to 5kW | ${BUSINESS.name}` },
+      { title: `3.45kW, 4kW & 5kW Solar System Price in Andhra Pradesh | Surrya Gen Power` },
       {
         name: "description",
-        content: `Explore transparent rooftop solar packages in Andhra Pradesh: 3.45 kW (₹2,15,000), 4 kW (₹2,58,000), and 5 kW (₹3,15,000) with ₹78,000 PM Surya Ghar subsidy deduction.`,
+        content: `Check transparent 3.45kW solar system price (₹2,15,000), 4kW solar system price (₹2,58,000), and 5kW solar system price (₹3,15,000) in Andhra Pradesh. Installed with the best solar panels in Andhra Pradesh and ₹78,000 PM Surya Ghar subsidy.`,
       },
-      { property: "og:title", content: `Solar Package Prices in Andhra Pradesh — 3kW to 5kW | ${BUSINESS.name}` },
-      { property: "og:description", content: `Compare rooftop solar packages for Andhra Pradesh homes. 3.45kW to 5kW systems with PM Surya Ghar subsidy and 25-year warranty.` },
+      {
+        property: "og:title",
+        content: `3.45kW, 4kW & 5kW Solar System Price in Andhra Pradesh | Surrya Gen Power`,
+      },
+      {
+        property: "og:description",
+        content: `Compare 3.45kW, 4kW, and 5kW solar system prices in Andhra Pradesh. Built with the best solar panels in Andhra Pradesh with ₹78,000 PM Surya Ghar subsidy support.`,
+      },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://www.surryagenpower.in/packages" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [
-      { rel: "canonical", href: "https://www.surryagenpower.in/packages" },
-    ],
+    links: [{ rel: "canonical", href: "https://www.surryagenpower.in/packages" }],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
-          "itemListElement": [
+          itemListElement: [
             {
               "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://www.surryagenpower.in/"
+              position: 1,
+              name: "Home",
+              item: "https://www.surryagenpower.in/",
             },
             {
               "@type": "ListItem",
-              "position": 2,
-              "name": "Solar Packages",
-              "item": "https://www.surryagenpower.in/packages"
-            }
-          ]
+              position: 2,
+              name: "Solar Packages",
+              item: "https://www.surryagenpower.in/packages",
+            },
+          ],
         }),
       },
       {
@@ -55,58 +67,62 @@ export const Route = createFileRoute("/packages")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ItemList",
-          "name": "Surrya Gen Power Rooftop Solar Packages",
-          "description": "Indicative residential rooftop solar packages in Andhra Pradesh with PM Surya Ghar subsidy deductions.",
-          "itemListElement": [
+          name: "Surrya Gen Power Rooftop Solar Packages",
+          description:
+            "Indicative residential rooftop solar packages in Andhra Pradesh with PM Surya Ghar subsidy deductions.",
+          itemListElement: [
             {
               "@type": "ListItem",
-              "position": 1,
-              "item": {
+              position: 1,
+              item: {
                 "@type": "Product",
-                "name": "3.45 kW Residential Rooftop Solar System",
-                "description": "Ideal for 2-3 BHK homes. Generates 400-450 units/month. Includes Tier-1 TOPCon panels, on-grid inverter, and net-metering liaison.",
-                "offers": {
+                name: "3.45 kW Residential Rooftop Solar System",
+                description:
+                  "Ideal for 2-3 BHK homes. Generates 400-450 units/month. Includes Tier-1 TOPCon panels, on-grid inverter, and net-metering liaison.",
+                offers: {
                   "@type": "Offer",
-                  "priceCurrency": "INR",
-                  "price": "215000",
-                  "priceValidUntil": "2026-12-31",
-                  "availability": "https://schema.org/InStock"
-                }
-              }
+                  priceCurrency: "INR",
+                  price: "215000",
+                  priceValidUntil: "2026-12-31",
+                  availability: "https://schema.org/InStock",
+                },
+              },
             },
             {
               "@type": "ListItem",
-              "position": 2,
-              "item": {
+              position: 2,
+              item: {
                 "@type": "Product",
-                "name": "4 kW Residential Rooftop Solar System",
-                "description": "Popular for medium-to-large families with ACs. Generates 480-550 units/month. PM Surya Ghar subsidy up to ₹78,000.",
-                "offers": {
+                name: "4 kW Residential Rooftop Solar System",
+                description:
+                  "Popular for medium-to-large families with ACs. Generates 480-550 units/month. PM Surya Ghar subsidy up to ₹78,000.",
+                offers: {
                   "@type": "Offer",
-                  "priceCurrency": "INR",
-                  "price": "258000",
-                  "priceValidUntil": "2026-12-31",
-                  "availability": "https://schema.org/InStock"
-                }
-              }
+                  priceCurrency: "INR",
+                  price: "258000",
+                  priceValidUntil: "2026-12-31",
+                  availability: "https://schema.org/InStock",
+                },
+              },
             },
             {
               "@type": "ListItem",
-              "position": 3,
-              "item": {
+              position: 3,
+              item: {
                 "@type": "Product",
-                "name": "5 kW Residential Rooftop Solar System",
-                "description": "High-yield system for large homes. Generates 600-650 units/month with smart inverter and real-time WiFi telemetry.",
-                "offers": {
+                name: "5 kW Residential Rooftop Solar System",
+                description:
+                  "High-yield system for large homes. Generates 600-650 units/month with smart inverter and real-time WiFi telemetry.",
+                offers: {
                   "@type": "Offer",
-                  "priceCurrency": "INR",
-                  "price": "315000",
-                  "priceValidUntil": "2026-12-31",
-                  "availability": "https://schema.org/InStock"
-                }
-              }
-            }
-          ]
+                  priceCurrency: "INR",
+                  price: "315000",
+                  priceValidUntil: "2026-12-31",
+                  availability: "https://schema.org/InStock",
+                },
+              },
+            },
+          ],
         }),
       },
       {
@@ -114,48 +130,48 @@ export const Route = createFileRoute("/packages")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",
-          "mainEntity": [
+          mainEntity: [
             {
               "@type": "Question",
-              "name": "Are the package prices final or indicative?",
-              "acceptedAnswer": {
+              name: "Are the package prices final or indicative?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "Prices shown are indicative reference prices from our brochure. Final pricing is confirmed after a free site assessment to check your specific roof conditions, cable run length, structure height requirements, and meter location."
-              }
+                text: "Prices shown are indicative reference prices from our brochure. Final pricing is confirmed after a free site assessment to check your specific roof conditions, cable run length, structure height requirements, and meter location.",
+              },
             },
             {
               "@type": "Question",
-              "name": "Is the PM Surya Ghar subsidy already deducted from the package price?",
-              "acceptedAnswer": {
+              name: "Is the PM Surya Ghar subsidy already deducted from the package price?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "Under current government DBT (Direct Benefit Transfer) regulations, consumers pay the project cost to the empanelled vendor, and the Central Government disburses the subsidy (up to ₹78,000) directly into your Aadhaar-linked bank account within 30 to 45 days after net meter commissioning."
-              }
+                text: "Under current government DBT (Direct Benefit Transfer) regulations, consumers pay the project cost to the empanelled vendor, and the Central Government disburses the subsidy (up to ₹78,000) directly into your Aadhaar-linked bank account within 30 to 45 days after net meter commissioning.",
+              },
             },
             {
               "@type": "Question",
-              "name": "Are solar loans or EMI options available for these packages?",
-              "acceptedAnswer": {
+              name: "Are solar loans or EMI options available for these packages?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "Yes! Major nationalized banks (such as SBI, Canara Bank, Union Bank) offer collateral-free solar loans under PM Surya Ghar at concessional interest rates (~7% p.a.). Your monthly EMI is often lower than your current electricity bill!"
-              }
+                text: "Yes! Major nationalized banks (such as SBI, Canara Bank, Union Bank) offer collateral-free solar loans under PM Surya Ghar at concessional interest rates (~7% p.a.). Your monthly EMI is often lower than your current electricity bill!",
+              },
             },
             {
               "@type": "Question",
-              "name": "What if I need a higher structure to use my roof space?",
-              "acceptedAnswer": {
+              name: "What if I need a higher structure to use my roof space?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "We offer elevated structures (8 to 10 feet clearance) as an add-on, allowing you to use your terrace for recreation, gardening, or laundry while the solar panels generate power overhead."
-              }
+                text: "We offer elevated structures (8 to 10 feet clearance) as an add-on, allowing you to use your terrace for recreation, gardening, or laundry while the solar panels generate power overhead.",
+              },
             },
             {
               "@type": "Question",
-              "name": "How long does the entire installation process take?",
-              "acceptedAnswer": {
+              name: "How long does the entire installation process take?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "The physical rooftop installation typically takes 2 to 3 days. Total turnaround including DISCOM approvals and net meter synchronization is usually 3 to 4 weeks."
-              }
-            }
-          ]
+                text: "The physical rooftop installation typically takes 2 to 3 days. Total turnaround including DISCOM approvals and net meter synchronization is usually 3 to 4 weeks.",
+              },
+            },
+          ],
         }),
       },
     ],
@@ -224,11 +240,11 @@ function Packages() {
     <div>
       {/* RICH PAGE HERO */}
       <PageHero
-        eyebrow="Solar Packages"
-        title="Complete Turnkey Rooftop Solar Packages"
-        description="Choose from our most popular residential and commercial systems. Transparent pricing, Tier-1 certified equipment, DISCOM net-metering approval, and full PM Surya Ghar subsidy assistance."
+        eyebrow="3.45kW, 4kW & 5kW Solar System Price"
+        title="Rooftop Solar System Prices in Andhra Pradesh"
+        description="Transparent 3.45kW solar system price, 4kW solar system price, and 5kW solar system price packages in Andhra Pradesh. Engineered with the best solar panels in Andhra Pradesh, DISCOM net metering, and up to ₹78,000 PM Surya Ghar subsidy support."
         image={heroImg}
-        imageAlt="Modern home rooftop with premium solar panels in Andhra Pradesh"
+        imageAlt="Rooftop solar system prices in Andhra Pradesh with high-efficiency Tier-1 panels"
         badge="PM Surya Ghar Subsidy: Up to ₹78,000"
         badgeIcon={<Sparkles className="h-4 w-4 text-amber-500" />}
         primaryCta={{ label: "Get a Personalized Quote", to: "/contact" }}
@@ -250,7 +266,10 @@ function Packages() {
           <div className="mx-auto mt-12 flex max-w-3xl items-start gap-3.5 rounded-2xl border border-primary/40 bg-solar-soft p-5 text-xs sm:text-sm text-foreground shadow-soft">
             <Info className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden />
             <p className="leading-relaxed">
-              <strong>Transparent Pricing Policy:</strong> Prices shown are indicative reference prices from our current brochure. Final pricing depends on your roof orientation, shadow profile, cable length, and chosen inverter brand. All equipment details and warranties are itemized in your written quotation before you commit.
+              <strong>Transparent Pricing Policy:</strong> Prices shown are indicative reference
+              prices from our current brochure. Final pricing depends on your roof orientation,
+              shadow profile, cable length, and chosen inverter brand. All equipment details and
+              warranties are itemized in your written quotation before you commit.
             </p>
           </div>
         </div>
@@ -305,26 +324,34 @@ function Packages() {
                   Switch to Solar with Zero Burden on Your Monthly Budget
                 </h3>
                 <p className="mt-3 text-sm sm:text-base text-muted-foreground leading-relaxed">
-                  Under the PM Surya Ghar scheme, leading public sector banks offer collateral-free rooftop solar loans at special rates starting around 7% p.a.
-                  Your monthly electricity bill savings will easily cover your loan EMI!
+                  Under the PM Surya Ghar scheme, leading public sector banks offer collateral-free
+                  rooftop solar loans at special rates starting around 7% p.a. Your monthly
+                  electricity bill savings will easily cover your loan EMI!
                 </p>
                 <div className="mt-6 flex flex-wrap gap-4 text-xs sm:text-sm text-foreground">
                   <span className="flex items-center gap-1.5 font-semibold">
-                    <CheckCircle2 className="h-4 w-4 text-emerald-600" /> Up to 10-Year Repayment Tenure
+                    <CheckCircle2 className="h-4 w-4 text-emerald-600" /> Up to 10-Year Repayment
+                    Tenure
                   </span>
                   <span className="flex items-center gap-1.5 font-semibold">
-                    <CheckCircle2 className="h-4 w-4 text-emerald-600" /> Minimum Documentation &amp; Fast Approval
+                    <CheckCircle2 className="h-4 w-4 text-emerald-600" /> Minimum Documentation
+                    &amp; Fast Approval
                   </span>
                   <span className="flex items-center gap-1.5 font-semibold">
-                    <CheckCircle2 className="h-4 w-4 text-emerald-600" /> No Collateral Required for Residential
+                    <CheckCircle2 className="h-4 w-4 text-emerald-600" /> No Collateral Required for
+                    Residential
                   </span>
                 </div>
               </div>
 
               <div className="rounded-2xl border border-primary/30 bg-solar-soft/60 p-6 text-center">
-                <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Indicative EMI</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                  Indicative EMI
+                </span>
                 <p className="mt-1 text-3xl font-extrabold text-primary">₹2,450 /mo</p>
-                <p className="mt-1 text-xs text-muted-foreground">For 3.45 kW System after Subsidy deduction</p>
+                <p className="mt-1 text-xs text-muted-foreground">
+                  For 3.45 kW System after Subsidy deduction
+                </p>
                 <Link
                   to="/contact"
                   search={{ service: "Solar Financing Enquiry" }}
@@ -360,7 +387,8 @@ function Packages() {
             Not Sure Which Package Best Fits Your Roof?
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-primary-foreground/85 text-sm sm:text-base leading-relaxed">
-            Our solar technicians will inspect your terrace, measure shadow-free dimensions, and present a custom recommendation with exact savings.
+            Our solar technicians will inspect your terrace, measure shadow-free dimensions, and
+            present a custom recommendation with exact savings.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link

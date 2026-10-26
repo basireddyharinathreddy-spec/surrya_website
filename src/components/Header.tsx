@@ -56,19 +56,47 @@ const ABOUT_SUBPAGES = [
   },
 ] as const;
 
+const SERVICE_AREA_SUBPAGES = [
+  {
+    to: "/solar-kadapa" as const,
+    label: "Solar Panel Installation in Kadapa",
+    description: "Solar company in Kadapa — residential & commercial",
+    icon: MapPin,
+  },
+  {
+    to: "/solar-tirupati" as const,
+    label: "Solar Panel Installation in Tirupati",
+    description: "Solar company in Tirupati — rooftop solar specialists",
+    icon: MapPin,
+  },
+  {
+    to: "/solar-chittoor" as const,
+    label: "Solar Panel Installation in Chittoor",
+    description: "Solar company in Chittoor — best solar panels in AP",
+    icon: MapPin,
+  },
+  {
+    to: "/service-areas" as const,
+    label: "All Service Areas",
+    description: "View all districts & mandals we cover in Rayalaseema",
+    icon: MapPin,
+  },
+] as const;
+
 export function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
   const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
+  const [serviceAreasDropdownOpen, setServiceAreasDropdownOpen] = useState(false);
+  const [mobileServiceAreasOpen, setMobileServiceAreasOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const serviceAreasDropdownRef = useRef<HTMLDivElement>(null);
   const routerState = useRouterState();
   const currentPath = routerState.location.pathname;
 
   const isAboutActive =
-    currentPath === "/about" ||
-    currentPath === "/residential" ||
-    currentPath === "/commercial";
+    currentPath === "/about" || currentPath === "/residential" || currentPath === "/commercial";
 
   // Monitor scroll for sticky header elevation effect
   useEffect(() => {
@@ -86,6 +114,12 @@ export function Header() {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setAboutDropdownOpen(false);
       }
+      if (
+        serviceAreasDropdownRef.current &&
+        !serviceAreasDropdownRef.current.contains(event.target as Node)
+      ) {
+        setServiceAreasDropdownOpen(false);
+      }
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
@@ -96,12 +130,13 @@ export function Header() {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         if (aboutDropdownOpen) setAboutDropdownOpen(false);
+        if (serviceAreasDropdownOpen) setServiceAreasDropdownOpen(false);
         if (open) setOpen(false);
       }
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [aboutDropdownOpen, open]);
+  }, [aboutDropdownOpen, serviceAreasDropdownOpen, open]);
 
   // Handle body scrolling lock when mobile menu is open
   useEffect(() => {
@@ -139,6 +174,7 @@ export function Header() {
             const isSubsidy = link.to === "/subsidy-guide";
             const isCalc = link.to === "/calculator";
             const isAbout = link.to === "/about";
+            const isServiceAreas = link.to === "/service-areas";
 
             if (isAbout) {
               return (
@@ -181,7 +217,7 @@ export function Header() {
                     <div className="absolute left-0 top-full pt-2 z-50 w-72 animate-in fade-in-0 zoom-in-95 duration-150">
                       <div className="rounded-2xl border border-border/80 bg-background/98 p-2 shadow-lift backdrop-blur-xl ring-1 ring-black/5">
                         <div className="px-3 py-2 border-b border-border/50 text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
-                          About &amp; Solar Solutions
+                          About & Solar Solutions
                         </div>
                         <div className="mt-1 space-y-1">
                           {ABOUT_SUBPAGES.map((sub) => {
@@ -231,6 +267,95 @@ export function Header() {
               );
             }
 
+            if (isServiceAreas) {
+              const isServiceAreasActive =
+                currentPath === "/service-areas" ||
+                currentPath === "/solar-kadapa" ||
+                currentPath === "/solar-tirupati" ||
+                currentPath === "/solar-chittoor";
+              return (
+                <div
+                  key={link.to}
+                  ref={serviceAreasDropdownRef}
+                  className="relative"
+                  onMouseEnter={() => setServiceAreasDropdownOpen(true)}
+                  onMouseLeave={() => setServiceAreasDropdownOpen(false)}
+                >
+                  <div className="flex items-center">
+                    <Link
+                      to="/service-areas"
+                      onClick={() => setServiceAreasDropdownOpen(false)}
+                      className={`group relative flex items-center gap-1 rounded-full px-2.5 py-1.5 text-xs xl:text-[13px] font-semibold transition-all duration-200 hover:bg-background/90 hover:text-foreground hover:shadow-2xs active:scale-95 ${
+                        isServiceAreasActive
+                          ? "bg-background text-foreground font-bold shadow-xs ring-1 ring-border/80"
+                          : "text-muted-foreground"
+                      }`}
+                    >
+                      <span>Service Areas</span>
+                    </Link>
+                    <button
+                      type="button"
+                      aria-label="Toggle Service Areas Submenu"
+                      aria-expanded={serviceAreasDropdownOpen}
+                      onClick={() => setServiceAreasDropdownOpen((prev) => !prev)}
+                      className="p-1 -ml-1 text-muted-foreground hover:text-foreground rounded-full transition-colors"
+                    >
+                      <ChevronDown
+                        className={`h-3.5 w-3.5 transition-transform duration-200 ${
+                          serviceAreasDropdownOpen ? "rotate-180 text-primary" : ""
+                        }`}
+                      />
+                    </button>
+                  </div>
+
+                  {/* Desktop Service Areas Dropdown */}
+                  {serviceAreasDropdownOpen && (
+                    <div className="absolute left-0 top-full pt-2 z-50 w-80 animate-in fade-in-0 zoom-in-95 duration-150">
+                      <div className="rounded-2xl border border-border/80 bg-background/98 p-2 shadow-lift backdrop-blur-xl ring-1 ring-black/5">
+                        <div className="px-3 py-2 border-b border-border/50 text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
+                          Solar Installations by City
+                        </div>
+                        <div className="mt-1 space-y-1">
+                          {SERVICE_AREA_SUBPAGES.map((sub) => {
+                            const SubIcon = sub.icon;
+                            const isCurrent = currentPath === sub.to;
+                            return (
+                              <Link
+                                key={sub.to}
+                                to={sub.to}
+                                onClick={() => setServiceAreasDropdownOpen(false)}
+                                className={`flex items-start gap-3 rounded-xl p-2.5 transition-all duration-150 ${
+                                  isCurrent
+                                    ? "bg-solar-soft text-primary font-semibold"
+                                    : "hover:bg-muted/70 text-foreground"
+                                }`}
+                              >
+                                <div
+                                  className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ${
+                                    isCurrent
+                                      ? "bg-primary text-primary-foreground"
+                                      : "bg-muted text-foreground"
+                                  }`}
+                                >
+                                  <SubIcon className="h-4 w-4" />
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                  <span className="text-xs font-bold">{sub.label}</span>
+                                  <p className="mt-0.5 text-[11px] text-muted-foreground leading-snug line-clamp-1">
+                                    {sub.description}
+                                  </p>
+                                </div>
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            }
+
             return (
               <Link
                 key={link.to}
@@ -263,7 +388,9 @@ export function Header() {
         <div className="hidden items-center gap-2.5 lg:flex">
           {/* Quick WhatsApp Action */}
           <a
-            href={whatsappLink(`Hello ${BUSINESS.brandName}, I would like to enquire about solar packages.`)}
+            href={whatsappLink(
+              `Hello ${BUSINESS.brandName}, I would like to enquire about solar packages.`,
+            )}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instant WhatsApp Consultation"
@@ -349,10 +476,14 @@ export function Header() {
                 const isSubsidy = link.to === "/subsidy-guide";
                 const isCalc = link.to === "/calculator";
                 const isAbout = link.to === "/about";
+                const isServiceAreas = link.to === "/service-areas";
 
                 if (isAbout) {
                   return (
-                    <div key={link.to} className="rounded-xl border border-border/60 bg-muted/20 overflow-hidden">
+                    <div
+                      key={link.to}
+                      className="rounded-xl border border-border/60 bg-muted/20 overflow-hidden"
+                    >
                       <div className="flex items-center justify-between px-3.5 py-3">
                         <Link
                           to="/about"
@@ -402,6 +533,63 @@ export function Header() {
                                     {sub.badge}
                                   </span>
                                 )}
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
+                  );
+                }
+
+                if (isServiceAreas) {
+                  return (
+                    <div
+                      key={link.to}
+                      className="rounded-xl border border-border/60 bg-muted/20 overflow-hidden"
+                    >
+                      <div className="flex items-center justify-between px-3.5 py-3">
+                        <Link
+                          to="/service-areas"
+                          onClick={() => setOpen(false)}
+                          className="flex items-center gap-3 text-sm font-semibold text-foreground flex-1"
+                        >
+                          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-muted text-foreground">
+                            <MapPin className="h-4 w-4" />
+                          </div>
+                          <span>Service Areas</span>
+                        </Link>
+                        <button
+                          type="button"
+                          onClick={() => setMobileServiceAreasOpen((prev) => !prev)}
+                          aria-label="Expand Service Areas Subpages"
+                          className="p-1 text-muted-foreground hover:text-foreground"
+                        >
+                          <ChevronDown
+                            className={`h-4 w-4 transition-transform duration-200 ${
+                              mobileServiceAreasOpen ? "rotate-180 text-primary" : ""
+                            }`}
+                          />
+                        </button>
+                      </div>
+
+                      {/* Accordion sub-links for Service Areas in mobile menu */}
+                      {mobileServiceAreasOpen && (
+                        <div className="border-t border-border/40 bg-background/50 px-3 py-2 space-y-1">
+                          {SERVICE_AREA_SUBPAGES.map((sub) => {
+                            const SubIcon = sub.icon;
+                            return (
+                              <Link
+                                key={sub.to}
+                                to={sub.to}
+                                onClick={() => setOpen(false)}
+                                className="flex items-center gap-2.5 rounded-lg px-3 py-2 text-xs font-semibold text-foreground hover:bg-muted"
+                                activeProps={{
+                                  className: "bg-solar-soft text-primary font-bold",
+                                }}
+                              >
+                                <SubIcon className="h-3.5 w-3.5 text-primary shrink-0" />
+                                <span>{sub.label}</span>
                               </Link>
                             );
                           })}
@@ -465,7 +653,9 @@ export function Header() {
                 Call {BUSINESS.secondaryPhone}
               </a>
               <a
-                href={whatsappLink(`Hello ${BUSINESS.brandName}, I would like to enquire about solar packages.`)}
+                href={whatsappLink(
+                  `Hello ${BUSINESS.brandName}, I would like to enquire about solar packages.`,
+                )}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setOpen(false)}

@@ -21,7 +21,9 @@ export function FAQ({ items }: { items: { q: string; a: string }[] }) {
                 aria-hidden
               />
             </button>
-            {open && <p className="px-6 pb-5 text-sm leading-relaxed text-muted-foreground">{item.a}</p>}
+            {open && (
+              <p className="px-6 pb-5 text-sm leading-relaxed text-muted-foreground">{item.a}</p>
+            )}
           </div>
         );
       })}

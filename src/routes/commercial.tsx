@@ -1,8 +1,19 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
-  ArrowRight, CheckCircle2, Building2, TrendingDown, ShieldCheck,
-  Zap, Award, BarChart3, Factory, School, HeartPulse, Warehouse,
-  FileCheck2, ArrowUpRight,
+  ArrowRight,
+  CheckCircle2,
+  Building2,
+  TrendingDown,
+  ShieldCheck,
+  Zap,
+  Award,
+  BarChart3,
+  Factory,
+  School,
+  HeartPulse,
+  Warehouse,
+  FileCheck2,
+  ArrowUpRight,
 } from "lucide-react";
 import commercialImg from "@/assets/commercial.jpg";
 import technologyImg from "@/assets/technology.jpg";
@@ -16,20 +27,24 @@ import { BUSINESS } from "@/lib/config";
 export const Route = createFileRoute("/commercial")({
   head: () => ({
     meta: [
-      { title: `Commercial & Industrial Rooftop Solar Andhra Pradesh | ${BUSINESS.name}` },
+      { title: `Commercial Solar Installation Andhra Pradesh | Surrya Gen Power` },
       {
         name: "description",
-        content: `Slash operational costs with 10 kW to 250+ kW commercial rooftop solar installations across Kadapa, Tirupati, Chittoor & Andhra Pradesh. 40% accelerated tax depreciation & 3-4 year ROI with ${BUSINESS.name}.`,
+        content: `Leading commercial solar installation Andhra Pradesh for factories, warehouses, schools, and hospitals. Engineered with the best solar panels in Andhra Pradesh with 40% tax depreciation.`,
       },
-      { property: "og:title", content: `Commercial & Industrial Rooftop Solar Andhra Pradesh | ${BUSINESS.name}` },
-      { property: "og:description", content: `Commercial & industrial solar EPC solutions for businesses, schools, hospitals, and cold storages across Rayalaseema, AP.` },
+      {
+        property: "og:title",
+        content: `Commercial Solar Installation Andhra Pradesh | Surrya Gen Power`,
+      },
+      {
+        property: "og:description",
+        content: `Slash business operating costs with turnkey commercial solar installation Andhra Pradesh. Built with the best solar panels in Andhra Pradesh by Surrya Gen Power.`,
+      },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://www.surryagenpower.in/commercial" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [
-      { rel: "canonical", href: "https://www.surryagenpower.in/commercial" },
-    ],
+    links: [{ rel: "canonical", href: "https://www.surryagenpower.in/commercial" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -37,25 +52,26 @@ export const Route = createFileRoute("/commercial")({
           "@context": "https://schema.org",
           "@type": "Service",
           "@id": "https://www.surryagenpower.in/commercial#service",
-          "name": "Commercial and Industrial Rooftop Solar Installation",
-          "serviceType": "Commercial Solar EPC Services",
-          "provider": {
+          name: "Commercial and Industrial Rooftop Solar Installation",
+          serviceType: "Commercial Solar EPC Services",
+          provider: {
             "@type": "LocalBusiness",
-            "name": "Surrya Gen Power",
-            "url": "https://www.surryagenpower.in",
-            "telephone": "+919391927443"
+            name: "Surrya Gen Power",
+            url: "https://www.surryagenpower.in",
+            telephone: "+919391927443",
           },
-          "areaServed": [
-            { "@type": "City", "name": "Kadapa" },
-            { "@type": "City", "name": "Tirupati" },
-            { "@type": "City", "name": "Chittoor" },
-            { "@type": "City", "name": "Punganuru" },
-            { "@type": "City", "name": "Rayachoti" },
-            { "@type": "City", "name": "Anantapuramu" },
-            { "@type": "City", "name": "Kadiri" },
-            { "@type": "City", "name": "Nandyal" }
+          areaServed: [
+            { "@type": "City", name: "Kadapa" },
+            { "@type": "City", name: "Tirupati" },
+            { "@type": "City", name: "Chittoor" },
+            { "@type": "City", name: "Punganuru" },
+            { "@type": "City", name: "Rayachoti" },
+            { "@type": "City", name: "Anantapuramu" },
+            { "@type": "City", name: "Kadiri" },
+            { "@type": "City", name: "Nandyal" },
           ],
-          "description": "Turnkey commercial & industrial solar EPC solutions (10 kW to 250+ kW) for schools, hospitals, cold storage, and factories across Andhra Pradesh."
+          description:
+            "Turnkey commercial & industrial solar EPC solutions (10 kW to 250+ kW) for schools, hospitals, cold storage, and factories across Andhra Pradesh.",
         }),
       },
       {
@@ -63,20 +79,20 @@ export const Route = createFileRoute("/commercial")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
-          "itemListElement": [
+          itemListElement: [
             {
               "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://www.surryagenpower.in/"
+              position: 1,
+              name: "Home",
+              item: "https://www.surryagenpower.in/",
             },
             {
               "@type": "ListItem",
-              "position": 2,
-              "name": "Commercial Solar",
-              "item": "https://www.surryagenpower.in/commercial"
-            }
-          ]
+              position: 2,
+              name: "Commercial Solar",
+              item: "https://www.surryagenpower.in/commercial",
+            },
+          ],
         }),
       },
       {
@@ -84,48 +100,48 @@ export const Route = createFileRoute("/commercial")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",
-          "mainEntity": [
+          mainEntity: [
             {
               "@type": "Question",
-              "name": "Can commercial enterprises claim government subsidies?",
-              "acceptedAnswer": {
+              name: "Can commercial enterprises claim government subsidies?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "Direct capital subsidies like PM Surya Ghar are reserved for residential consumers. However, commercial businesses receive substantial fiscal incentives including 40% Accelerated Depreciation under Income Tax rules, GST input tax credits, and duty concessions."
-              }
+                text: "Direct capital subsidies like PM Surya Ghar are reserved for residential consumers. However, commercial businesses receive substantial fiscal incentives including 40% Accelerated Depreciation under Income Tax rules, GST input tax credits, and duty concessions.",
+              },
             },
             {
               "@type": "Question",
-              "name": "How does net metering work for commercial and industrial connections?",
-              "acceptedAnswer": {
+              name: "How does net metering work for commercial and industrial connections?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "Under state DISCOM net-metering regulations, excess power generated on weekends or non-operational hours is exported back to the grid and credited against your monthly commercial electricity bill."
-              }
+                text: "Under state DISCOM net-metering regulations, excess power generated on weekends or non-operational hours is exported back to the grid and credited against your monthly commercial electricity bill.",
+              },
             },
             {
               "@type": "Question",
-              "name": "Can our industrial metal shed support the weight of solar panels?",
-              "acceptedAnswer": {
+              name: "Can our industrial metal shed support the weight of solar panels?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "Yes. We conduct a thorough structural load calculation. Solar panels add approximately 12–15 kg per square meter. For metal roofs, we utilize non-penetrative or specialized mini-rail mounting systems that preserve roof waterproofing."
-              }
+                text: "Yes. We conduct a thorough structural load calculation. Solar panels add approximately 12–15 kg per square meter. For metal roofs, we utilize non-penetrative or specialized mini-rail mounting systems that preserve roof waterproofing.",
+              },
             },
             {
               "@type": "Question",
-              "name": "What is the expected lifespan and maintenance requirement?",
-              "acceptedAnswer": {
+              name: "What is the expected lifespan and maintenance requirement?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "Tier-1 solar modules are warrantied for 25 years of linear performance. Maintenance is minimal, primarily involving periodic dust cleaning and annual electrical health checkups."
-              }
+                text: "Tier-1 solar modules are warrantied for 25 years of linear performance. Maintenance is minimal, primarily involving periodic dust cleaning and annual electrical health checkups.",
+              },
             },
             {
               "@type": "Question",
-              "name": "Can we install a hybrid solar system with battery storage or diesel generator synchronization?",
-              "acceptedAnswer": {
+              name: "Can we install a hybrid solar system with battery storage or diesel generator synchronization?",
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": "Yes. For facilities requiring uninterrupted power or running large diesel generator sets, we configure DG-Solar synchronizers (zero-export controllers) that prioritize solar power to drastically cut diesel consumption."
-              }
-            }
-          ]
+                text: "Yes. For facilities requiring uninterrupted power or running large diesel generator sets, we configure DG-Solar synchronizers (zero-export controllers) that prioritize solar power to drastically cut diesel consumption.",
+              },
+            },
+          ],
         }),
       },
     ],
@@ -137,35 +153,40 @@ const commercialSectors = [
   {
     icon: School,
     title: "Schools, Colleges & Universities",
-    description: "Peak electrical demand occurs strictly during sunshine hours (8 AM - 4 PM), delivering near-100% solar self-consumption and green campus ratings.",
+    description:
+      "Peak electrical demand occurs strictly during sunshine hours (8 AM - 4 PM), delivering near-100% solar self-consumption and green campus ratings.",
     tag: "High Daytime Match",
     capacity: "20 kW - 100 kW",
   },
   {
     icon: HeartPulse,
     title: "Hospitals & Healthcare Facilities",
-    description: "Round-the-clock air conditioning, diagnostic centers, and medical machinery substantially cut their base power consumption.",
+    description:
+      "Round-the-clock air conditioning, diagnostic centers, and medical machinery substantially cut their base power consumption.",
     tag: "Continuous Load",
     capacity: "30 kW - 150 kW",
   },
   {
     icon: Warehouse,
     title: "Cold Storage & Agro Processing",
-    description: "Cold storage demand peaks precisely during summer months when solar irradiance and energy harvest are at their annual maximum.",
+    description:
+      "Cold storage demand peaks precisely during summer months when solar irradiance and energy harvest are at their annual maximum.",
     tag: "Peak Summer Synergy",
     capacity: "50 kW - 250 kW",
   },
   {
     icon: Factory,
     title: "Manufacturing & Industrial Sheds",
-    description: "Convert expansive tin/metal shed roofs into powerful generation assets. Drastically reduce high commercial LT/HT per-unit electricity bills.",
+    description:
+      "Convert expansive tin/metal shed roofs into powerful generation assets. Drastically reduce high commercial LT/HT per-unit electricity bills.",
     tag: "Industrial Metal Roofs",
     capacity: "50 kW - 500+ kW",
   },
   {
     icon: Building2,
     title: "Hotels, Shopping Complexes & Offices",
-    description: "Replace high commercial slab tariffs (₹8.50 - ₹12.00/kWh) with levelized solar energy cost under ₹2.50/kWh for 25 years.",
+    description:
+      "Replace high commercial slab tariffs (₹8.50 - ₹12.00/kWh) with levelized solar energy cost under ₹2.50/kWh for 25 years.",
     tag: "Tariff Shield",
     capacity: "15 kW - 100 kW",
   },
@@ -199,11 +220,31 @@ const financialBenefits = [
 ];
 
 const commercialWorkflow = [
-  { step: "01", title: "Comprehensive Load Audit", desc: "We analyze your 12-month billing history, maximum demand (kVA), and time-of-day (TOD) power profiles." },
-  { step: "02", title: "Structural & Shadow Engineering", desc: "Drone survey and 3D structural load engineering ensuring structural safety on RCC or industrial sheds." },
-  { step: "03", title: "DISCOM HT/LT Sanctions", desc: "Complete liaisoning with electricity boards (APSPDCL / APCPDCL) for technical feasibility and CEIG approvals." },
-  { step: "04", title: "Precision EPC Installation", desc: "Industrial-grade DC cabling, dual-earthing pits, lightning arresters, and Tier-1 TOPCon solar arrays." },
-  { step: "05", title: "SCADA Telemetry & Commissioning", desc: "Real-time generation telemetry dashboard, bidirectional net-meter testing, and handover." },
+  {
+    step: "01",
+    title: "Comprehensive Load Audit",
+    desc: "We analyze your 12-month billing history, maximum demand (kVA), and time-of-day (TOD) power profiles.",
+  },
+  {
+    step: "02",
+    title: "Structural & Shadow Engineering",
+    desc: "Drone survey and 3D structural load engineering ensuring structural safety on RCC or industrial sheds.",
+  },
+  {
+    step: "03",
+    title: "DISCOM HT/LT Sanctions",
+    desc: "Complete liaisoning with electricity boards (APSPDCL / APCPDCL) for technical feasibility and CEIG approvals.",
+  },
+  {
+    step: "04",
+    title: "Precision EPC Installation",
+    desc: "Industrial-grade DC cabling, dual-earthing pits, lightning arresters, and Tier-1 TOPCon solar arrays.",
+  },
+  {
+    step: "05",
+    title: "SCADA Telemetry & Commissioning",
+    desc: "Real-time generation telemetry dashboard, bidirectional net-meter testing, and handover.",
+  },
 ];
 
 const commercialFaqs = [
@@ -234,14 +275,18 @@ function Commercial() {
     <div>
       {/* PAGE HERO */}
       <PageHero
-        eyebrow="Commercial & Industrial Solar"
-        title="Slash Business Operating Costs with Commercial Rooftop Solar"
-        description="High-yield 10 kW to 250+ kW solar installations for schools, hospitals, factories, cold storages, and commercial buildings across Rayalaseema. Capitalize on 40% accelerated tax depreciation and 3-4 year capital payback."
+        eyebrow="Commercial Solar Installation Andhra Pradesh"
+        title="Slash Business Operating Costs with the Best Solar Panels in Andhra Pradesh"
+        description="High-yield 10 kW to 250+ kW commercial solar installation Andhra Pradesh for schools, hospitals, factories, cold storages, and commercial enterprises. Capitalize on 40% accelerated tax depreciation and 3-4 year capital payback."
         image={commercialImg}
-        imageAlt="Large industrial factory rooftop covered with high-efficiency solar panels"
+        imageAlt="Commercial solar installation Andhra Pradesh on industrial rooftop"
         badge="40% Accelerated Tax Depreciation"
         badgeIcon={<Award className="h-4 w-4 text-emerald-400" />}
-        primaryCta={{ label: "Request Commercial Site Audit", to: "/contact", search: { service: "Commercial Solar" } }}
+        primaryCta={{
+          label: "Request Commercial Site Audit",
+          to: "/contact",
+          search: { service: "Commercial Solar" },
+        }}
         secondaryCta={{ label: "Estimate ROI", to: "/calculator" }}
       />
 
@@ -330,7 +375,8 @@ function Commercial() {
                   Heavy Industrial or Multi-MW Solar?
                 </h3>
                 <p className="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                  Have multiple factory roofs, LT/HT metering, or diesel-generator synchronization needs? Talk directly with our senior solar engineers.
+                  Have multiple factory roofs, LT/HT metering, or diesel-generator synchronization
+                  needs? Talk directly with our senior solar engineers.
                 </p>
               </div>
 
@@ -364,9 +410,7 @@ function Commercial() {
                 {step.step}
               </span>
               <h4 className="mt-2 text-base font-bold text-foreground">{step.title}</h4>
-              <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">
-                {step.desc}
-              </p>
+              <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">{step.desc}</p>
             </div>
           ))}
         </div>
@@ -397,15 +441,24 @@ function Commercial() {
             <ul className="mt-6 space-y-3.5 text-xs sm:text-sm text-foreground">
               <li className="flex items-start gap-2.5">
                 <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                <span><strong>Multi-MPPT High-Efficiency Inverters:</strong> Maximize power yield even with partial roof shadow or multiple roof orientations.</span>
+                <span>
+                  <strong>Multi-MPPT High-Efficiency Inverters:</strong> Maximize power yield even
+                  with partial roof shadow or multiple roof orientations.
+                </span>
               </li>
               <li className="flex items-start gap-2.5">
                 <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                <span><strong>Live Cloud Generation Dashboard:</strong> Monitor string voltages, current, daily units generated, and real-time degradation metrics.</span>
+                <span>
+                  <strong>Live Cloud Generation Dashboard:</strong> Monitor string voltages,
+                  current, daily units generated, and real-time degradation metrics.
+                </span>
               </li>
               <li className="flex items-start gap-2.5">
                 <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                <span><strong>DG Synchronization &amp; Zero-Export Control:</strong> Run solar seamlessly alongside diesel backup generators without reverse current risks.</span>
+                <span>
+                  <strong>DG Synchronization &amp; Zero-Export Control:</strong> Run solar
+                  seamlessly alongside diesel backup generators without reverse current risks.
+                </span>
               </li>
             </ul>
 
@@ -444,7 +497,8 @@ function Commercial() {
             Turn High Electricity Expenses into Long-Term Profit
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-primary-foreground/85 text-sm sm:text-base leading-relaxed">
-            Invite our engineering team for a zero-obligation roof assessment and get an itemized financial feasibility report for your facility.
+            Invite our engineering team for a zero-obligation roof assessment and get an itemized
+            financial feasibility report for your facility.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link

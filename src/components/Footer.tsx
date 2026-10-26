@@ -10,11 +10,10 @@ export function Footer() {
         <div>
           <Logo />
           <p className="mt-4 max-w-xs text-sm text-muted-foreground leading-relaxed">
-            {BUSINESS.tagline}. Rooftop solar solutions for homes and businesses across {BUSINESS.region}.
+            {BUSINESS.tagline}. Rooftop solar solutions for homes and businesses across{" "}
+            {BUSINESS.region}.
           </p>
-          <p className="mt-2 text-xs font-semibold text-primary">
-            {BUSINESS.teluguTagline}
-          </p>
+          <p className="mt-2 text-xs font-semibold text-primary">{BUSINESS.teluguTagline}</p>
         </div>
         <nav aria-label="Footer navigation">
           <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">Pages</h3>
@@ -26,55 +25,111 @@ export function Footer() {
                 </Link>
               </li>
             ))}
-            <li><Link to="/privacy" className="text-sm text-muted-foreground hover:text-foreground">Privacy Policy</Link></li>
-            <li><Link to="/terms" className="text-sm text-muted-foreground hover:text-foreground">Terms &amp; Conditions</Link></li>
+            <li>
+              <Link to="/privacy" className="text-sm text-muted-foreground hover:text-foreground">
+                Privacy Policy
+              </Link>
+            </li>
+            <li>
+              <Link to="/terms" className="text-sm text-muted-foreground hover:text-foreground">
+                Terms &amp; Conditions
+              </Link>
+            </li>
             <li className="col-span-2 pt-2 border-t border-border/60 text-xs font-bold uppercase tracking-wider text-primary">
               City Solar Centers
             </li>
-            <li><Link to="/solar-kadapa" className="text-sm text-muted-foreground hover:text-foreground">Solar in Kadapa</Link></li>
-            <li><Link to="/solar-tirupati" className="text-sm text-muted-foreground hover:text-foreground">Solar in Tirupati</Link></li>
-            <li><Link to="/solar-chittoor" className="text-sm text-muted-foreground hover:text-foreground">Solar in Chittoor</Link></li>
+            <li>
+              <Link
+                to="/solar-kadapa"
+                className="text-sm text-muted-foreground hover:text-foreground"
+              >
+                Solar in Kadapa
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/solar-tirupati"
+                className="text-sm text-muted-foreground hover:text-foreground"
+              >
+                Solar in Tirupati
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/solar-chittoor"
+                className="text-sm text-muted-foreground hover:text-foreground"
+              >
+                Solar in Chittoor
+              </Link>
+            </li>
           </ul>
         </nav>
         <div>
-          <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">Contact</h3>
+          <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
+            Contact
+          </h3>
           <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
             <li>
-              <a href={telLink(BUSINESS.phone)} className="flex items-center gap-2 hover:text-foreground transition-colors">
+              <a
+                href={telLink(BUSINESS.phone)}
+                className="flex items-center gap-2 hover:text-foreground transition-colors"
+              >
                 <Phone className="h-4 w-4 text-primary shrink-0" aria-hidden /> {BUSINESS.phone}
               </a>
             </li>
             <li>
-              <a href={telLink(BUSINESS.secondaryPhone)} className="flex items-center gap-2 hover:text-foreground transition-colors">
-                <Phone className="h-4 w-4 text-primary shrink-0" aria-hidden /> {BUSINESS.secondaryPhone}
+              <a
+                href={telLink(BUSINESS.secondaryPhone)}
+                className="flex items-center gap-2 hover:text-foreground transition-colors"
+              >
+                <Phone className="h-4 w-4 text-primary shrink-0" aria-hidden />{" "}
+                {BUSINESS.secondaryPhone}
               </a>
             </li>
             <li>
-              <a href={BUSINESS.websiteUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-foreground transition-colors">
+              <a
+                href={BUSINESS.websiteUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 hover:text-foreground transition-colors"
+              >
                 <Globe className="h-4 w-4 text-primary shrink-0" aria-hidden /> {BUSINESS.website}
               </a>
             </li>
             <li>
-              <a href={`mailto:${BUSINESS.email}`} className="flex items-center gap-2 hover:text-foreground transition-colors">
+              <a
+                href={`mailto:${BUSINESS.email}`}
+                className="flex items-center gap-2 hover:text-foreground transition-colors"
+              >
                 <Mail className="h-4 w-4 text-primary shrink-0" aria-hidden /> {BUSINESS.email}
               </a>
             </li>
             <li>
-              <a href="mailto:gnanasurrya@gmail.com" className="flex items-center gap-2 hover:text-foreground transition-colors">
+              <a
+                href="mailto:gnanasurrya@gmail.com"
+                className="flex items-center gap-2 hover:text-foreground transition-colors"
+              >
                 <Mail className="h-4 w-4 text-primary shrink-0" aria-hidden /> gnanasurrya@gmail.com
               </a>
             </li>
             <li>
-              <a href="mailto:atriasolar5859@gmail.com" className="flex items-center gap-2 hover:text-foreground transition-colors">
-                <Mail className="h-4 w-4 text-primary shrink-0" aria-hidden /> atriasolar5859@gmail.com
+              <a
+                href="mailto:atriasolar5859@gmail.com"
+                className="flex items-center gap-2 hover:text-foreground transition-colors"
+              >
+                <Mail className="h-4 w-4 text-primary shrink-0" aria-hidden />{" "}
+                atriasolar5859@gmail.com
               </a>
             </li>
             <li className="flex items-start gap-2">
-              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden /> {BUSINESS.address}
+              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden />{" "}
+              {BUSINESS.address}
             </li>
           </ul>
           <a
-            href={whatsappLink(`Hello ${BUSINESS.brandName}, I would like to enquire about solar solutions.`)}
+            href={whatsappLink(
+              `Hello ${BUSINESS.brandName}, I would like to enquire about solar solutions.`,
+            )}
             target="_blank"
             rel="noopener noreferrer"
             className="mt-5 inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-soft transition-transform hover:-translate-y-0.5"
@@ -85,7 +140,9 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-border py-5 text-center text-xs text-muted-foreground flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-2">
-        <span>© {new Date().getFullYear()} {BUSINESS.name}. All rights reserved.</span>
+        <span>
+          © {new Date().getFullYear()} {BUSINESS.name}. All rights reserved.
+        </span>
         <span className="hidden sm:inline text-border">•</span>
         <span>
           Built by{" "}
