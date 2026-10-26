@@ -22,12 +22,110 @@ export const Route = createFileRoute("/contact")({
   validateSearch: (search) => contactSearchSchema.parse(search),
   head: () => ({
     meta: [
-      { title: `Contact Us for Free Solar Quote — ${BUSINESS.name}` },
-      { name: "description", content: `Get a free rooftop solar quote and site assessment from ${BUSINESS.name}. Call ${BUSINESS.phone}, WhatsApp, or submit an enquiry across ${BUSINESS.region}.` },
-      { property: "og:title", content: `Contact Us — ${BUSINESS.name}` },
-      { property: "og:description", content: `Get a free solar quote for your home or business in ${BUSINESS.region}.` },
+      { title: `Contact Surrya Gen Power | Free Solar Quote Kadapa, Tirupati, Chittoor` },
+      {
+        name: "description",
+        content: `Get a free rooftop solar quote and site assessment from ${BUSINESS.name}. Call ${BUSINESS.phone}, WhatsApp, or submit an enquiry across Kadapa, Tirupati, Chittoor & Rayalaseema.`,
+      },
+      { property: "og:title", content: `Contact Surrya Gen Power | Free Solar Quote Kadapa, Tirupati, Chittoor` },
+      { property: "og:description", content: `Get a free solar quote for your home or business in Kadapa, Tirupati, Chittoor and Rayalaseema from ${BUSINESS.name}.` },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://www.surryagenpower.in/contact" },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.surryagenpower.in/contact" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          "@id": "https://www.surryagenpower.in/contact#webpage",
+          "url": "https://www.surryagenpower.in/contact",
+          "name": "Contact Surrya Gen Power",
+          "description": "Contact Surrya Gen Power for rooftop solar consultation, quotes, and PM Surya Ghar subsidy processing across Rayalaseema, Andhra Pradesh.",
+          "mainEntity": {
+            "@type": "LocalBusiness",
+            "name": "Surrya Gen Power",
+            "telephone": "+919391927443",
+            "email": "atriasolar5859@gmail.com",
+            "url": "https://www.surryagenpower.in",
+            "contactPoint": [
+              {
+                "@type": "ContactPoint",
+                "telephone": "+919391927443",
+                "contactType": "customer service",
+                "areaServed": "IN",
+                "availableLanguage": ["English", "Telugu", "Hindi"]
+              }
+            ]
+          }
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.surryagenpower.in/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Contact Us",
+              "item": "https://www.surryagenpower.in/contact"
+            }
+          ]
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How fast will someone contact me after I submit this form?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Our customer advisory desk reviews incoming enquiries continually and typically calls back within 1 to 2 business hours (Monday to Saturday, 9 AM – 7 PM)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is there any fee or commitment for a site inspection?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "None at all. Preliminary site inspections, roof shadow evaluations, and feasibility estimations are completely complimentary with zero commitment required."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What details should I have ready when your team calls?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Having your latest monthly electricity bill (specifically your average monthly units consumed or bill amount in rupees) and an approximate idea of your roof area is all that is required."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I discuss both residential and commercial solar installations?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! Our engineering team handles residential 3 kW–10 kW PM Surya Ghar projects as well as 10 kW–250+ kW commercial, educational, and industrial rooftop projects."
+              }
+            }
+          ]
+        }),
+      },
     ],
   }),
   component: Contact,

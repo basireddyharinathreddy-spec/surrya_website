@@ -16,12 +16,118 @@ import { BUSINESS } from "@/lib/config";
 export const Route = createFileRoute("/commercial")({
   head: () => ({
     meta: [
-      { title: `Commercial & Industrial Rooftop Solar — ${BUSINESS.name}` },
-      { name: "description", content: `Slash operational costs with 10 kW to 250+ kW commercial rooftop solar installations across ${BUSINESS.region}. 40% accelerated tax depreciation & fast ROI.` },
-      { property: "og:title", content: `Commercial & Industrial Solar — ${BUSINESS.name}` },
-      { property: "og:description", content: `Commercial rooftop solar solutions for businesses and institutions across ${BUSINESS.region}.` },
+      { title: `Commercial & Industrial Rooftop Solar Andhra Pradesh | ${BUSINESS.name}` },
+      {
+        name: "description",
+        content: `Slash operational costs with 10 kW to 250+ kW commercial rooftop solar installations across Kadapa, Tirupati, Chittoor & Andhra Pradesh. 40% accelerated tax depreciation & 3-4 year ROI with ${BUSINESS.name}.`,
+      },
+      { property: "og:title", content: `Commercial & Industrial Rooftop Solar Andhra Pradesh | ${BUSINESS.name}` },
+      { property: "og:description", content: `Commercial & industrial solar EPC solutions for businesses, schools, hospitals, and cold storages across Rayalaseema, AP.` },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://www.surryagenpower.in/commercial" },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.surryagenpower.in/commercial" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "@id": "https://www.surryagenpower.in/commercial#service",
+          "name": "Commercial and Industrial Rooftop Solar Installation",
+          "serviceType": "Commercial Solar EPC Services",
+          "provider": {
+            "@type": "LocalBusiness",
+            "name": "Surrya Gen Power",
+            "url": "https://www.surryagenpower.in",
+            "telephone": "+919391927443"
+          },
+          "areaServed": [
+            { "@type": "City", "name": "Kadapa" },
+            { "@type": "City", "name": "Tirupati" },
+            { "@type": "City", "name": "Chittoor" },
+            { "@type": "City", "name": "Punganuru" },
+            { "@type": "City", "name": "Rayachoti" },
+            { "@type": "City", "name": "Anantapuramu" },
+            { "@type": "City", "name": "Kadiri" },
+            { "@type": "City", "name": "Nandyal" }
+          ],
+          "description": "Turnkey commercial & industrial solar EPC solutions (10 kW to 250+ kW) for schools, hospitals, cold storage, and factories across Andhra Pradesh."
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.surryagenpower.in/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Commercial Solar",
+              "item": "https://www.surryagenpower.in/commercial"
+            }
+          ]
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Can commercial enterprises claim government subsidies?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Direct capital subsidies like PM Surya Ghar are reserved for residential consumers. However, commercial businesses receive substantial fiscal incentives including 40% Accelerated Depreciation under Income Tax rules, GST input tax credits, and duty concessions."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does net metering work for commercial and industrial connections?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Under state DISCOM net-metering regulations, excess power generated on weekends or non-operational hours is exported back to the grid and credited against your monthly commercial electricity bill."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can our industrial metal shed support the weight of solar panels?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. We conduct a thorough structural load calculation. Solar panels add approximately 12–15 kg per square meter. For metal roofs, we utilize non-penetrative or specialized mini-rail mounting systems that preserve roof waterproofing."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the expected lifespan and maintenance requirement?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Tier-1 solar modules are warrantied for 25 years of linear performance. Maintenance is minimal, primarily involving periodic dust cleaning and annual electrical health checkups."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can we install a hybrid solar system with battery storage or diesel generator synchronization?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. For facilities requiring uninterrupted power or running large diesel generator sets, we configure DG-Solar synchronizers (zero-export controllers) that prioritize solar power to drastically cut diesel consumption."
+              }
+            }
+          ]
+        }),
+      },
     ],
   }),
   component: Commercial,

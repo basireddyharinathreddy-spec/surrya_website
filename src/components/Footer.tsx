@@ -28,6 +28,12 @@ export function Footer() {
             ))}
             <li><Link to="/privacy" className="text-sm text-muted-foreground hover:text-foreground">Privacy Policy</Link></li>
             <li><Link to="/terms" className="text-sm text-muted-foreground hover:text-foreground">Terms &amp; Conditions</Link></li>
+            <li className="col-span-2 pt-2 border-t border-border/60 text-xs font-bold uppercase tracking-wider text-primary">
+              City Solar Centers
+            </li>
+            <li><Link to="/solar-kadapa" className="text-sm text-muted-foreground hover:text-foreground">Solar in Kadapa</Link></li>
+            <li><Link to="/solar-tirupati" className="text-sm text-muted-foreground hover:text-foreground">Solar in Tirupati</Link></li>
+            <li><Link to="/solar-chittoor" className="text-sm text-muted-foreground hover:text-foreground">Solar in Chittoor</Link></li>
           </ul>
         </nav>
         <div>

@@ -14,12 +14,83 @@ import { SERVICE_AREAS, BUSINESS } from "@/lib/config";
 export const Route = createFileRoute("/calculator")({
   head: () => ({
     meta: [
-      { title: `Solar Savings & Subsidy Calculator — ${BUSINESS.name}` },
-      { name: "description", content: `Calculate your rooftop solar sizing, monthly generation, bill savings, and PM Surya Ghar subsidy in Andhra Pradesh with ${BUSINESS.name}.` },
-      { property: "og:title", content: `Solar Savings Calculator — ${BUSINESS.name}` },
+      { title: `Solar Savings & PM Surya Ghar Subsidy Calculator | ${BUSINESS.name}` },
+      {
+        name: "description",
+        content: `Calculate rooftop solar sizing, monthly generation, electricity bill savings, and PM Surya Ghar subsidy in Andhra Pradesh with ${BUSINESS.name}. Instant Rayalaseema estimates.`,
+      },
+      { property: "og:title", content: `Solar Savings & Subsidy Calculator | ${BUSINESS.name}` },
       { property: "og:description", content: "Instant solar generation and PM Surya Ghar subsidy calculations based on Rayalaseema weather irradiance." },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://www.surryagenpower.in/calculator" },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.surryagenpower.in/calculator" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.surryagenpower.in/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Solar Calculator",
+              "item": "https://www.surryagenpower.in/calculator"
+            }
+          ]
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How accurate are these calculator figures?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The calculations are indicative and grounded in Rayalaseema's actual solar insolation data (~4 to 4.5 kWh/sq.m/day) and standard AP electricity tariffs. Exact generation depends on seasonal variation, panel cleanliness, and your rooftop's shadow-free direction."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How is the government subsidy calculated in the results?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "For residential systems under PM Surya Ghar, the subsidy is ₹30,000 for 1 kW, ₹60,000 for 2 kW, and capped at ₹78,000 for systems of 3 kW or greater. Commercial installations do not get direct DBT subsidies but receive 40% accelerated depreciation."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What if my roof has partial tree or parapet shadow?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Our calculator accounts for usable roof fraction (70% for residential, 80% for commercial). During a physical site visit, our engineer uses 3D sun-path simulation software to position modules strictly outside shadow zones."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I export excess units to the electricity grid?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Andhra Pradesh DISCOMs (APSPDCL and APCPDCL) provide bi-directional net-metering. Excess units generated during sunny hours roll over to offset your nighttime and rainy-day usage."
+              }
+            }
+          ]
+        }),
+      },
     ],
   }),
   component: CalculatorPage,

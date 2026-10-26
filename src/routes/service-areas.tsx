@@ -21,12 +21,83 @@ import { SERVICE_AREAS, BUSINESS } from "@/lib/config";
 export const Route = createFileRoute("/service-areas")({
   head: () => ({
     meta: [
-      { title: `Solar Service Areas in Andhra Pradesh — ${BUSINESS.name}` },
-      { name: "description", content: `Rooftop solar installation & PM Surya Ghar subsidy processing across Kadapa, Chittoor, Tirupati, Punganuru, Rayachoti, Anantapuramu, Kadiri, and Nandyal.` },
-      { property: "og:title", content: `Solar Service Areas — ${BUSINESS.name}` },
-      { property: "og:description", content: `Prompt rooftop solar surveys and installations across Rayalaseema with ${BUSINESS.name}.` },
+      { title: `Solar Service Areas in Kadapa, Tirupati & Chittoor | ${BUSINESS.name}` },
+      {
+        name: "description",
+        content: `Rooftop solar installation & PM Surya Ghar subsidy processing across Kadapa, Chittoor, Tirupati, Punganuru, Rayachoti, Anantapuramu, Kadiri, and Nandyal, Andhra Pradesh. Free site surveys by ${BUSINESS.name}.`,
+      },
+      { property: "og:title", content: `Solar Service Areas in Kadapa, Tirupati & Chittoor | ${BUSINESS.name}` },
+      { property: "og:description", content: `Prompt rooftop solar surveys and installations across Rayalaseema districts with ${BUSINESS.name}.` },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://www.surryagenpower.in/service-areas" },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.surryagenpower.in/service-areas" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.surryagenpower.in/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Service Areas",
+              "item": "https://www.surryagenpower.in/service-areas"
+            }
+          ]
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Do you charge any fee for on-site roof surveys in these areas?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No! We provide 100% free preliminary rooftop surveys and quotation consultations across all our primary service districts in Rayalaseema."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What if my town or village is outside the listed cities?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We actively serve adjoining mandals, villages, and rural clusters across Kadapa, Chittoor, Tirupati, Annamayya, Sri Sathya Sai, Anantapuramu, and Nandyal districts. Contact us with your location details to confirm a visit."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does grid net metering differ between APSPDCL and APCPDCL?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Both DISCOMs follow the Andhra Pradesh Electricity Regulatory Commission (APERC) solar net-metering framework. We handle all paperwork, meter testing, and liaisoning directly with your local circle office."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How fast can installation begin after site confirmation?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Once DISCOM feasibility approval is issued on the PM Surya Ghar portal, our installation crew arrives with equipment within 5 to 7 business days."
+              }
+            }
+          ]
+        }),
+      },
     ],
   }),
   component: ServiceAreas,

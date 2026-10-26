@@ -1,18 +1,20 @@
-// Centralized business configuration for Atria Renewable Private Limited.
+// Centralized business configuration for Surrya Gen Power.
 
 export const BUSINESS = {
-  name: "Atria Renewable Private Limited",
-  brandName: "Atria Renewable",
-  tagline: "Smart Solar Solutions for Andhra Pradesh",
-  teluguTagline: "మన ఆంధ్ర. మన నమ్మకం. మన ఏట్రియా",
+  name: "Surrya Gen Power",
+  brandName: "Surrya Gen Power",
+  tagline: "Rooftop Solar Solutions for Andhra Pradesh",
+  // Telugu: "Our Andhra. Our Trust. Our Surrya Gen Power."
+  teluguTagline: "మన ఆంధ్ర. మన నమ్మకం. మన సూర్య జెన్ పవర్",
   region: "Andhra Pradesh, India",
   phone: "+91 9391927443",
   secondaryPhone: "+91 9391907443",
   whatsapp: "919391927443",
   secondaryWhatsapp: "919391907443",
   email: "atriasolar5859@gmail.com",
-  website: "www.atriarenewable.com",
-  websiteUrl: "https://www.atriarenewable.com",
+  website: "www.surryagenpower.in",
+  websiteUrl: "https://www.surryagenpower.in",
+  // NOTE: Update to a specific street address when available for LocalBusiness schema accuracy.
   address: "Andhra Pradesh, India",
 } as const;
 

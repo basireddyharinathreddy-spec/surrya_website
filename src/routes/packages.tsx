@@ -14,12 +14,150 @@ import { BUSINESS } from "@/lib/config";
 export const Route = createFileRoute("/packages")({
   head: () => ({
     meta: [
-      { title: `Solar Packages & Pricing — ${BUSINESS.name}` },
-      { name: "description", content: `Explore transparent rooftop solar packages: 3.45 kW, 4 kW, and 5 kW systems with ₹78,000 PM Surya Ghar subsidy deductions across ${BUSINESS.region}.` },
-      { property: "og:title", content: `Solar Packages & Pricing — ${BUSINESS.name}` },
-      { property: "og:description", content: `Indicative rooftop solar packages with reference pricing and full turnkey installation for ${BUSINESS.region}.` },
+      { title: `Solar Package Prices in Andhra Pradesh — 3kW to 5kW | ${BUSINESS.name}` },
+      {
+        name: "description",
+        content: `Explore transparent rooftop solar packages in Andhra Pradesh: 3.45 kW (₹2,15,000), 4 kW (₹2,58,000), and 5 kW (₹3,15,000) with ₹78,000 PM Surya Ghar subsidy deduction.`,
+      },
+      { property: "og:title", content: `Solar Package Prices in Andhra Pradesh — 3kW to 5kW | ${BUSINESS.name}` },
+      { property: "og:description", content: `Compare rooftop solar packages for Andhra Pradesh homes. 3.45kW to 5kW systems with PM Surya Ghar subsidy and 25-year warranty.` },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://www.surryagenpower.in/packages" },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.surryagenpower.in/packages" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.surryagenpower.in/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Solar Packages",
+              "item": "https://www.surryagenpower.in/packages"
+            }
+          ]
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "name": "Surrya Gen Power Rooftop Solar Packages",
+          "description": "Indicative residential rooftop solar packages in Andhra Pradesh with PM Surya Ghar subsidy deductions.",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "item": {
+                "@type": "Product",
+                "name": "3.45 kW Residential Rooftop Solar System",
+                "description": "Ideal for 2-3 BHK homes. Generates 400-450 units/month. Includes Tier-1 TOPCon panels, on-grid inverter, and net-metering liaison.",
+                "offers": {
+                  "@type": "Offer",
+                  "priceCurrency": "INR",
+                  "price": "215000",
+                  "priceValidUntil": "2026-12-31",
+                  "availability": "https://schema.org/InStock"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "item": {
+                "@type": "Product",
+                "name": "4 kW Residential Rooftop Solar System",
+                "description": "Popular for medium-to-large families with ACs. Generates 480-550 units/month. PM Surya Ghar subsidy up to ₹78,000.",
+                "offers": {
+                  "@type": "Offer",
+                  "priceCurrency": "INR",
+                  "price": "258000",
+                  "priceValidUntil": "2026-12-31",
+                  "availability": "https://schema.org/InStock"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "item": {
+                "@type": "Product",
+                "name": "5 kW Residential Rooftop Solar System",
+                "description": "High-yield system for large homes. Generates 600-650 units/month with smart inverter and real-time WiFi telemetry.",
+                "offers": {
+                  "@type": "Offer",
+                  "priceCurrency": "INR",
+                  "price": "315000",
+                  "priceValidUntil": "2026-12-31",
+                  "availability": "https://schema.org/InStock"
+                }
+              }
+            }
+          ]
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Are the package prices final or indicative?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Prices shown are indicative reference prices from our brochure. Final pricing is confirmed after a free site assessment to check your specific roof conditions, cable run length, structure height requirements, and meter location."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is the PM Surya Ghar subsidy already deducted from the package price?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Under current government DBT (Direct Benefit Transfer) regulations, consumers pay the project cost to the empanelled vendor, and the Central Government disburses the subsidy (up to ₹78,000) directly into your Aadhaar-linked bank account within 30 to 45 days after net meter commissioning."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Are solar loans or EMI options available for these packages?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! Major nationalized banks (such as SBI, Canara Bank, Union Bank) offer collateral-free solar loans under PM Surya Ghar at concessional interest rates (~7% p.a.). Your monthly EMI is often lower than your current electricity bill!"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What if I need a higher structure to use my roof space?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We offer elevated structures (8 to 10 feet clearance) as an add-on, allowing you to use your terrace for recreation, gardening, or laundry while the solar panels generate power overhead."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How long does the entire installation process take?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The physical rooftop installation typically takes 2 to 3 days. Total turnaround including DISCOM approvals and net meter synchronization is usually 3 to 4 weeks."
+              }
+            }
+          ]
+        }),
+      },
     ],
   }),
   component: Packages,

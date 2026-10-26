@@ -8,7 +8,11 @@ export const Route = createFileRoute("/privacy")({
       { title: `Privacy Policy — ${BUSINESS.name}` },
       { name: "description", content: `How ${BUSINESS.name} collects, uses, and protects your personal information.` },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://www.surryagenpower.in/privacy" },
       { name: "twitter:card", content: "summary" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.surryagenpower.in/privacy" },
     ],
   }),
   component: Privacy,

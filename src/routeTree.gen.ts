@@ -18,6 +18,9 @@ import { Route as PackagesRouteImport } from './routes/packages'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ResidentialRouteImport } from './routes/residential'
 import { Route as ServiceAreasRouteImport } from './routes/service-areas'
+import { Route as SolarChittoorRouteImport } from './routes/solar-chittoor'
+import { Route as SolarKadapaRouteImport } from './routes/solar-kadapa'
+import { Route as SolarTirupatiRouteImport } from './routes/solar-tirupati'
 import { Route as SubsidyGuideRouteImport } from './routes/subsidy-guide'
 import { Route as TermsRouteImport } from './routes/terms'
 
@@ -66,6 +69,21 @@ const ServiceAreasRoute = ServiceAreasRouteImport.update({
   path: '/service-areas',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SolarChittoorRoute = SolarChittoorRouteImport.update({
+  id: '/solar-chittoor',
+  path: '/solar-chittoor',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolarKadapaRoute = SolarKadapaRouteImport.update({
+  id: '/solar-kadapa',
+  path: '/solar-kadapa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolarTirupatiRoute = SolarTirupatiRouteImport.update({
+  id: '/solar-tirupati',
+  path: '/solar-tirupati',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SubsidyGuideRoute = SubsidyGuideRouteImport.update({
   id: '/subsidy-guide',
   path: '/subsidy-guide',
@@ -87,6 +105,9 @@ export interface FileRoutesByFullPath {
   '/privacy': typeof PrivacyRoute
   '/residential': typeof ResidentialRoute
   '/service-areas': typeof ServiceAreasRoute
+  '/solar-chittoor': typeof SolarChittoorRoute
+  '/solar-kadapa': typeof SolarKadapaRoute
+  '/solar-tirupati': typeof SolarTirupatiRoute
   '/subsidy-guide': typeof SubsidyGuideRoute
   '/terms': typeof TermsRoute
 }
@@ -100,6 +121,9 @@ export interface FileRoutesByTo {
   '/privacy': typeof PrivacyRoute
   '/residential': typeof ResidentialRoute
   '/service-areas': typeof ServiceAreasRoute
+  '/solar-chittoor': typeof SolarChittoorRoute
+  '/solar-kadapa': typeof SolarKadapaRoute
+  '/solar-tirupati': typeof SolarTirupatiRoute
   '/subsidy-guide': typeof SubsidyGuideRoute
   '/terms': typeof TermsRoute
 }
@@ -114,6 +138,9 @@ export interface FileRoutesById {
   '/privacy': typeof PrivacyRoute
   '/residential': typeof ResidentialRoute
   '/service-areas': typeof ServiceAreasRoute
+  '/solar-chittoor': typeof SolarChittoorRoute
+  '/solar-kadapa': typeof SolarKadapaRoute
+  '/solar-tirupati': typeof SolarTirupatiRoute
   '/subsidy-guide': typeof SubsidyGuideRoute
   '/terms': typeof TermsRoute
 }
@@ -129,6 +156,9 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/residential'
     | '/service-areas'
+    | '/solar-chittoor'
+    | '/solar-kadapa'
+    | '/solar-tirupati'
     | '/subsidy-guide'
     | '/terms'
   fileRoutesByTo: FileRoutesByTo
@@ -142,6 +172,9 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/residential'
     | '/service-areas'
+    | '/solar-chittoor'
+    | '/solar-kadapa'
+    | '/solar-tirupati'
     | '/subsidy-guide'
     | '/terms'
   id:
@@ -155,6 +188,9 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/residential'
     | '/service-areas'
+    | '/solar-chittoor'
+    | '/solar-kadapa'
+    | '/solar-tirupati'
     | '/subsidy-guide'
     | '/terms'
   fileRoutesById: FileRoutesById
@@ -169,6 +205,9 @@ export interface RootRouteChildren {
   PrivacyRoute: typeof PrivacyRoute
   ResidentialRoute: typeof ResidentialRoute
   ServiceAreasRoute: typeof ServiceAreasRoute
+  SolarChittoorRoute: typeof SolarChittoorRoute
+  SolarKadapaRoute: typeof SolarKadapaRoute
+  SolarTirupatiRoute: typeof SolarTirupatiRoute
   SubsidyGuideRoute: typeof SubsidyGuideRoute
   TermsRoute: typeof TermsRoute
 }
@@ -238,6 +277,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServiceAreasRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/solar-chittoor': {
+      id: '/solar-chittoor'
+      path: '/solar-chittoor'
+      fullPath: '/solar-chittoor'
+      preLoaderRoute: typeof SolarChittoorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solar-kadapa': {
+      id: '/solar-kadapa'
+      path: '/solar-kadapa'
+      fullPath: '/solar-kadapa'
+      preLoaderRoute: typeof SolarKadapaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solar-tirupati': {
+      id: '/solar-tirupati'
+      path: '/solar-tirupati'
+      fullPath: '/solar-tirupati'
+      preLoaderRoute: typeof SolarTirupatiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/subsidy-guide': {
       id: '/subsidy-guide'
       path: '/subsidy-guide'
@@ -265,6 +325,9 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyRoute: PrivacyRoute,
   ResidentialRoute: ResidentialRoute,
   ServiceAreasRoute: ServiceAreasRoute,
+  SolarChittoorRoute: SolarChittoorRoute,
+  SolarKadapaRoute: SolarKadapaRoute,
+  SolarTirupatiRoute: SolarTirupatiRoute,
   SubsidyGuideRoute: SubsidyGuideRoute,
   TermsRoute: TermsRoute,
 }

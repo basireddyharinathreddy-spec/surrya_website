@@ -15,12 +15,118 @@ import { BUSINESS } from "@/lib/config";
 export const Route = createFileRoute("/residential")({
   head: () => ({
     meta: [
-      { title: `Residential Rooftop Solar — ${BUSINESS.name}` },
-      { name: "description", content: `Cut your home electricity bill by up to 90% with rooftop solar systems across ${BUSINESS.region}. Get up to ₹78,000 PM Surya Ghar subsidy.` },
-      { property: "og:title", content: `Residential Rooftop Solar — ${BUSINESS.name}` },
-      { property: "og:description", content: `Rooftop solar solutions for homes across ${BUSINESS.region} with subsidy guidance.` },
+      { title: `Residential Rooftop Solar in Kadapa, Tirupati & Chittoor | ${BUSINESS.name}` },
+      {
+        name: "description",
+        content: `Cut home electricity bills by up to 90% with residential rooftop solar across Kadapa, Tirupati, Chittoor & Andhra Pradesh. PM Surya Ghar subsidy up to ₹78,000. Free site survey with ${BUSINESS.name}.`,
+      },
+      { property: "og:title", content: `Residential Rooftop Solar in Kadapa, Tirupati & Chittoor | ${BUSINESS.name}` },
+      { property: "og:description", content: `Save up to 90% on home power bills with PM Surya Ghar rooftop solar. Direct subsidy up to ₹78,000. Serving Kadapa, Tirupati, Chittoor & Rayalaseema.` },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://www.surryagenpower.in/residential" },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.surryagenpower.in/residential" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "@id": "https://www.surryagenpower.in/residential#service",
+          "name": "Residential Rooftop Solar Installation",
+          "serviceType": "Solar Energy System Installation",
+          "provider": {
+            "@type": "LocalBusiness",
+            "name": "Surrya Gen Power",
+            "url": "https://www.surryagenpower.in",
+            "telephone": "+919391927443"
+          },
+          "areaServed": [
+            { "@type": "City", "name": "Kadapa" },
+            { "@type": "City", "name": "Tirupati" },
+            { "@type": "City", "name": "Chittoor" },
+            { "@type": "City", "name": "Punganuru" },
+            { "@type": "City", "name": "Rayachoti" },
+            { "@type": "City", "name": "Anantapuramu" },
+            { "@type": "City", "name": "Kadiri" },
+            { "@type": "City", "name": "Nandyal" }
+          ],
+          "description": "Turnkey residential rooftop solar EPC installation with DISCOM net metering approval and PM Surya Ghar Muft Bijli Yojana subsidy assistance up to ₹78,000."
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.surryagenpower.in/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Residential Solar",
+              "item": "https://www.surryagenpower.in/residential"
+            }
+          ]
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How much government subsidy do I get for my home in Andhra Pradesh?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Under the PM Surya Ghar Muft Bijli Yojana, residential consumers receive ₹30,000 for 1 kW, ₹60,000 for 2 kW, and a maximum of ₹78,000 for systems of 3 kW and above. The subsidy is directly credited to your Aadhaar-linked bank account."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How much can I reduce my monthly electricity bill?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A properly sized residential rooftop solar system reduces 80% to 95% of your grid electricity bill. You only pay the nominal fixed DISCOM grid charges each month."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What happens during cloudy or rainy days?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Solar panels still generate electricity on overcast days using diffuse sunlight (typically 20% to 40% of peak output). At night or during heavy rains, your home seamlessly draws power from the grid via net metering."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How much shadow-free roof area is needed?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "As a thumb rule, each 1 kW of solar installation requires approximately 80 to 90 sq ft of shadow-free rooftop space facing South or Southwest."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the lifespan and warranty of the system?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The solar panels come with a 25-year performance warranty (guaranteeing over 80% output at year 25). The solar inverters typically carry a 5 to 10-year replacement warranty."
+              }
+            }
+          ]
+        }),
+      },
     ],
   }),
   component: Residential,

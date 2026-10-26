@@ -23,16 +23,107 @@ import { DynamicHeroSlider } from "@/components/DynamicHeroSlider";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: `${BUSINESS.brandName} — ${BUSINESS.tagline}` },
+      { title: `Rooftop Solar in Kadapa, Tirupati & Chittoor | ${BUSINESS.brandName}` },
       {
         name: "description",
         content:
-          `Rooftop solar for homes and businesses across ${BUSINESS.region}. Explore packages, estimate savings, and get subsidy guidance with ${BUSINESS.name}.`,
+          `${BUSINESS.brandName} provides rooftop solar installation across Kadapa, Tirupati, Chittoor, and Rayalaseema. Get up to ₹78,000 PM Surya Ghar subsidy, free site survey, and transparent pricing.`,
       },
-      { property: "og:title", content: `${BUSINESS.brandName} — ${BUSINESS.tagline}` },
-      { property: "og:description", content: `Rooftop solar solutions for homes and businesses across ${BUSINESS.region}.` },
+      { property: "og:title", content: `Rooftop Solar in Kadapa, Tirupati & Chittoor | ${BUSINESS.brandName}` },
+      { property: "og:description", content: `Rooftop solar for homes and businesses across Rayalaseema. PM Surya Ghar subsidy up to ₹78,000. Free site survey. Call ${BUSINESS.phone}.` },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:url", content: "https://www.surryagenpower.in/" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.surryagenpower.in/" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "@id": "https://www.surryagenpower.in/#organization",
+          "name": "Surrya Gen Power",
+          "url": "https://www.surryagenpower.in",
+          "logo": "https://www.surryagenpower.in/favicon.svg",
+          "image": "https://www.surryagenpower.in/og-banner.jpg",
+          "description": "Surrya Gen Power provides rooftop solar installation, PM Surya Ghar subsidy guidance, and after-sales service across Kadapa, Tirupati, Chittoor, and Rayalaseema, Andhra Pradesh.",
+          "telephone": "+919391927443",
+          "email": "atriasolar5859@gmail.com",
+          "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "Andhra Pradesh",
+            "addressCountry": "IN"
+          },
+          "areaServed": [
+            { "@type": "City", "name": "Kadapa" },
+            { "@type": "City", "name": "Tirupati" },
+            { "@type": "City", "name": "Chittoor" },
+            { "@type": "City", "name": "Punganuru" },
+            { "@type": "City", "name": "Rayachoti" },
+            { "@type": "City", "name": "Anantapuramu" },
+            { "@type": "City", "name": "Kadiri" },
+            { "@type": "City", "name": "Nandyal" }
+          ],
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+            "opens": "09:00",
+            "closes": "19:00"
+          },
+          "sameAs": []
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How much can I save with rooftop solar?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Savings depend on your electricity consumption, tariff, roof space, and system size. Use our savings calculator for an indicative estimate, or request a personalized quotation from Surrya Gen Power."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is there a government subsidy for rooftop solar in Andhra Pradesh?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Central government schemes have offered subsidies for residential rooftop solar under PM Surya Ghar Muft Bijli Yojana, with up to ₹78,000 available for eligible residential installations. Eligibility and benefit amounts depend on current official scheme rules."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which areas does Surrya Gen Power serve?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We take enquiries across Rayalaseema including Kadapa, Chittoor, Tirupati, Punganuru, Rayachoti, Anantapuramu, Kadiri, and Nandyal. Actual service coverage and site visits are confirmed per enquiry."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How long does solar installation take?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Timelines vary with system size, documentation, and grid approvals. We share an expected schedule with your quotation."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do solar panels work during power cuts?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Standard on-grid systems shut down during outages for safety. Hybrid systems with batteries can provide backup — ask us about options during your consultation."
+              }
+            }
+          ]
+        }),
+      },
     ],
   }),
   component: Index,

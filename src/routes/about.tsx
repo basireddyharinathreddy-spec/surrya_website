@@ -18,12 +18,112 @@ import { BUSINESS } from "@/lib/config";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: `About Us — ${BUSINESS.name}` },
-      { name: "description", content: `${BUSINESS.name} is Rayalaseema's premier rooftop solar EPC partner. Certified engineering, transparent pricing, and PM Surya Ghar subsidy processing.` },
-      { property: "og:title", content: `About Us — ${BUSINESS.name}` },
-      { property: "og:description", content: `Empowering homes and businesses across ${BUSINESS.region} with clean, reliable solar power.` },
+      { title: `About Surrya Gen Power | Rooftop Solar Installer in Andhra Pradesh` },
+      {
+        name: "description",
+        content: `${BUSINESS.name} is Rayalaseema's trusted rooftop solar EPC installer across Kadapa, Tirupati, Chittoor, and Andhra Pradesh. Certified engineering, transparent pricing, and PM Surya Ghar subsidy processing.`,
+      },
+      { property: "og:title", content: `About Surrya Gen Power | Rooftop Solar Installer in Andhra Pradesh` },
+      { property: "og:description", content: `Learn about ${BUSINESS.name}, our solar engineering values, PM Surya Ghar subsidy assistance, and 25-year support across Rayalaseema, AP.` },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://www.surryagenpower.in/about" },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.surryagenpower.in/about" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "@id": "https://www.surryagenpower.in/#organization",
+          "name": "Surrya Gen Power",
+          "url": "https://www.surryagenpower.in",
+          "logo": "https://www.surryagenpower.in/favicon.svg",
+          "description": "Surrya Gen Power is a premier rooftop solar EPC installer serving residential, commercial, and institutional clients across Andhra Pradesh.",
+          "telephone": "+919391927443",
+          "email": "atriasolar5859@gmail.com",
+          "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "Andhra Pradesh",
+            "addressCountry": "IN"
+          },
+          "areaServed": [
+            { "@type": "City", "name": "Kadapa" },
+            { "@type": "City", "name": "Tirupati" },
+            { "@type": "City", "name": "Chittoor" },
+            { "@type": "City", "name": "Punganuru" },
+            { "@type": "City", "name": "Rayachoti" },
+            { "@type": "City", "name": "Anantapuramu" },
+            { "@type": "City", "name": "Kadiri" },
+            { "@type": "City", "name": "Nandyal" }
+          ]
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.surryagenpower.in/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "About Us",
+              "item": "https://www.surryagenpower.in/about"
+            }
+          ]
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Who is behind Surrya Gen Power?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Surrya Gen Power was established by experienced solar engineers and power professionals in Andhra Pradesh with a mission to bring transparent, high-yield rooftop solar to Rayalaseema's homeowners and commercial enterprises."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you manufacture solar panels or install third-party equipment?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We are a full-service EPC (Engineering, Procurement, Construction) provider. We source premium Tier-1 ALMM/BIS certified modules and top-tier inverters directly from leading manufacturers, ensuring full warranty validity."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What after-sales service do you provide after installation?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We provide comprehensive 5-year workmanship warranties, remote generation monitoring assistance, annual electrical safety health checks, and routine module cleaning support."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How can I verify your past rooftop solar installations?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We are proud of our 1,250+ energized rooftops across the state. Our representative will gladly share customer references and photos of completed projects in your specific town."
+              }
+            }
+          ]
+        }),
+      },
     ],
   }),
   component: About,

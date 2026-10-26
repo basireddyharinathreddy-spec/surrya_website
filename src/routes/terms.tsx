@@ -8,7 +8,11 @@ export const Route = createFileRoute("/terms")({
       { title: `Terms & Conditions — ${BUSINESS.name}` },
       { name: "description", content: `Terms and conditions for using the ${BUSINESS.name} website, quotations, and services.` },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://www.surryagenpower.in/terms" },
       { name: "twitter:card", content: "summary" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.surryagenpower.in/terms" },
     ],
   }),
   component: Terms,

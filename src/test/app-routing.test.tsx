@@ -46,11 +46,11 @@ describe("App routing and configuration", () => {
     expect(PACKAGES).toHaveLength(3);
   });
 
-  it("has the verified Atria Renewable contact details configured", () => {
-    expect(BUSINESS.name).toBe("Atria Renewable Private Limited");
+  it("has the verified Surrya Gen Power contact details configured", () => {
+    expect(BUSINESS.name).toBe("Surrya Gen Power");
     expect(BUSINESS.phone).toBe("+91 9391927443");
     expect(BUSINESS.secondaryPhone).toBe("+91 9391907443");
-    expect(BUSINESS.website).toBe("www.atriarenewable.com");
-    expect(BUSINESS.websiteUrl).toBe("https://www.atriarenewable.com");
+    expect(BUSINESS.website).toBe("www.surryagenpower.in");
+    expect(BUSINESS.websiteUrl).toBe("https://www.surryagenpower.in");
   });
 });

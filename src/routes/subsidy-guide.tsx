@@ -15,12 +15,133 @@ import { BUSINESS } from "@/lib/config";
 export const Route = createFileRoute("/subsidy-guide")({
   head: () => ({
     meta: [
-      { title: `PM Surya Ghar Subsidy Guide — ${BUSINESS.name}` },
-      { name: "description", content: "Complete guide to claiming up to ₹78,000 rooftop solar subsidy under PM Surya Ghar Muft Bijli Yojana in Andhra Pradesh. Eligibility, documents, and DBT process." },
-      { property: "og:title", content: `PM Surya Ghar Subsidy Guide — ${BUSINESS.name}` },
-      { property: "og:description", content: "Step-by-step rooftop solar subsidy guide for homes in Andhra Pradesh." },
-      { property: "og:type", content: "website" },
+      { title: `PM Surya Ghar Subsidy Guide Andhra Pradesh | ${BUSINESS.name}` },
+      {
+        name: "description",
+        content: `Complete guide to claiming up to ₹78,000 rooftop solar subsidy under PM Surya Ghar Muft Bijli Yojana in Andhra Pradesh. Eligibility, documents, and DBT steps with ${BUSINESS.name}.`,
+      },
+      { property: "og:title", content: `PM Surya Ghar Subsidy Guide Andhra Pradesh | ${BUSINESS.name}` },
+      { property: "og:description", content: "Step-by-step rooftop solar subsidy guide for homes in Andhra Pradesh. Claim up to ₹78,000 direct DBT subsidy." },
+      { property: "og:type", content: "article" },
+      { property: "og:url", content: "https://www.surryagenpower.in/subsidy-guide" },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.surryagenpower.in/subsidy-guide" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.surryagenpower.in/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "PM Surya Ghar Subsidy Guide",
+              "item": "https://www.surryagenpower.in/subsidy-guide"
+            }
+          ]
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "HowTo",
+          "name": "How to Claim PM Surya Ghar Solar Subsidy in Andhra Pradesh",
+          "description": "Step-by-step process to apply for and receive up to ₹78,000 Central Government DBT subsidy for residential rooftop solar in Andhra Pradesh.",
+          "totalTime": "P30D",
+          "step": [
+            {
+              "@type": "HowToStep",
+              "position": 1,
+              "name": "National Portal Registration",
+              "text": "Submit your initial application on the official PM Surya Ghar portal with your DISCOM (APSPDCL/APCPDCL) consumer number and mobile phone."
+            },
+            {
+              "@type": "HowToStep",
+              "position": 2,
+              "name": "DISCOM Feasibility Approval",
+              "text": "Your electricity board inspects local distribution transformer capacity and issues technical feasibility approval (TFA)."
+            },
+            {
+              "@type": "HowToStep",
+              "position": 3,
+              "name": "Installation by Empanelled Vendor",
+              "text": "Surrya Gen Power supplies ALMM/DCR-compliant Tier-1 solar modules and executes the complete rooftop installation."
+            },
+            {
+              "@type": "HowToStep",
+              "position": 4,
+              "name": "Net-Meter Inspection & Commissioning",
+              "text": "DISCOM officials install the bidirectional net meter and generate the official Work Completion Report (WCR)."
+            },
+            {
+              "@type": "HowToStep",
+              "position": 5,
+              "name": "Direct DBT Bank Disbursement",
+              "text": "The Central Government transfers the ₹78,000 subsidy directly into your Aadhaar-linked bank account within 30 to 45 days."
+            }
+          ]
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Who is eligible for the PM Surya Ghar ₹78,000 subsidy?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Any Indian citizen owning a residential home with a dedicated residential electricity meter and adequate shadow-free roof space is eligible. Group housing societies and residential welfare associations (RWAs) can also claim up to ₹18,000 per kW for common areas."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How is the subsidy amount paid to the homeowner?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The subsidy is disbursed directly to your Aadhaar-seeded bank account through Direct Benefit Transfer (DBT) by the Ministry of New and Renewable Energy (MNRE). It does not pass through intermediaries."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Are commercial or industrial establishments eligible for this subsidy?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. The PM Surya Ghar subsidy is strictly reserved for residential households. However, commercial and industrial enterprises receive 40% accelerated tax depreciation and GST benefits."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does Surrya Gen Power assist with all the paperwork?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! We handle 100% of the portal submissions, DISCOM net-meter applications, drawing preparations, commissioning reports, and subsidy tracking until the amount is credited to your bank."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What are DCR (Domestic Content Requirement) solar modules?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "To qualify for central government subsidies, the solar cells and modules must be manufactured in India (DCR compliant). We strictly use ALMM-approved Tier-1 Indian manufactured DCR panels for all subsidy projects."
+              }
+            }
+          ]
+        }),
+      },
     ],
   }),
   component: SubsidyGuide,
